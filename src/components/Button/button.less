@@ -1,5 +1,9 @@
 @import "../../main";
 
+@button-color-back: #FDFDFD;
+@button-color-front: #ffffff;
+@button-color-disabled: #aaaaaa;
+
 .wdu-button {
     box-sizing: border-box;
     padding: 0 20px;
@@ -12,9 +16,8 @@
     white-space: nowrap;
     margin: 10px 10px;
 
-    @include radiu-small;
-    @include out-shadow-light;
-    @include border-solid;
+    .w-radiu-normal();
+    .w-border-solid();
 
     &:hover {
         cursor: pointer;
@@ -22,43 +25,39 @@
     }
 }
 
-.wdu-button-mini {
+.w-btn-mini {
     height: 25px;
 }
 
-.wdu-button-small {
+.w-btn-small {
     height: 30px;
 }
 
-.wdu-button-medium {
+.w-btn-medium {
     height: 40px;
 }
 
-.wdu-button-large {
+.w-btn-large {
     height: 50px;
 }
 
-.wdu-button-normal {
-    @include button-img-normal;
-
-    color: $font-color-main;
+.w-btn-normal {
+    .w-bg-normal();
+    color: @font-color-main;
 }
 
-.wdu-button-important {
-    @include button-img-important;
-
-    color: $button-color-front;
+.w-btn-important {
+    .w-bg-important();
+    color: @button-color-front;
 }
 
-.wdu-button-danger {
-    @include button-img-danger;
-
-    color: $button-color-front;
+.w-btn-danger {
+    .w-bg-danger();
+    color: @button-color-front;
 }
 
-.wdu-button-disabled {
-    @include button-img-disabled;
-
+.w-btn-disabled {
+    .w-bg-disabled();
     cursor: not-allowed !important;
-    color: $button-color-disabled;
+    color: @button-color-disabled;
 }

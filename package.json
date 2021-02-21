@@ -8,7 +8,9 @@
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx webpack serve",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
-  }
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {}
 }

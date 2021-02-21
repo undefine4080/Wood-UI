@@ -1,23 +1,29 @@
-import '../../WDU'
-
+import './button.less'
 class Button {
-    constructor() {
-        this.PREFIX = '.wdu-'
+    constructor () {
         this.init()
     }
 
+    /**
+     * 初始化Button元素
+     * @param {none}
+     */
     init() {
         const allButton = Array.from(document.querySelectorAll('.wdu-button'))
         allButton.forEach(btn => {
-            const options = btn.dataset
-            btn.classList.add(`wdu-button-${options.size}`)
-            btn.removeAttribute('data-size')
-            btn.classList.add(`wdu-button-${options.type}`)
-            btn.removeAttribute('data-type')
-            if (options.shadow = 'false') {
-                btn.style.boxShadow = "none"
-            }
+            this.setOption(btn)
         })
+    }
+
+    /**
+     * 应用标签配置项
+     * @param {Element} ele dom元素
+     */
+    setOption(ele) {
+        const option = JSON.parse(ele.dataset.option)
+        ele.classList.add(`w-btn-${option.size}`)
+        ele.classList.add(`w-btn-${option.type}`)
+        ele.removeAttribute('data-option')
     }
 }
 

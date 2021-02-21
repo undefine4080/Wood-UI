@@ -6,6 +6,7 @@ yarn-error.log*
 /test/unit/coverage/
 TODO.md
 /example
+/build
 
 # Editor directories and files
 .idea
