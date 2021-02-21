@@ -38,7 +38,7 @@
  + 主类名：`wdu`，接后缀，如 `Button` 组件就为 `wdu-button`
   
 ## Javascript 规范
- + 变量和方法命名采用 `camelCase` 模式，不超过10个字母，如 `renderDom`
+ + 变量和方法命名采用 `camelCase` 模式，如 `renderDom`
  + 类的首字母大写，且每个单词的首字母也大写，如 `MultipleSelect`
  + 常量使用全大写字母和下划线命名，如 `DEFAULT_OPTION`
  + 使用 `@param` 注解，并写明每个方法的作用、入参解释、返回值解释
