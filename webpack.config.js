@@ -6,21 +6,12 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'built.js',
-        path: resolve(__dirname, 'build') //  __dirname 是 node.js 内置变量，代表当前文件的绝对路径
+        path: resolve(__dirname, 'build')
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: [{ loader: 'style-loader' }, {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true
-                    }
-                }]
-            },
-            {
-                test: /\.less$/i,
                 use: [
                     { loader: 'style-loader' },
                     {
@@ -28,8 +19,20 @@ module.exports = {
                         options: {
                             modules: true
                         }
+                    }]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: "style-loader",
                     },
-                    { loader: 'less-loader' },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "less-loader"
+                    },
                 ],
             },
             {
@@ -61,7 +64,7 @@ module.exports = {
     mode: 'development',
     devServer: {
         contentBase: resolve(__dirname, 'build'),
-        compress: true,
+        compress: false,
         port: 5507,
         open: true
     },

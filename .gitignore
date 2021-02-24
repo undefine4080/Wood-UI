@@ -7,6 +7,7 @@ yarn-error.log*
 TODO.md
 /example
 /build
+README.md
 
 # Editor directories and files
 .idea
