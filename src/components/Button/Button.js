@@ -1,18 +1,13 @@
 import './button.less'
-class Button {
+import {WDU} from '../../WDU'
+class Button extends WDU{
     constructor () {
-        this.init()
-    }
+        super()
+        
+        this.PREFIX = 'wdu-button'
+        this.setOption = this.setOption.bind(this)
 
-    /**
-     * 初始化Button元素
-     * @param {none}
-     */
-    init() {
-        const allButton = Array.from(document.querySelectorAll('.wdu-button'))
-        allButton.forEach(btn => {
-            this.setOption(btn)
-        })
+        super.init(this.PREFIX, this.setOption)
     }
 
     /**

@@ -19,6 +19,18 @@ class WDU {
 
         return BOXES
     }
+
+    /**
+     * 
+     * @param {string} prefix 当前元素类名
+     * @param {function} exe 需执行的方法
+     */
+    init(prefix, exe) {
+        const all = Array.from(document.querySelectorAll(`.${prefix}`))
+        all.forEach(one => {
+            exe(one)
+        })
+    }
 }
 
 export {WDU}
