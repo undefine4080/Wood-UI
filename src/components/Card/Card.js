@@ -4,15 +4,11 @@ import './card.less'
 class Card extends WDU {
     constructor () {
         super()
+        
         this.PREFIX = 'wdu-card'
-        this.init()
-    }
+        this.genDom = this.genDom.bind(this)
 
-    init() {
-        const allCard = Array.from(document.querySelectorAll('.wdu-card'))
-        allCard.forEach(card => {
-            this.genDom(card)
-        })
+        super.init(this.PREFIX, this.genDom)
     }
 
     setOption(ele,BOXES) {
@@ -29,8 +25,8 @@ class Card extends WDU {
     }
 
     genDom(ele) {
-        const needDiv = ['img', 'title', 'info']
-        const BOXES = super.genBoxes(needDiv)
+        const needHtml = [['div', 'img'], ['div', 'title'], ['div', 'info']]
+        const BOXES = super.genHTML(needHtml)
         this.setOption(ele,BOXES)
         Object.keys(BOXES).forEach(item => {
             ele.appendChild(BOXES[item])
