@@ -28,6 +28,7 @@ class Card extends WDU {
         const needHtml = [['div', 'img'], ['div', 'title'], ['div', 'info']]
         const BOXES = super.genHTML(needHtml)
         this.setOption(ele,BOXES)
+        super.wipeOption(ele)
         Object.keys(BOXES).forEach(item => {
             ele.appendChild(BOXES[item])
         })

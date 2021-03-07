@@ -18,7 +18,7 @@ class Button extends WDU{
         const option = JSON.parse(ele.dataset.option)
         ele.classList.add(`w-btn-${option.size}`)
         ele.classList.add(`w-btn-${option.type}`)
-        ele.removeAttribute('data-option')
+        super.wipeOption(ele)
     }
 }
 

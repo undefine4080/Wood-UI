@@ -17,6 +17,7 @@ class Input extends WDU {
         ele.appendChild(BOXES['input'])
 
         this.setOption(ele)
+        super.wipeOption(ele)
     }
 
     setOption(ele) {
@@ -43,8 +44,6 @@ class Input extends WDU {
         }
 
         ele.firstChild.innerText = option.label
-        ele.removeAttribute('data-option')
-        ele.removeAttribute('data-input')
     }
 }
 

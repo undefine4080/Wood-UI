@@ -24,7 +24,7 @@ class Radio extends WDU{
         BOXES['label'].appendChild(radioFather.removeChild(ele))
         BOXES['label'].appendChild(BOXES['checkmark'])
 
-        ele.removeAttribute('data-option')
+        super.wipeOption(ele)
     }
 }
 
