@@ -1,33 +1,28 @@
 import './radio.less'
+import {WDU} from '../../WDU'
 
-class Radio {
+class Radio extends WDU{
     constructor () {
-        this.init()
-    }
+        super()
 
-    init() {
-        const allRadio = Array.from(document.querySelectorAll('.wdu-radio'))
-        allRadio.forEach(radio => {
-            this.genDOM(radio)
-        })
+        this.PREFIX = 'wdu-radio'
+        this.genDOM = this.genDOM.bind(this)
+
+        super.init(this.PREFIX, this.genDOM)
     }
 
     genDOM(ele) {
-        const lable = document.createElement('label')
-        const checkMark = document.createElement('span')
+        const needHtml = [['label','label'], ['span','checkmark']]
+        const BOXES = super.genHTML(needHtml)
         const radioFather = ele.parentNode
         const option = JSON.parse(ele.dataset.option)
 
-        radioFather.appendChild(lable)
+        radioFather.appendChild(BOXES['label'])
 
-        lable.innerText = option.lable
-        lable.setAttribute('for', ele.getAttribute('id'))
-        lable.classList.add('wdu-radio-lable')
-
-        checkMark.classList.add('wdu-radio-checkmark')
-
-        lable.appendChild(radioFather.removeChild(ele))
-        lable.appendChild(checkMark)
+        BOXES['label'].innerText = option.lable
+        BOXES['label'].setAttribute('for', ele.getAttribute('id'))
+        BOXES['label'].appendChild(radioFather.removeChild(ele))
+        BOXES['label'].appendChild(BOXES['checkmark'])
 
         ele.removeAttribute('data-option')
     }
