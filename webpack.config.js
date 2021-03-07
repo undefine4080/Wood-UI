@@ -1,6 +1,6 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const IconFontPlugin = require('icon-font-loader').Plugin
+// const IconFontPlugin = require('icon-font-loader').Plugin
 
 module.exports = {
     entry: './src/index.js',
@@ -52,7 +52,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './example/example.html'
         }),
-        new IconFontPlugin()
+        // new IconFontPlugin()
     ],
     mode: 'development',
     devServer: {

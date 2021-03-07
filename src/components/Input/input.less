@@ -1,0 +1,51 @@
+@import "../../main";
+
+.wdu-input {
+    margin: 10px;
+    .flex();
+    .out-shadow-light();
+    box-sizing: content-box;
+}
+
+.wdu-input-input {
+    -webkit-appearance: none;
+    -moz-appearance   : none;
+    background-color  : #fff;
+    border            : 1px solid rgba(83, 83, 83, 0.15);
+    border-radius     : 0 5px 5px 0;
+    padding           : 5px;
+    height            : 100%;
+    outline           : 0;
+    box-sizing        : border-box;
+    .out-shadow-light();
+    .large-text();
+}
+
+.wdu-input-label {
+    height       : 100%;
+    padding      : 5px;
+    box-sizing   : border-box;
+    border-radius: 5px 0 0 5px;
+    white-space  : nowrap;
+    .w-bg-active();
+    font-size  : 16px;
+    font-weight: bold;
+    color      : white;
+    .row-column-center();
+    .center();
+}
+
+.wdu-input-small {
+    .small-text();
+    height: 28px;
+}
+
+.wdu-input-normal {
+    .normal-text();
+    height: 40px;
+}
+
+.wdu-input-large {
+    .large-text();
+    height: 60px;
+}

@@ -5,7 +5,7 @@ class WDU {
     /**
      * 生成所需要的HTML元素
      * 
-     * @param {Array} classNames 需要生成的 html 的标签名
+     * @param {Array} classNames 需要生成的 div 的类名 
      */
     genBoxes(classNames){
         let BOXES = {}
