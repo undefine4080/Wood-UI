@@ -7,7 +7,7 @@ class WDU {
      * 
      * @param {Array} elements elements元素中：第一项-需要生成的html元素的名称，第二项-生成的html元素的类名
      */
-    genHTML(elements){
+    genHTML(elements) {
         let BOXES = {}
 
         elements.forEach(element => {
@@ -33,6 +33,20 @@ class WDU {
             exe(one)
         })
     }
+
+    /**
+     * 擦除显示配置项
+     * @param ele 要擦除配置的元素
+     */
+    wipeOption(ele) {
+        if(ele.dataset){
+            const keys = Object.keys(Object.assign({}, ele.dataset))
+
+            keys.forEach(key => {
+                ele.removeAttribute(`data-${key}`)
+            })
+        }
+    }
 }
 
-export {WDU}
+export { WDU }
