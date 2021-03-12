@@ -1,7 +1,7 @@
 import './switch.less';
-import { WDU } from '../../WDU'
+import WDU from '../../WDU'
 
-class Switch extends WDU {
+export default class Switch extends WDU {
     constructor () {
         super()
         this.PREFIX = 'wdu-switch'
@@ -46,5 +46,3 @@ class Switch extends WDU {
         })
     }
 }
-
-export { Switch }

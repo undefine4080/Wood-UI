@@ -1,7 +1,7 @@
-import { WDU } from '../../WDU'
+import WDU from '../../WDU'
 import './card.less'
 
-class Card extends WDU {
+export default class Card extends WDU {
     constructor () {
         super()
         
@@ -34,5 +34,3 @@ class Card extends WDU {
         })
     }
 }
-
-export { Card }

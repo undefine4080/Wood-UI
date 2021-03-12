@@ -1,6 +1,6 @@
 import './button.less'
-import {WDU} from '../../WDU'
-class Button extends WDU{
+import WDU from '../../WDU'
+export default class Button extends WDU{
     constructor () {
         super()
         
@@ -21,5 +21,3 @@ class Button extends WDU{
         super.wipeOption(ele)
     }
 }
-
-export { Button }

@@ -1,7 +1,7 @@
 import './radio.less'
-import {WDU} from '../../WDU'
+import WDU from '../../WDU'
 
-class Radio extends WDU{
+export default class Radio extends WDU{
     constructor () {
         super()
 
@@ -27,5 +27,3 @@ class Radio extends WDU{
         super.wipeOption(ele)
     }
 }
-
-export { Radio }

@@ -1,7 +1,7 @@
 import './input.less'
-import { WDU } from '../../WDU'
+import WDU from '../../WDU'
 
-class Input extends WDU {
+export default class Input extends WDU {
     constructor () {
         super()
         this.PREFIX = 'wdu-input'
@@ -46,5 +46,3 @@ class Input extends WDU {
         ele.firstChild.innerText = option.label
     }
 }
-
-export { Input }
