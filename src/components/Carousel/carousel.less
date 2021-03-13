@@ -1,16 +1,20 @@
 @import '../../main.less';
 
-.wdu-carousel {
-    box-sizing: border-box;
-    overflow  : hidden;
+.fullContainer {
+    width : 100%;
+    height: 100%;
+}
 
-    .radiu-normal();
-    .out-shadow-bold();
+.wdu-carousel {
+    flex-shrink: 0;
+    box-sizing : border-box;
+    overflow   : hidden;
+    .w-radiu-normal();
+    .out-shadow-normal();
 }
 
 .wdu-carousel-containner {
-    width   : 100%;
-    height  : 100%;
+    .fullContainer();
     position: relative;
 }
 
@@ -46,7 +50,7 @@
 
     .out-shadow-light();
     .center();
-    .button-img-normal();
+    .w-bg-normal();
 
     & i {
         transform: scale(1.2);
@@ -54,8 +58,7 @@
 }
 
 .wdu-carousel-screen {
-    width   : 100%;
-    height  : 100%;
+    .fullContainer();
     overflow: hidden;
 }
 
@@ -63,9 +66,8 @@
     position : relative;
     display  : flex;
     flex-flow: row nowrap;
-    width    : 100%;
-    height   : 100%;
-    z-index  : -10;
+    .fullContainer();
+    z-index: -10;
 }
 
 .wdu-carousel-film>* {
@@ -75,7 +77,7 @@
 
 .wdu-carousel-card {
     position        : relative;
-    background-color: rgb(239, 243, 180);
+    background-color: rgb(172, 172, 172);
     margin          : 0;
     padding         : 0;
     display         : flex;
@@ -110,15 +112,12 @@
     margin          : 0 1%;
     background-color: @button-color-back;
     cursor          : pointer;
-
     .inside-shadow-light();
 }
 
 .wdu-carousel-dot-checked {
     transition: all .3s ease-in-out;
     transform : scale(1.2);
-
     .out-shadow-light();
-
     background-color: @button-color-front;
 }
