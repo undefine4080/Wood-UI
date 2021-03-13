@@ -34,10 +34,16 @@ module.exports = {
             {
                 test: /\.(jpg|png|gif)$/,
                 loader: 'url-loader',
+                options:{
+                    esModule:false,
+                }
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader'
+                loader: 'html-loader',
+                options:{
+                    esModule:false,
+                }
             },
             {
                 test: /\.(woff2?|woff|eot|svg|ttf|otf)(\?.*)?$/,
