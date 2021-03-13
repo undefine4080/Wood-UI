@@ -1,7 +1,7 @@
 /**
  * 基类
  */
-class WDU {
+export default class WDU {
     /**
      * 生成所需要的HTML元素
      * 
@@ -35,11 +35,24 @@ class WDU {
     }
 
     /**
+     * 
+     * @param prefix 当前元素类名 
+     * @param single 单例组件类
+     */
+    initMult(prefix, single) {
+        const all = Array.from(document.querySelectorAll(`.${prefix}`))
+        all.forEach(one => {
+            new single(one)
+        })
+    }
+
+    /**
      * 擦除显示配置项
      * @param ele 要擦除配置的元素
      */
     wipeOption(ele) {
-        if(ele.dataset){
+        if (ele.dataset) {
+            // 将 DOMstring 对象，转为 Object
             const keys = Object.keys(Object.assign({}, ele.dataset))
 
             keys.forEach(key => {
@@ -47,6 +60,14 @@ class WDU {
             })
         }
     }
-}
 
-export { WDU }
+    /**
+     * 只取 Element 类型的元素
+     * @param nodes 传入的 node 集合
+     */
+    getElementChilds(nodes){
+        return Array.from(nodes).filter((item) => {
+            return item.nodeType == 1
+        })
+    }
+}
