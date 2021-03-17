@@ -1,0 +1,49 @@
+@import "../../main";
+
+.wdu-tab{
+    width: 100%;
+    height:max-content;
+    box-sizing: border-box;
+    overflow: hidden;
+    .out-shadow-normal();
+    .w-radiu-normal();
+}
+
+.wdu-tab-head{
+    display: flex;
+    justify-content:center;
+    height: 30%;
+    padding: 10px 0;
+    box-sizing:border-box;
+    border-bottom:1px solid rgba(207, 207, 207, 0.6);
+}
+
+.wdu-tab-tab{
+    min-height: 35px;
+    width: 80px;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    .title-text();
+    .w-radiu-normal();
+    .center();
+}
+
+.wdu-tab-container{
+    height: 70%;
+}
+
+.wdu-tab-block{
+    .w-bg-normal();
+    width:100%;
+    height:100%;
+    .center();
+    .normal-text();
+    background: none;
+    visibility: hidden;
+}
+
+.wdu-tab-checked{
+    .inside-shadow-medium();
+    .w-bg-active();
+    transition: all 0.2s ease-in-out;
+}
