@@ -6,7 +6,6 @@ yarn-error.log*
 /test/unit/coverage/
 TODO.md
 /example
-/build
 README.md
 
 # Editor directories and files
