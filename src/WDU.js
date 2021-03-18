@@ -22,7 +22,7 @@ export default class WDU {
     }
 
     /**
-     * 单例元素的初始化方法
+     * 单实例元素的初始化方法
      * 
      * @param prefix 当前元素类名, 
      * @param exe 需执行的方法
@@ -35,6 +35,7 @@ export default class WDU {
     }
 
     /**
+     * 单实例元素的初始化方法
      * 
      * @param prefix 当前元素类名 
      * @param single 单例组件类
@@ -47,12 +48,13 @@ export default class WDU {
     }
 
     /**
-     * 擦除显示配置项
+     * 擦除标签上的配置项
+     * 
      * @param ele 要擦除配置的元素
      */
     wipeOption(ele) {
         if (ele.dataset) {
-            // 将 DOMstring 对象，转为 Object
+            // 将 DOMstring，转为 Object
             const keys = Object.keys(Object.assign({}, ele.dataset))
 
             keys.forEach(key => {
