@@ -1,0 +1,43 @@
+@import "../../main";
+
+.wdu-collapse {
+    .w-radiu-normal();
+    .out-shadow-normal();
+    overflow: hidden;
+}
+
+.wdu-collapse-title {
+    .large-text();
+    height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-bottom: 1px solid @line-color-light;
+    .row-start();
+}
+
+.wdu-collapse-block {
+    overflow: hidden;
+    box-sizing: border-box;
+    height    : 0px;
+    transition: all 0.5s ease-in-out;
+    .inside-shadow-medium();
+}
+
+.wdu-collapse-item{
+    .small-text();
+    .row-start();
+    box-sizing: border-box;
+    text-indent: 25px;
+    height :40px;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        color: @font-color-important;
+        .w-bg-important();
+    }
+}
+
+.wdu-collapse-menu {
+    min-height   : 50px;
+    box-sizing   : border-box;
+}
