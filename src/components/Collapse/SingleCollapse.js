@@ -30,6 +30,7 @@ export default class SingleCollapse extends WDU {
         this.menus.forEach((item, index) => {
             if(item.dataset.title) {
                 this.titles[index].innerText = item.dataset.title
+                super.wipeOption(item)
             }
         })
     }

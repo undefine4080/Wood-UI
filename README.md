@@ -3,6 +3,9 @@
 - 这是一个原生 Javascript 编写的拟物化风格的轻量级 UI 组件库，参考了个人最喜欢的 Smartisan OS
 - 使用了 Webpack 来执行项目的打包构建，使用 ES6 来编写主要逻辑，使用了 Less 来编写样式
 
+# 预览
+
+[点击这里](http://zhengtengfei.gitee.io/wood-ui)
 # 组件
 
 + Radio 单选框组件  
