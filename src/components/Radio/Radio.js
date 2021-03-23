@@ -1,8 +1,8 @@
 import './radio.less'
 import WDU from '../../WDU'
 
-export default class Radio extends WDU{
-    constructor () {
+export default class Radio extends WDU {
+    constructor() {
         super()
 
         this.PREFIX = 'wdu-radio'
@@ -12,17 +12,23 @@ export default class Radio extends WDU{
     }
 
     genDOM(ele) {
-        const needHtml = [['label','label'], ['span','checkmark']]
+        const needHtml = [['label', 'label'], ['span', 'checkmark']]
         const BOXES = super.genHTML(needHtml)
         const radioFather = ele.parentNode
-        const option = JSON.parse(ele.dataset.option)
 
+        if(ele.dataset.label) {
+            BOXES['label'].innerText = ele.dataset.label
+        }
+
+        ele.setAttribute('type', 'radio')
         radioFather.appendChild(BOXES['label'])
-
-        BOXES['label'].innerText = option.lable
         BOXES['label'].setAttribute('for', ele.getAttribute('id'))
         BOXES['label'].appendChild(radioFather.removeChild(ele))
         BOXES['label'].appendChild(BOXES['checkmark'])
+
+        if(ele.disabled) {
+            BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`)
+        }
 
         super.wipeOption(ele)
     }
