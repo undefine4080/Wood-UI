@@ -6,12 +6,16 @@ import Switch from './components/Switch/Switch'
 import Carousel from './components/Carousel/Carousel'
 import Tab from './components/Tab/Tab'
 import Collapse from './components/Collapse/Collapse'
+import Paper from './components/Paper/Paper'
 
-new Button()
-new Radio()
-new Card()
-new Input()
-new Switch()
-new Carousel()
-new Tab()
-new Collapse()
+window.wdu = {
+    Button: new Button(),
+    Radio: new Radio(),
+    Card: new Card(),
+    Input: new Input(),
+    Switch: new Switch(),
+    Carousel: new Carousel(),
+    Tab: new Tab(),
+    Collapse: new Collapse(),
+    Paper: new Paper()
+}
