@@ -1,8 +1,8 @@
-import './switch.less';
+import './switch.less'
 import WDU from '../../WDU'
 
 export default class Switch extends WDU {
-    constructor () {
+    constructor() {
         super()
         this.PREFIX = 'wdu-switch'
         this.isOn = false
@@ -11,7 +11,7 @@ export default class Switch extends WDU {
     }
 
     genDom(ele) {
-        const needHtml = [['div', 'open'], ['div', 'open-dot'], ['div', 'btn'], ['div', 'close'], ['div', 'close-dot'], ['label', 'label'], ['div', 'switch'],['div','slide']]
+        const needHtml = [['div', 'open'], ['div', 'open-dot'], ['div', 'btn'], ['div', 'close'], ['div', 'close-dot'], ['label', 'label'], ['div', 'switch'], ['div', 'slide']]
         const E = super.genHTML(needHtml)
 
         E['open'].appendChild(E['open-dot'])
@@ -33,9 +33,26 @@ export default class Switch extends WDU {
     }
 
     setOption(ele) {
-        const option = JSON.parse(ele.dataset.option)
-        ele.firstChild.innerText = option.label
-        this.addEvt(ele.lastChild.firstChild)
+        if(ele.dataset.option) {
+            const switchEle = ele.lastChild.firstChild
+            const option = JSON.parse(ele.dataset.option)
+            if(option.label) {
+                ele.firstChild.innerText = option.label
+            }
+
+            if(option.status) {
+                switch(option.status) {
+                    case true:
+                        switchEle.classList.add("s-on")
+                        break
+                    case 'disabled':
+                        super.disableComponent(ele, this.PREFIX)
+                        break
+                }
+            }
+
+            this.addEvt(switchEle)
+        }
     }
 
     addEvt(ele) {
