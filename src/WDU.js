@@ -35,7 +35,7 @@ export default class WDU {
     }
 
     /**
-     * 单实例元素的初始化方法
+     * 多实例元素的初始化方法
      * 
      * @param prefix 当前元素类名 
      * @param single 单例组件类
@@ -70,6 +70,21 @@ export default class WDU {
     getElementChilds(nodes){
         return Array.from(nodes).filter((item) => {
             return item.nodeType == 1
+        })
+    }
+
+    /**
+     * 禁用整个组件
+     * 
+     * @param ele 组件元素
+     */
+    disableComponent(ele, prefix){
+        const childs = Array.from(ele.querySelectorAll(`.${prefix} *`))
+        childs.forEach(item => {
+            item.addEventListener('click', e => {
+                e.stopPropagation()
+            })
+            item.style['cursor'] = 'not-allowed'
         })
     }
 }
