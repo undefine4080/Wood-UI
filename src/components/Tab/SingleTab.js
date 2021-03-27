@@ -47,8 +47,8 @@ export default class SingleTab extends WDU {
     }
 
     addEvt() {
-        // 设置初始选中 tab
-        this.content[0].style.visibility = 'visible'
+        // 设置初始选中 tab 和 block
+        this.content[0].classList.add(`${this.PREFIX}-blockon`)
         this.tabs[0].classList.add(`${this.PREFIX}-checked`)
 
         this.tabs.forEach(item => {
@@ -64,7 +64,7 @@ export default class SingleTab extends WDU {
 
     closeAllTabs(){
         this.content.forEach(item =>{
-            item.style.visibility = 'hidden'
+            item.classList.remove(`${this.PREFIX}-blockon`)
         })
 
         this.tabs.forEach(item => {
@@ -74,6 +74,6 @@ export default class SingleTab extends WDU {
 
     activateTab(id){
         this.tabs[id].classList.add(`${this.PREFIX}-checked`)
-        this.content[id].style.visibility = 'visible'
+        this.content[id].classList.add(`${this.PREFIX}-blockon`)
     }
 }
