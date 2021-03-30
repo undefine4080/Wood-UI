@@ -13,7 +13,6 @@
       padding: 0;
       margin: 0;
       display: inline-flex;
-      flex-wrap: nowrap;
       position: relative;
       width: 100%;
     }
@@ -24,6 +23,7 @@
       border-right: 1px solid rgb(136, 136, 136);
       position: sticky;
       top: 0;
+      left: 0;
       display: flex;
       flex-flow: column;
     }
@@ -37,7 +37,7 @@
     }
 
     .cpnt-detail {
-      min-width: 100px;
+      flex-grow: 1;
       min-height: 120px;
       height: max-content;
     }
@@ -45,6 +45,8 @@
     .component {
       box-sizing: border-box;
       height: 70%;
+      display: flex;
+      justify-content: center;
     }
 
     .descript {
@@ -57,19 +59,18 @@
       padding: 50px;
     }
 
-    .item-content {
-      width: 1200px;
-    }
-
     .show-content {
-      width: 100%;
-      display: inline-flex;
+      display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
     }
   </style>
 <script defer src="built.js"></script></head>
 
-<body>
+<body
+    class="wdu-paper"
+    data-name="grid"
+>
   <div class="side">
     <a
         class="cpnt-title"
@@ -103,6 +104,10 @@
         class="cpnt-title"
         href="#paper"
     >纸张</a>
+    <a
+        class="cpnt-title"
+        href="#nav"
+    >导航栏</a>
   </div>
 
   <div class="main">
@@ -276,7 +281,7 @@
           <div class="component">
             <div
                 class="wdu-card"
-                data-option='{"size":"medium", "img":"http://image.wufazhuce.com/FgmAl78M-ExRbU-32_fztEm4jaRE", "title":"珠穆朗玛峰", "info": "海拔8848.86米，重量5.6亿吨，硅含量23%，铁含量：17.2%，铜含量：0.23%"}'
+                data-option='{"size":"medium", "img":"https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF", "title":"珠穆朗玛峰", "info": "海拔8848.86米，重量5.6亿吨，硅含量23%，铁含量：17.2%，铜含量：0.23%"}'
             ></div>
           </div>
           <div class="descript">中卡片</div>
@@ -286,7 +291,7 @@
           <div class="component">
             <div
                 class="wdu-card"
-                data-option='{"size":"large", "img":"https://tse3-mm.cn.bing.net/th/id/OIP.ZCiJzF1kcM8NvW1qDg7XZAHaE7?pid=ImgDet&rs=1", "title":"珠穆朗玛峰", "info": "海拔8848.86米，重量5.6亿吨，硅含量23%，铁含量：17.2%，铜含量：0.23%"}'
+                data-option='{"size":"large", "img":"https://t7.baidu.com/it/u=963301259,1982396977&fm=193&f=GIF", "title":"珠穆朗玛峰", "info": "海拔8848.86米，重量5.6亿吨，硅含量23%，铁含量：17.2%，铜含量：0.23%"}'
             ></div>
           </div>
           <div class="descript">大卡片</div>
@@ -473,6 +478,70 @@
       </div>
     </div>
 
+    <!-- 纸张 -->
+    <div class="item-content">
+      <h2
+          class="title"
+          id="paper"
+      >纸张</h2>
+      <p class="abstract">用法：定义一个 div 元素，类名为 <b>wdu-paper</b> ，通过
+        data-name指定纸张样式，取值为：grey、raft、muscle、carbon、grid、tablecloth、bamboo</p>
+      <div
+          class="show-content"
+          style="display: block;"
+      >
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="grey"
+        >
+          <h1>grey 灰色</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="raft"
+        >
+          <h1> raft 木筏</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="muscle"
+        >
+          <h1>muscle 肌肉</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="carbon"
+        >
+          <h1 style="color: white">carbon 碳纤维</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="grid"
+        >
+          <h1>grid 网格</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="tablecloth"
+        >
+          <h1>tablecloth 桌布</h1>
+        </div>
+        <div
+            class="wdu-paper"
+            style="height: 200px;"
+            data-name="bamboo"
+        >
+          <h1>bamboo 竹子</h1>
+        </div>
+      </div>
+    </div>
+
     <!-- 折叠面板 -->
     <div class="item-content">
       <h2
@@ -484,7 +553,7 @@
         元素，类名为 <b>wdu-collapse-menu</b> 作为折叠类目，通过 data-title
         属性来指定要显示的标题；再定义 div 元素，类名为 <b>wdu-collapse-item</b>
         作为折叠选项，折叠选项元素就是折叠类目的直接子元素</p>
-      <div class="show-exa">
+      <div class="show-content">
         <div class="cpnt-detail">
           <div class="component">
             <div class="wdu-collapse">
@@ -520,59 +589,53 @@
       </div>
     </div>
 
-    <!-- 纸张 -->
+    <!-- 导航栏 -->
     <div class="item-content">
       <h2
           class="title"
-          id="paper"
-      >纸张</h2>
-      <p class="abstract">用法：定义一个 div 元素，类名为 <b>wdu-paper</b> ，通过
-        data-name指定纸张样式，取值为：grey、raft、muscle、carbon、grid、tablecloth、bamboo</p>
-      <div
-          class="show-exa"
-          style="width: 1300px;height:200px"
-      >
-        <div
-            class="wdu-paper"
-            data-name="grey"
-        >
-          <h1>grey 灰色</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="raft"
-        >
-          <h1> raft 木筏</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="muscle"
-        >
-          <h1>muscle 肌肉</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="carbon"
-        >
-          <h1 style="color: white">carbon 碳纤维</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="grid"
-        >
-          <h1>grid 网格</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="tablecloth"
-        >
-          <h1>tablecloth 桌布</h1>
-        </div>
-        <div
-            class="wdu-paper"
-            data-name="bamboo"
-        >
-          <h1>bamboo 竹子</h1>
+          id="nav"
+      >导航栏</h2>
+      <p class="abstract"></p>
+
+      <div class="show-content">
+        <div class="cpnt-detail">
+          <div class="component">
+            <div class="wdu-nav">
+              <div
+                  class="wdu-nav-menu"
+                  data-title="菜单一"
+              >
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+              </div>
+
+              <div
+                  class="wdu-nav-menu"
+                  data-title="菜单二"
+              >
+                <div class="wdu-nav-item">2222222</div>
+                <div class="wdu-nav-item">2222222</div>
+                <div class="wdu-nav-item">2222222</div>
+                <div class="wdu-nav-item">2222222</div>
+                <div class="wdu-nav-item">2222222</div>
+                <div class="wdu-nav-item">2222222</div>
+              </div>
+
+              <div
+                  class="wdu-nav-menu"
+                  data-title="菜单三"
+              >
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+                <div class="wdu-nav-item">1111111</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
