@@ -7,6 +7,7 @@ import Carousel from './components/Carousel/Carousel'
 import Tab from './components/Tab/Tab'
 import Collapse from './components/Collapse/Collapse'
 import Paper from './components/Paper/Paper'
+import Nav from './components/Nav/Nav'
 
 window.wdu = {
     Button: new Button(),
@@ -17,5 +18,6 @@ window.wdu = {
     Carousel: new Carousel(),
     Tab: new Tab(),
     Collapse: new Collapse(),
-    Paper: new Paper()
+    Paper: new Paper(),
+    Nav: new Nav()
 }

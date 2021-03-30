@@ -82,7 +82,6 @@ export default class SingleCarousel extends WDU {
     }
 
     setOption(ele) {
-        debugger
         if (ele.dataset.option) {
             const option = JSON.parse(ele.dataset.option)
             // 时间

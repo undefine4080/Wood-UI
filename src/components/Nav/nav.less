@@ -1,0 +1,47 @@
+@import '../../main.less';
+
+.wdu-nav {
+    height    : 60px;
+    box-sizing: border-box;
+    .row();
+    flex-shrink: 1;
+    .w-bg-normal();
+    .out-shadow-normal();
+}
+
+.wdu-nav-menu {
+    min-height: 60px;
+    height    : max-content;
+    position  : relative;
+    z-index   : 10;
+    .cursor-on();
+    .w-bg-normal();
+    .w-transition-normal();
+}
+
+.wdu-nav-title {
+    .title-text();
+    min-height: 60px;
+    min-width: 100px;
+    margin: 0;
+    .center();
+    .w-transition-normal();
+    .w-bg-normal();
+}
+
+.wdu-nav-block {
+    height    : 0;
+    overflow  : hidden;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    .w-transition-normal();
+}
+
+.wdu-nav-item {
+    .normal-text();
+    color : black;
+    height: 35px;
+    .center();
+    &:hover{
+        .w-bg-important;
+    }
+}

@@ -48,8 +48,6 @@
 
 .cursor-on {
   cursor    : pointer;
-  transform : scale(1.1);
-  transition: all 0.2s;
 }
 
 @keyframes height-animate {
@@ -60,4 +58,16 @@
   to {
     height: 100px;
   }
+}
+
+.w-transition-quick{
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.w-transition-normal{
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.w-transition-slow{
+  transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
