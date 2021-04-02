@@ -36,9 +36,9 @@
 
 .wdu-carousel-last,
 .wdu-carousel-next {
-    height: 100%;
-    cursor: pointer;
-
+    height : 100%;
+    cursor : pointer;
+    z-index: 5;
     .column-row-center();
 }
 
@@ -51,6 +51,7 @@
     .out-shadow-light();
     .center();
     .w-bg-normal();
+    .w-border-solid();
 
     & i {
         transform: scale(1.2);
@@ -67,7 +68,7 @@
     display  : flex;
     flex-flow: row nowrap;
     .fullContainer();
-    z-index: -10;
+    z-index: 1;
 }
 
 .wdu-carousel-film>* {
@@ -84,7 +85,7 @@
     justify-content : center;
     align-items     : center;
     font-size       : 1.2em;
-    z-index         : -10;
+    z-index         : -1;
     overflow        : hidden;
 }
 
@@ -102,6 +103,7 @@
     justify-content: center;
     align-items    : center;
     background     : none;
+    z-index        : 5;
 }
 
 .wdu-carousel-pagenation-btn {

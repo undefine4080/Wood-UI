@@ -1,9 +1,9 @@
-import './carousel.less';
+import './carousel.less'
 import WDU from '../../WDU'
 
 // 单例轮播图
 export default class SingleCarousel extends WDU {
-    constructor (ele) {
+    constructor(ele) {
         super()
         this.PREFIX = 'wdu-carousel'
         // 元素零件
@@ -63,7 +63,7 @@ export default class SingleCarousel extends WDU {
 
         // 指示器
         const max = cards.length + 1
-        while (cards.length) {
+        while(cards.length) {
             const e = super.genHTML([['div', 'pagenation-btn']])
             const pageBtn = e['pagenation-btn']
             // 从数字 1 开始
@@ -82,21 +82,30 @@ export default class SingleCarousel extends WDU {
     }
 
     setOption(ele) {
-        if (ele.dataset.option) {
+        if(ele.dataset.option) {
             const option = JSON.parse(ele.dataset.option)
             // 时间
-            if (option.time && parseInt(option.time) > 3) {
+            if(option.time && parseInt(option.time) > 3) {
                 this.time = parseInt(option.time)
             }
 
             // 是否自动
-            if (option.auto == false) {
+            if(option.auto == false) {
                 this.isAuto = option.auto
             }
 
             // 长宽
-            ele.style.width = option.width
-            ele.style.height = option.height
+            if(option.width) {
+                ele.style.width = option.width
+            } else {
+                ele.style.width = '400px'
+            }
+
+            if(option.height) {
+                ele.style.height = option.height
+            } else {
+                ele.style.height = '280px'
+            }
         }
     }
 
@@ -164,14 +173,14 @@ export default class SingleCarousel extends WDU {
         this.Film.addEventListener('transitionend', () => {
             const checked = `${this.PREFIX}-dot-checked`
             this.Dot.forEach(item => (item.classList.remove(checked)))
-            if (this.position == this.Card.length - 1) {
+            if(this.position == this.Card.length - 1) {
                 this.position = 1
-            } else if (this.position == 0) {
+            } else if(this.position == 0) {
                 this.position = this.Card.length - 2
             }
             try {
                 this.Dot[this.position - 1].classList.add(checked)
-            } catch (error) {
+            } catch(error) {
                 this.position = 1
                 this.Dot[this.position].classList.add(checked)
             }
@@ -189,20 +198,20 @@ export default class SingleCarousel extends WDU {
 
     // 自动播放
     autoPlay() {
-        if (this.isAuto) {
+        if(this.isAuto) {
             this.Timer = setInterval(() => {
                 this.position++
                 this.play()
-            }, this.time*1000)
+            }, this.time * 1000)
         }
     }
 
     // 保护自动播放
     protectAutoPlay() {
         document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState == "hidden") {
+            if(document.visibilityState == "hidden") {
                 clearInterval(this.Timer)
-            } else if (document.visibilityState == "visible") {
+            } else if(document.visibilityState == "visible") {
                 this.autoPlay()
             }
         })
