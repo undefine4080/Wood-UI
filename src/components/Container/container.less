@@ -1,0 +1,36 @@
+@import '../../main.less';
+
+.wdu-container {
+    display : flex;
+    flex-flow: row nowrap;
+    position: relative;
+}
+
+.wdu-aside {
+    position: relative;
+    left    : 0;
+    top     : 0;
+    // width   : max-content;
+}
+
+.wdu-main {
+    position: relative;
+}
+
+.wdu-box {
+    margin : 10px;
+    padding: 20px;
+    .normal-text();
+    .w-bgcolor-normal();
+    .w-radiu-normal();
+    .w-box();
+    .w-border-light();
+    .out-shadow-light();
+}
+
+.wdu-footer {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    flex-grow : 1;
+}
