@@ -9,6 +9,7 @@ import Collapse from './components/Collapse/Collapse'
 import Paper from './components/Paper/Paper'
 import Nav from './components/Nav/Nav'
 import Container from './components/Container/Container'
+import Message from './components/Message/Message'
 
 window.wdu = {
     Button: new Button(),
@@ -21,5 +22,6 @@ window.wdu = {
     Collapse: new Collapse(),
     Paper: new Paper(),
     Nav: new Nav(),
-    Container: new Container()
+    Container: new Container(),
+    Message: Message
 }

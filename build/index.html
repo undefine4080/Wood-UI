@@ -57,17 +57,13 @@
       text-align: center;
     }
 
-    .main {
-      padding: 50px;
-    }
-
-    .links{
+    .links {
       display: flex;
       flex-direction: column;
       position: sticky;
       z-index: 20;
       top: 0;
-      left:0;
+      left: 0;
       overflow-y: auto;
     }
 
@@ -99,7 +95,10 @@
     data-name="grid"
 >
   <div class="wdu-container">
-    <div class="wdu-aside wdu-paper" data-name="grey">
+    <div
+        class="wdu-aside wdu-paper"
+        data-name="grey"
+    >
       <div class="links">
         <a
             class="cpnt-title"
@@ -137,6 +136,10 @@
             class="cpnt-title"
             href="#nav"
         >导航栏</a>
+        <a
+            class="cpnt-title"
+            href="#message"
+        >消息提示</a>
         <a
             class="cpnt-title"
             href="#carousel"
@@ -427,49 +430,49 @@
         >
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="grey"
           >
             <h1>grey 灰色</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="raft"
           >
             <h1> raft 木筏</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="muscle"
           >
             <h1>muscle 肌肉</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="carbon"
           >
             <h1 style="color: white">carbon 碳纤维</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="grid"
           >
             <h1>grid 网格</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="tablecloth"
           >
             <h1>tablecloth 桌布</h1>
           </div>
           <div
               class="wdu-paper"
-              style="height: 200px;"
+              style="height: 80px;"
               data-name="bamboo"
           >
             <h1>bamboo 竹子</h1>
@@ -561,6 +564,56 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 消息提示 -->
+      <div class="wdu-box">
+        <h2 id="message">消息提示
+        </h2>
+        <p>用法：Message用于在页面上弹出一条消息，提示用户，调用方式为 <b>wdu.Message()</b>，接受一个对象 <i>config</i> 作为参数，其中有四个属性：<b>autoClose</b> 表示是否自动关闭，可以传入秒数，或者不传，表示几秒后消息框自动关闭；<b>title</b> 表示消息框的标题文字，为可选参数；<b>content</b> 表示消息的主题内容文字，必要参数；<b>event</b> 表示需要添加的回调函数，可选参数
+        </p>
+        <div class="show-content">
+          <div class="cpnt-detail">
+            <div class="component">
+              <button
+                  id="message-btn-1"
+                  class="wdu-button"
+              >启动消息提示</button>
+            </div>
+            <div class="descript">3秒后自动关闭，未设置标题</div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <button
+                  id="message-btn-2"
+                  class="wdu-button"
+              >启动消息提示</button>
+            </div>
+            <div class="descript">手动关闭，已设置标题</div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <button
+                  id="message-btn-3"
+                  class="wdu-button"
+              >启动消息提示</button>
+            </div>
+            <div class="descript">手动关闭，未设置标题</div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <button
+                  id="message-btn-4"
+                  class="wdu-button"
+                  data-option='{"type":"important"}'
+              >启动消息提示</button>
+            </div>
+            <div class="descript">添加了回调函数</div>
           </div>
         </div>
       </div>
@@ -703,6 +756,38 @@
 <script>
   Array.from(document.getElementsByTagName('a')).forEach(a => {
     a.addEventListener('click', () => {return false})
+  })
+
+  document.getElementById('message-btn-1').addEventListener('click', () => {
+    wdu.Message({
+      autoClose: 3,
+      content: '你的大学时光已用完！'
+    })
+  })
+
+  document.getElementById('message-btn-2').addEventListener('click', () => {
+    wdu.Message({
+      title: '😱😭😭😭😭😢😭',
+      content: '你的大学时光已用完！'
+    })
+  })
+
+  document.getElementById('message-btn-3').addEventListener('click', () => {
+    wdu.Message({
+      content: '你的大学时光已用完！'
+    })
+  })
+
+  document.getElementById('message-btn-4').addEventListener('click', () => {
+    wdu.Message({
+      title: '重要提示',
+      content: '你的大学时光已用完！',
+      event: function(){
+        setTimeout(()=>{
+          alert('快要毕业了！！！！！！！！！')
+        }, 1000)
+      }
+    })
   })
 </script>
 

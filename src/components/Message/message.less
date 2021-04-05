@@ -1,0 +1,55 @@
+@import '../../main.less';
+
+.wdu-message-mask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 30;
+    background-color: rgba(73, 73, 73, 0.247);
+    .center();
+}
+
+.wdu-message{
+    width: 400px;
+    height: 250px;
+    position: relative;
+    z-index: 35;
+    overflow: hidden;
+    .w-bg-normal();
+    .w-radiu-normal();
+    .out-shadow-bold();
+}
+
+.wdu-message-close{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 36;
+    .w-bg-danger();
+    .w-border-circle();
+    .cursor-on();
+}
+
+.wdu-message-title{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid @line-color-light;
+    .title-text();
+    .w-box();
+    .center();
+    margin: 0;
+}
+
+.wdu-message-content{
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    padding: 10px;
+    .center();
+    .large-text();
+    .w-box();
+}

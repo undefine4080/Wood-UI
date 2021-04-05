@@ -1,6 +1,5 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const IconFontPlugin = require('icon-font-loader').Plugin
 
 module.exports = {
     entry: './src/index.js',
@@ -14,8 +13,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader', },
-                    { loader: "icon-font-loader" }]
+                    { loader: 'css-loader', }]
             },
             {
                 test: /\.less$/,
@@ -58,7 +56,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './example/example.html'
         }),
-        // new IconFontPlugin()
     ],
     mode: 'development',
     devServer: {
