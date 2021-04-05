@@ -13,18 +13,19 @@
     width        : @width;
     height       : @height;
     border-radius: (@height / 2);
-    .inside-shadow-light();
+    .w-border-light();
+    .inside-shadow-medium();
 }
 
 .wdu-switch-slide {
     width     : 75px;
-    height    : @height;
+    height    : 23px;
     transition: all .3s ease-in-out;
     position  : relative;
     left      : -25px;
     .flex();
     flex-wrap: nowrap;
-    .w-bgcolor-normal();
+    background-color: rgb(245, 245, 245);
 }
 
 .wdu-switch-label {
@@ -32,10 +33,10 @@
 }
 
 .wdu-switch-btn {
-    min-width       : 24px;
-    min-height      : 24px;
+    min-width       : 22px;
+    min-height      : 22px;
     background-color: white;
-    .w-border-light();
+    // .w-border-light();
     .w-border-circle();
     .out-shadow-normal();
 }
@@ -53,7 +54,8 @@
 
 .wdu-switch-close-dot {
     .wdu-state-dot();
-    .inside-shadow-light();
+    background-color: white;
+    .inside-shadow-bold();
 }
 
 .wdu-switch-open,

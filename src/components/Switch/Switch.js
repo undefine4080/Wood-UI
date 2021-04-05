@@ -20,7 +20,6 @@ export default class Switch extends WDU {
         new Array(E['open'], E['btn'], E['close']).forEach(item => {
             E['slide'].appendChild(item)
         })
-
         E['switch'].appendChild(E['slide'])
 
         // ele 是 switch 组件的外围容器
@@ -57,9 +56,16 @@ export default class Switch extends WDU {
 
     addEvt(ele) {
         ele.addEventListener('click', (e) => {
-            e.stopPropagation()
             ele.classList.toggle("s-on")
             this.isOn = !this.isOn
         })
+    }
+
+    callBack(element, event) {
+        if(event) {
+            document.querySelector(element).addEventListener('click', () => {
+                event(!this.isOn)
+            })
+        }
     }
 }
