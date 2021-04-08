@@ -1,4 +1,14 @@
-/******/ (() => { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["wdu"] = factory();
+	else
+		root["wdu"] = factory();
+})(self, function() {
+return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -2211,20 +2221,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.wdu = {
-    Button: new _components_Button_Button__WEBPACK_IMPORTED_MODULE_0__.default(),
-    Radio: new _components_Radio_Radio__WEBPACK_IMPORTED_MODULE_1__.default(),
-    Card: new _components_Card_Card__WEBPACK_IMPORTED_MODULE_2__.default(),
-    Input: new _components_Input_Input__WEBPACK_IMPORTED_MODULE_3__.default(),
-    Switch: new _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_4__.default(),
-    Carousel: new _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_5__.default(),
-    Tab: new _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_6__.default(),
-    Collapse: new _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_7__.default(),
-    Paper: new _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_8__.default(),
-    Nav: new _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_9__.default(),
-    Container: new _components_Container_Container__WEBPACK_IMPORTED_MODULE_10__.default(),
-    Message: _components_Message_Message__WEBPACK_IMPORTED_MODULE_11__.default
-}
+// window.wdu = {
+//     Button: new Button(),
+//     Radio: new Radio(),
+//     Card: new Card(),
+//     Input: new Input(),
+//     Switch: new Switch(),
+//     Carousel: new Carousel(),
+//     Tab: new Tab(),
+//     Collapse: new Collapse(),
+//     Paper: new Paper(),
+//     Nav: new Nav(),
+//     Container: new Container(),
+//     Message: Message
+// }
+
+// export default {
+//     Button: new Button(),
+//     Radio: new Radio(),
+//     Card: new Card(),
+//     Input: new Input(),
+//     Switch: new Switch(),
+//     Carousel: new Carousel(),
+//     Tab: new Tab(),
+//     Collapse: new Collapse(),
+//     Paper: new Paper(),
+//     Nav: new Nav(),
+//     Container: new Container(),
+//     Message: Message
+// }
+
+new _components_Button_Button__WEBPACK_IMPORTED_MODULE_0__.default()
+new _components_Radio_Radio__WEBPACK_IMPORTED_MODULE_1__.default()
+new _components_Card_Card__WEBPACK_IMPORTED_MODULE_2__.default()
+new _components_Input_Input__WEBPACK_IMPORTED_MODULE_3__.default()
+new _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_4__.default()
+new _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_5__.default()
+new _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_6__.default()
+new _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_7__.default()
+new _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_8__.default()
+new _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_9__.default()
+new _components_Container_Container__WEBPACK_IMPORTED_MODULE_10__.default()
+
+
 
 /***/ })
 
@@ -2295,10 +2334,11 @@ window.wdu = {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
+/******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
-/******/ 	// Load entry module
-/******/ 	__webpack_require__("./src/index.js");
-/******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__("./src/index.js");
 /******/ })()
 ;
-//# sourceMappingURL=built.js.map
+});
+//# sourceMappingURL=woodui.js.map

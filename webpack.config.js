@@ -1,19 +1,25 @@
-const { resolve } = require('path')
+const {resolve} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'built.js',
-        path: resolve(__dirname, 'build')
+        path: resolve(__dirname, "build"),
+        filename: 'woodui.js',
+        libraryTarget: 'umd',
+        library: {
+            root: 'wdu',
+            amd: 'wdu',
+            commonjs: 'wdu'
+        }
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader', }]
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader', }]
             },
             {
                 test: /\.less$/,
@@ -32,15 +38,15 @@ module.exports = {
             {
                 test: /\.(jpg|png|gif)$/,
                 loader: 'url-loader',
-                options:{
-                    esModule:false,
+                options: {
+                    esModule: false,
                 }
             },
             {
                 test: /\.html$/,
                 loader: 'html-loader',
-                options:{
-                    esModule:false,
+                options: {
+                    esModule: false,
                 }
             },
             {
@@ -65,4 +71,4 @@ module.exports = {
         open: true
     },
     devtool: 'source-map'
-};
+}
