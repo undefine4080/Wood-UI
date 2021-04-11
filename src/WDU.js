@@ -29,9 +29,11 @@ export default class WDU {
      */
     init(prefix, exe) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`))
-        all.forEach(one => {
-            exe(one)
-        })
+        if(all){
+            all.forEach(one => {
+                exe(one)
+            })
+        }
     }
 
     /**
