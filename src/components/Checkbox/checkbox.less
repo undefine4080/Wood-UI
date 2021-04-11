@@ -1,6 +1,6 @@
-@import (reference) "../../main";
+@import  (reference)  "../../main";
 
-.wdu-radio-label {
+.wdu-checkbox-label {
     display     : block;
     height      : 30px;
     position    : relative;
@@ -13,35 +13,37 @@
     user-select : none;
 }
 
-.wdu-radio-label .wdu-radio-checkmark:after {
+.wdu-checkbox-label .wdu-checkbox-checkmark:after {
     width        : 45%;
     height       : 45%;
-    border-radius: 50%;
     .w-bg-normal();
 }
 
-.wdu-radio {
+.wdu-checkbox {
     position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -2px;
+    top:2px;
     opacity : 0;
+    z-index: 10;
     cursor  : pointer;
 
-    &:checked~.wdu-radio-checkmark {
+    &:checked~.wdu-checkbox-checkmark {
         .w-bg-important();
     }
 
-    &:checked~.wdu-radio-checkmark:after {
+    &:checked~.wdu-checkbox-checkmark:after {
         display: block;
     }
 }
 
-.wdu-radio-checkmark {
+.wdu-checkbox-checkmark {
     position        : absolute;
     top             : 5px;
     left            : 0;
-    height          : 20px;
-    width           : 20px;
-    background-color: @button-color-back;
-    border-radius   : 50%;
+    height          : 18px;
+    width           : 18px;
     border          : 1px solid rgb(224, 224, 224);
     cursor          : pointer;
     .w-bg-normal();
@@ -49,12 +51,13 @@
     .out-shadow-light();
 
     &:after {
-        content   : '';
-        position  : absolute;
+        content : '';
+        position: absolute;
         box-shadow: inset 0 0 4px rgb(168, 168, 168);
     }
 }
 
-.wdu-radio-disabled {
+.wdu-checkbox-disabled {
+    z-index:15;
     cursor: not-allowed !important;
 }

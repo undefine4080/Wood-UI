@@ -5,7 +5,7 @@
 
 # 预览
 
-![woodui截图](/src/assets/wood%20ui截图.png)
+![woodui截图](/src/assets/img/woodui截图.png)
 
 [点击这里](http://zhengtengfei.gitee.io/wood-ui)
 # 组件

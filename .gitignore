@@ -1,7 +1,7 @@
 .DS_Store
 node_modules/
 示例页面/
-designDoc/
+/designDoc/
 doc/
 pakage-lock.json
 npm-debug.log*

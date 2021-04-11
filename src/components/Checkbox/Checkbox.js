@@ -1,11 +1,11 @@
-import './radio.less'
+import './checkbox.less'
 import WDU from '../../WDU'
 
-export default class Radio extends WDU {
+export default class Checkbox extends WDU {
     constructor() {
         super()
 
-        this.PREFIX = 'wdu-radio'
+        this.PREFIX = 'wdu-checkbox'
         this.genDOM = this.genDOM.bind(this)
 
         super.init(this.PREFIX, this.genDOM)
@@ -20,14 +20,15 @@ export default class Radio extends WDU {
             BOXES['label'].innerText = ele.dataset.label
         }
 
-        ele.setAttribute('type', 'radio')
+        ele.setAttribute('type', 'checkbox')
         radioFather.appendChild(BOXES['label'])
-        // BOXES['label'].setAttribute('for', ele.getAttribute('id'))
+        BOXES['label'].setAttribute('for', ele.getAttribute('id'))
         BOXES['label'].appendChild(radioFather.removeChild(ele))
         BOXES['label'].appendChild(BOXES['checkmark'])
 
         if(ele.disabled) {
-            BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`)
+            BOXES['checkmark'].classList.add(`${this.PREFIX}-disabled`)
+            BOXES['label'].classList.add(`${this.PREFIX}-disabled`)
         }
 
         super.wipeOption(ele)

@@ -80,6 +80,32 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".wdu-carousel {\n  border-radius: 8px;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/Checkbox/checkbox.less":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/Checkbox/checkbox.less ***!
+  \****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".wdu-checkbox-label {\n  display: block;\n  height: 30px;\n  position: relative;\n  padding-left: 30px;\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 30px;\n  color: #333;\n  margin: 0 10px;\n  user-select: none;\n}\n.wdu-checkbox-label .wdu-checkbox-checkmark:after {\n  width: 45%;\n  height: 45%;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n.wdu-checkbox {\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  left: -2px;\n  top: 2px;\n  opacity: 0;\n  z-index: 10;\n  cursor: pointer;\n}\n.wdu-checkbox:checked ~ .wdu-checkbox-checkmark {\n  background-image: linear-gradient(#6383c6, #4262af);\n}\n.wdu-checkbox:checked ~ .wdu-checkbox-checkmark:after {\n  display: block;\n}\n.wdu-checkbox-checkmark {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  height: 18px;\n  width: 18px;\n  border: 1px solid #e0e0e0;\n  cursor: pointer;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 3px 20px -6px rgba(0, 0, 0, 0.1);\n}\n.wdu-checkbox-checkmark:after {\n  content: '';\n  position: absolute;\n  box-shadow: inset 0 0 4px #a8a8a8;\n}\n.wdu-checkbox-disabled {\n  z-index: 15;\n  cursor: not-allowed !important;\n}\n", "",{"version":3,"sources":["webpack://./src/components/Checkbox/checkbox.less","webpack://./src/style/color.less","webpack://./src/style/layout.less","webpack://./src/style/shadow.less"],"names":[],"mappings":"AAEA;EACI,cAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,WAAA;EACA,cAAA;EACA,iBAAA;AADJ;AAIA;EACI,UAAA;EACA,WAAA;ECIA,mDAAA;ADLJ;AAKA;EACI,kBAAA;EACA,WAAA;EACA,YAAA;EACA,UAAA;EACA,QAAA;EACA,UAAA;EACA,WAAA;EACA,eAAA;AAHJ;AAKI;ECFA,mDAAA;ADAJ;AAMI;EACI,cAAA;AAJR;AAQA;EACI,kBAAA;EACA,QAAA;EACA,OAAA;EACA,YAAA;EACA,WAAA;EACA,yBAAA;EACA,eAAA;EC1BA,mDAAA;ECpBF,aAAA;EACA,mBAAA;EACA,iBAAA;EAKA,mBAAA;EAKA,uBAAA;ECRA,8CAAA;AH2CF;AAII;EACI,WAAA;EACA,kBAAA;EACA,iCAAA;AAFR;AAMA;EACI,WAAA;EACA,8BAAA;AAJJ","sourcesContent":["@import  (reference)  \"../../main\";\n\n.wdu-checkbox-label {\n    display     : block;\n    height      : 30px;\n    position    : relative;\n    padding-left: 30px;\n    font-size   : 14px;\n    font-weight : 700;\n    line-height : 30px;\n    color       : @font-color-main;\n    margin      : 0 10px;\n    user-select : none;\n}\n\n.wdu-checkbox-label .wdu-checkbox-checkmark:after {\n    width        : 45%;\n    height       : 45%;\n    .w-bg-normal();\n}\n\n.wdu-checkbox {\n    position: absolute;\n    width: 20px;\n    height: 20px;\n    left: -2px;\n    top:2px;\n    opacity : 0;\n    z-index: 10;\n    cursor  : pointer;\n\n    &:checked~.wdu-checkbox-checkmark {\n        .w-bg-important();\n    }\n\n    &:checked~.wdu-checkbox-checkmark:after {\n        display: block;\n    }\n}\n\n.wdu-checkbox-checkmark {\n    position        : absolute;\n    top             : 5px;\n    left            : 0;\n    height          : 18px;\n    width           : 18px;\n    border          : 1px solid rgb(224, 224, 224);\n    cursor          : pointer;\n    .w-bg-normal();\n    .center();\n    .out-shadow-light();\n\n    &:after {\n        content : '';\n        position: absolute;\n        box-shadow: inset 0 0 4px rgb(168, 168, 168);\n    }\n}\n\n.wdu-checkbox-disabled {\n    z-index:15;\n    cursor: not-allowed !important;\n}","/* 字体颜色 */\n@font-color-main     : #333;\n@font-color-descript : #666;\n@font-color-important: #ffffff;\n\n/*通用背景色 */\n.w-bgcolor-normal{\n    color: @font-color-main ;\n    background-color: white;\n}\n\n/* 按钮背景色 */\n@button-color-back    : #dfdfdf;\n@button-color-front   : #ffffff;\n@button-color-disabled: #aaaaaa;\n\n/* 线条颜色 */\n@line-color-light: #d3d3d3;\n\n/* 通用背景图像 */\n.w-bg-normal {\n    background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n\n.w-bg-active{\n    background-image: linear-gradient(#acdb5f, #8db44f);\n}\n\n.w-bg-important {\n    background-image: linear-gradient(#6383c6, #4262af);\n}\n\n.w-bg-danger {\n    background-image: linear-gradient(#CE554E, #B8352E);\n}\n\n.w-bg-disabled {\n    background-image: linear-gradient(#2B2B2B, #141414);\n}",".flex {\n  display       : flex;\n  flex-direction: row;\n  flex-wrap     : nowrap;\n}\n\n.row-col_center {\n  .flex();\n  align-items: center;\n}\n\n.center {\n  .row-col_center();\n  justify-content: center;\n}\n\n.row-around {\n  .flex();\n  justify-content: space-around;\n}\n\n.row-end {\n  .flex();\n  justify-content: flex-end;\n}\n\n.row-start {\n  .flex();\n  align-items    : center;\n  justify-content: flex-start;\n}\n\n.col-row_center {\n  .flex();\n  flex-direction: column;\n  justify-content: center;\n}\n\n.w-box {\n  box-sizing: border-box;\n}",".none-shadow {\n  box-shadow: 0 0 0 rgba(0, 0, 0, 0);\n}\n\n.out-shadow-light {\n  box-shadow: 0 3px 20px -6px rgb(0 0 0 / 10%);\n}\n\n.out-shadow-normal {\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);\n}\n\n.out-shadow-bold {\n  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);\n}\n\n.inside-shadow-light {\n  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);\n}\n\n.inside-shadow-medium {\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);\n}\n\n.inside-shadow-bold {\n  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/Collapse/collapse.less":
 /*!****************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/Collapse/collapse.less ***!
@@ -255,7 +281,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".wdu-radio-label {\n  display: block;\n  height: 30px;\n  position: relative;\n  padding-left: 30px;\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 30px;\n  color: #333;\n  margin: 0 10px;\n  user-select: none;\n}\n.wdu-radio-label .wdu-radio-checkmark:after {\n  width: 45%;\n  height: 45%;\n  border-radius: 50%;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n.wdu-radio {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n}\n.wdu-radio:checked ~ .wdu-radio-checkmark {\n  background-image: linear-gradient(#6383c6, #4262af);\n}\n.wdu-radio:checked ~ .wdu-radio-checkmark:after {\n  display: block;\n}\n.wdu-radio-checkmark {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  height: 20px;\n  width: 20px;\n  background-color: #dfdfdf;\n  border-radius: 50%;\n  border: 1px solid #e0e0e0;\n  cursor: pointer;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 3px 20px -6px rgba(0, 0, 0, 0.1);\n}\n.wdu-radio-checkmark:after {\n  content: '';\n  position: absolute;\n  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);\n}\n.wdu-radio-disabled {\n  cursor: not-allowed !important;\n}\n", "",{"version":3,"sources":["webpack://./src/components/Radio/radio.less","webpack://./src/style/color.less","webpack://./src/style/layout.less","webpack://./src/style/shadow.less"],"names":[],"mappings":"AAEA;EACI,cAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,WAAA;EACA,cAAA;EACA,iBAAA;AADJ;AAIA;EACI,UAAA;EACA,WAAA;EACA,kBAAA;ECGA,mDAAA;ADJJ;AAKA;EACI,kBAAA;EACA,UAAA;EACA,eAAA;AAHJ;AAKI;ECEA,mDAAA;ADJJ;AAMI;EACI,cAAA;AAJR;AAQA;EACI,kBAAA;EACA,QAAA;EACA,OAAA;EACA,YAAA;EACA,WAAA;EACA,yBAAA;EACA,kBAAA;EACA,yBAAA;EACA,eAAA;ECxBA,mDAAA;ECpBF,aAAA;EACA,mBAAA;EACA,iBAAA;EAKA,mBAAA;EAKA,uBAAA;ECRA,8CAAA;AHyCF;AAII;EACI,WAAA;EACA,kBAAA;EGnCN,4CAAA;AHkCF;AAMA;EACI,8BAAA;AAJJ","sourcesContent":["@import  (reference)  \"../../main\";\n\n.wdu-radio-label {\n    display     : block;\n    height      : 30px;\n    position    : relative;\n    padding-left: 30px;\n    font-size   : 14px;\n    font-weight : 700;\n    line-height : 30px;\n    color       : @font-color-main;\n    margin      : 0 10px;\n    user-select : none;\n}\n\n.wdu-radio-label .wdu-radio-checkmark:after {\n    width        : 45%;\n    height       : 45%;\n    border-radius: 50%;\n    .w-bg-normal();\n}\n\n.wdu-radio {\n    position: absolute;\n    opacity : 0;\n    cursor  : pointer;\n\n    &:checked~.wdu-radio-checkmark {\n        .w-bg-important();\n    }\n\n    &:checked~.wdu-radio-checkmark:after {\n        display: block;\n    }\n}\n\n.wdu-radio-checkmark {\n    position        : absolute;\n    top             : 5px;\n    left            : 0;\n    height          : 20px;\n    width           : 20px;\n    background-color: @button-color-back;\n    border-radius   : 50%;\n    border          : 1px solid rgb(224, 224, 224);\n    cursor          : pointer;\n    .w-bg-normal();\n    .center();\n    .out-shadow-light();\n\n    &:after {\n        content : '';\n        position: absolute;\n        .inside-shadow-light();\n    }\n}\n\n.wdu-radio-disabled {\n    cursor: not-allowed !important;\n}","/* 字体颜色 */\n@font-color-main     : #333;\n@font-color-descript : #666;\n@font-color-important: #ffffff;\n\n/*通用背景色 */\n.w-bgcolor-normal{\n    color: @font-color-main ;\n    background-color: white;\n}\n\n/* 按钮背景色 */\n@button-color-back    : #dfdfdf;\n@button-color-front   : #ffffff;\n@button-color-disabled: #aaaaaa;\n\n/* 线条颜色 */\n@line-color-light: #d3d3d3;\n\n/* 通用背景图像 */\n.w-bg-normal {\n    background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n\n.w-bg-active{\n    background-image: linear-gradient(#acdb5f, #8db44f);\n}\n\n.w-bg-important {\n    background-image: linear-gradient(#6383c6, #4262af);\n}\n\n.w-bg-danger {\n    background-image: linear-gradient(#CE554E, #B8352E);\n}\n\n.w-bg-disabled {\n    background-image: linear-gradient(#2B2B2B, #141414);\n}",".flex {\n  display       : flex;\n  flex-direction: row;\n  flex-wrap     : nowrap;\n}\n\n.row-col_center {\n  .flex();\n  align-items: center;\n}\n\n.center {\n  .row-col_center();\n  justify-content: center;\n}\n\n.row-around {\n  .flex();\n  justify-content: space-around;\n}\n\n.row-end {\n  .flex();\n  justify-content: flex-end;\n}\n\n.row-start {\n  .flex();\n  align-items    : center;\n  justify-content: flex-start;\n}\n\n.col-row_center {\n  .flex();\n  flex-direction: column;\n  justify-content: center;\n}\n\n.w-box {\n  box-sizing: border-box;\n}",".none-shadow {\n  box-shadow: 0 0 0 rgba(0, 0, 0, 0);\n}\n\n.out-shadow-light {\n  box-shadow: 0 3px 20px -6px rgb(0 0 0 / 10%);\n}\n\n.out-shadow-normal {\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);\n}\n\n.out-shadow-bold {\n  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);\n}\n\n.inside-shadow-light {\n  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);\n}\n\n.inside-shadow-medium {\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);\n}\n\n.inside-shadow-bold {\n  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".wdu-radio-label {\n  display: block;\n  height: 30px;\n  position: relative;\n  padding-left: 30px;\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 30px;\n  color: #333;\n  margin: 0 10px;\n  user-select: none;\n}\n.wdu-radio-label .wdu-radio-checkmark:after {\n  width: 45%;\n  height: 45%;\n  border-radius: 50%;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n.wdu-radio {\n  position: absolute;\n  opacity: 0;\n  cursor: pointer;\n}\n.wdu-radio:checked ~ .wdu-radio-checkmark {\n  background-image: linear-gradient(#6383c6, #4262af);\n}\n.wdu-radio:checked ~ .wdu-radio-checkmark:after {\n  display: block;\n}\n.wdu-radio-checkmark {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  height: 20px;\n  width: 20px;\n  background-color: #dfdfdf;\n  border-radius: 50%;\n  border: 1px solid #e0e0e0;\n  cursor: pointer;\n  background-image: linear-gradient(#ffffff, #f1f1f1);\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 3px 20px -6px rgba(0, 0, 0, 0.1);\n}\n.wdu-radio-checkmark:after {\n  content: '';\n  position: absolute;\n  box-shadow: inset 0 0 4px #a8a8a8;\n}\n.wdu-radio-disabled {\n  cursor: not-allowed !important;\n}\n", "",{"version":3,"sources":["webpack://./src/components/Radio/radio.less","webpack://./src/style/color.less","webpack://./src/style/layout.less","webpack://./src/style/shadow.less"],"names":[],"mappings":"AAEA;EACI,cAAA;EACA,YAAA;EACA,kBAAA;EACA,kBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,WAAA;EACA,cAAA;EACA,iBAAA;AADJ;AAIA;EACI,UAAA;EACA,WAAA;EACA,kBAAA;ECGA,mDAAA;ADJJ;AAKA;EACI,kBAAA;EACA,UAAA;EACA,eAAA;AAHJ;AAKI;ECEA,mDAAA;ADJJ;AAMI;EACI,cAAA;AAJR;AAQA;EACI,kBAAA;EACA,QAAA;EACA,OAAA;EACA,YAAA;EACA,WAAA;EACA,yBAAA;EACA,kBAAA;EACA,yBAAA;EACA,eAAA;ECxBA,mDAAA;ECpBF,aAAA;EACA,mBAAA;EACA,iBAAA;EAKA,mBAAA;EAKA,uBAAA;ECRA,8CAAA;AHyCF;AAII;EACI,WAAA;EACA,kBAAA;EACA,iCAAA;AAFR;AAMA;EACI,8BAAA;AAJJ","sourcesContent":["@import (reference) \"../../main\";\n\n.wdu-radio-label {\n    display     : block;\n    height      : 30px;\n    position    : relative;\n    padding-left: 30px;\n    font-size   : 14px;\n    font-weight : 700;\n    line-height : 30px;\n    color       : @font-color-main;\n    margin      : 0 10px;\n    user-select : none;\n}\n\n.wdu-radio-label .wdu-radio-checkmark:after {\n    width        : 45%;\n    height       : 45%;\n    border-radius: 50%;\n    .w-bg-normal();\n}\n\n.wdu-radio {\n    position: absolute;\n    opacity : 0;\n    cursor  : pointer;\n\n    &:checked~.wdu-radio-checkmark {\n        .w-bg-important();\n    }\n\n    &:checked~.wdu-radio-checkmark:after {\n        display: block;\n    }\n}\n\n.wdu-radio-checkmark {\n    position        : absolute;\n    top             : 5px;\n    left            : 0;\n    height          : 20px;\n    width           : 20px;\n    background-color: @button-color-back;\n    border-radius   : 50%;\n    border          : 1px solid rgb(224, 224, 224);\n    cursor          : pointer;\n    .w-bg-normal();\n    .center();\n    .out-shadow-light();\n\n    &:after {\n        content   : '';\n        position  : absolute;\n        box-shadow: inset 0 0 4px rgb(168, 168, 168);\n    }\n}\n\n.wdu-radio-disabled {\n    cursor: not-allowed !important;\n}","/* 字体颜色 */\n@font-color-main     : #333;\n@font-color-descript : #666;\n@font-color-important: #ffffff;\n\n/*通用背景色 */\n.w-bgcolor-normal{\n    color: @font-color-main ;\n    background-color: white;\n}\n\n/* 按钮背景色 */\n@button-color-back    : #dfdfdf;\n@button-color-front   : #ffffff;\n@button-color-disabled: #aaaaaa;\n\n/* 线条颜色 */\n@line-color-light: #d3d3d3;\n\n/* 通用背景图像 */\n.w-bg-normal {\n    background-image: linear-gradient(#ffffff, #f1f1f1);\n}\n\n.w-bg-active{\n    background-image: linear-gradient(#acdb5f, #8db44f);\n}\n\n.w-bg-important {\n    background-image: linear-gradient(#6383c6, #4262af);\n}\n\n.w-bg-danger {\n    background-image: linear-gradient(#CE554E, #B8352E);\n}\n\n.w-bg-disabled {\n    background-image: linear-gradient(#2B2B2B, #141414);\n}",".flex {\n  display       : flex;\n  flex-direction: row;\n  flex-wrap     : nowrap;\n}\n\n.row-col_center {\n  .flex();\n  align-items: center;\n}\n\n.center {\n  .row-col_center();\n  justify-content: center;\n}\n\n.row-around {\n  .flex();\n  justify-content: space-around;\n}\n\n.row-end {\n  .flex();\n  justify-content: flex-end;\n}\n\n.row-start {\n  .flex();\n  align-items    : center;\n  justify-content: flex-start;\n}\n\n.col-row_center {\n  .flex();\n  flex-direction: column;\n  justify-content: center;\n}\n\n.w-box {\n  box-sizing: border-box;\n}",".none-shadow {\n  box-shadow: 0 0 0 rgba(0, 0, 0, 0);\n}\n\n.out-shadow-light {\n  box-shadow: 0 3px 20px -6px rgb(0 0 0 / 10%);\n}\n\n.out-shadow-normal {\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);\n}\n\n.out-shadow-bold {\n  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);\n}\n\n.inside-shadow-light {\n  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);\n}\n\n.inside-shadow-medium {\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);\n}\n\n.inside-shadow-bold {\n  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -540,6 +566,35 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_carousel_less__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./src/components/Checkbox/checkbox.less":
+/*!***********************************************!*\
+  !*** ./src/components/Checkbox/checkbox.less ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_checkbox_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/less-loader/dist/cjs.js!./checkbox.less */ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/Checkbox/checkbox.less");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_checkbox_less__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_checkbox_less__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 
@@ -1578,6 +1633,58 @@ class SingleCarousel extends _WDU__WEBPACK_IMPORTED_MODULE_1__.default {
 
 /***/ }),
 
+/***/ "./src/components/Checkbox/Checkbox.js":
+/*!*********************************************!*\
+  !*** ./src/components/Checkbox/Checkbox.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Checkbox)
+/* harmony export */ });
+/* harmony import */ var _checkbox_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkbox.less */ "./src/components/Checkbox/checkbox.less");
+/* harmony import */ var _WDU__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../WDU */ "./src/WDU.js");
+
+
+
+class Checkbox extends _WDU__WEBPACK_IMPORTED_MODULE_1__.default {
+    constructor() {
+        super()
+
+        this.PREFIX = 'wdu-checkbox'
+        this.genDOM = this.genDOM.bind(this)
+
+        super.init(this.PREFIX, this.genDOM)
+    }
+
+    genDOM(ele) {
+        const needHtml = [['label', 'label'], ['span', 'checkmark']]
+        const BOXES = super.genHTML(needHtml)
+        const radioFather = ele.parentNode
+
+        if(ele.dataset.label) {
+            BOXES['label'].innerText = ele.dataset.label
+        }
+
+        ele.setAttribute('type', 'checkbox')
+        radioFather.appendChild(BOXES['label'])
+        BOXES['label'].setAttribute('for', ele.getAttribute('id'))
+        BOXES['label'].appendChild(radioFather.removeChild(ele))
+        BOXES['label'].appendChild(BOXES['checkmark'])
+
+        if(ele.disabled) {
+            BOXES['checkmark'].classList.add(`${this.PREFIX}-disabled`)
+            BOXES['label'].classList.add(`${this.PREFIX}-disabled`)
+        }
+
+        super.wipeOption(ele)
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/components/Collapse/Collapse.js":
 /*!*********************************************!*\
   !*** ./src/components/Collapse/Collapse.js ***!
@@ -2014,7 +2121,7 @@ class Radio extends _WDU__WEBPACK_IMPORTED_MODULE_1__.default {
 
         ele.setAttribute('type', 'radio')
         radioFather.appendChild(BOXES['label'])
-        BOXES['label'].setAttribute('for', ele.getAttribute('id'))
+        // BOXES['label'].setAttribute('for', ele.getAttribute('id'))
         BOXES['label'].appendChild(radioFather.removeChild(ele))
         BOXES['label'].appendChild(BOXES['checkmark'])
 
@@ -2244,16 +2351,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_grid_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/grid.less */ "./src/style/grid.less");
 /* harmony import */ var _components_Button_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Button/Button */ "./src/components/Button/Button.js");
 /* harmony import */ var _components_Radio_Radio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Radio/Radio */ "./src/components/Radio/Radio.js");
-/* harmony import */ var _components_Card_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Card/Card */ "./src/components/Card/Card.js");
-/* harmony import */ var _components_Input_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Input/Input */ "./src/components/Input/Input.js");
-/* harmony import */ var _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Switch/Switch */ "./src/components/Switch/Switch.js");
-/* harmony import */ var _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Carousel/Carousel */ "./src/components/Carousel/Carousel.js");
-/* harmony import */ var _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Tab/Tab */ "./src/components/Tab/Tab.js");
-/* harmony import */ var _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Collapse/Collapse */ "./src/components/Collapse/Collapse.js");
-/* harmony import */ var _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Paper/Paper */ "./src/components/Paper/Paper.js");
-/* harmony import */ var _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Nav/Nav */ "./src/components/Nav/Nav.js");
-/* harmony import */ var _components_Container_Container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Container/Container */ "./src/components/Container/Container.js");
-/* harmony import */ var _components_Message_Message__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Message/Message */ "./src/components/Message/Message.js");
+/* harmony import */ var _components_Checkbox_Checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Checkbox/Checkbox */ "./src/components/Checkbox/Checkbox.js");
+/* harmony import */ var _components_Card_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Card/Card */ "./src/components/Card/Card.js");
+/* harmony import */ var _components_Input_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Input/Input */ "./src/components/Input/Input.js");
+/* harmony import */ var _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Switch/Switch */ "./src/components/Switch/Switch.js");
+/* harmony import */ var _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Carousel/Carousel */ "./src/components/Carousel/Carousel.js");
+/* harmony import */ var _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Tab/Tab */ "./src/components/Tab/Tab.js");
+/* harmony import */ var _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Collapse/Collapse */ "./src/components/Collapse/Collapse.js");
+/* harmony import */ var _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Paper/Paper */ "./src/components/Paper/Paper.js");
+/* harmony import */ var _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Nav/Nav */ "./src/components/Nav/Nav.js");
+/* harmony import */ var _components_Container_Container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Container/Container */ "./src/components/Container/Container.js");
+/* harmony import */ var _components_Message_Message__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Message/Message */ "./src/components/Message/Message.js");
+
 
 
 
@@ -2272,16 +2381,17 @@ __webpack_require__.r(__webpack_exports__);
 window.wdu = {
     Button: new _components_Button_Button__WEBPACK_IMPORTED_MODULE_1__.default(),
     Radio: new _components_Radio_Radio__WEBPACK_IMPORTED_MODULE_2__.default(),
-    Card: new _components_Card_Card__WEBPACK_IMPORTED_MODULE_3__.default(),
-    Input: new _components_Input_Input__WEBPACK_IMPORTED_MODULE_4__.default(),
-    Switch: new _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_5__.default(),
-    Carousel: new _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_6__.default(),
-    Tab: new _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_7__.default(),
-    Collapse: new _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_8__.default(),
-    Paper: new _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_9__.default(),
-    Nav: new _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_10__.default(),
-    Container: new _components_Container_Container__WEBPACK_IMPORTED_MODULE_11__.default(),
-    Message: _components_Message_Message__WEBPACK_IMPORTED_MODULE_12__.default
+    Checkbox: new _components_Checkbox_Checkbox__WEBPACK_IMPORTED_MODULE_3__.default(),
+    Card: new _components_Card_Card__WEBPACK_IMPORTED_MODULE_4__.default(),
+    Input: new _components_Input_Input__WEBPACK_IMPORTED_MODULE_5__.default(),
+    Switch: new _components_Switch_Switch__WEBPACK_IMPORTED_MODULE_6__.default(),
+    Carousel: new _components_Carousel_Carousel__WEBPACK_IMPORTED_MODULE_7__.default(),
+    Tab: new _components_Tab_Tab__WEBPACK_IMPORTED_MODULE_8__.default(),
+    Collapse: new _components_Collapse_Collapse__WEBPACK_IMPORTED_MODULE_9__.default(),
+    Paper: new _components_Paper_Paper__WEBPACK_IMPORTED_MODULE_10__.default(),
+    Nav: new _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_11__.default(),
+    Container: new _components_Container_Container__WEBPACK_IMPORTED_MODULE_12__.default(),
+    Message: _components_Message_Message__WEBPACK_IMPORTED_MODULE_13__.default
 }
 
 
