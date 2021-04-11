@@ -1,51 +1,91 @@
-.flex{
-  display: flex;
-  align-items: center;
+.flex {
+  display       : flex;
+  flex-direction: row;
+  flex-wrap     : nowrap;
 }
 
-.row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+.row-col_center {
+  .flex();
+  align-items: center;
 }
 
 .center {
-  .flex();
-  flex-flow: row nowrap;
+  .row-col_center();
   justify-content: center;
-}
-
-.column-row-center {
-  .flex();
-  flex-flow: column nowrap;
-  justify-content: center;
-}
-
-.row-column-center {
-  .flex();
-  flex-flow: row nowrap;
-  align-items: center;
 }
 
 .row-around {
   .flex();
-  flex-flow: row nowrap;
   justify-content: space-around;
 }
 
 .row-end {
   .flex();
-  flex-flow: row nowrap;
   justify-content: flex-end;
 }
 
 .row-start {
   .flex();
-  flex-flow: row nowrap;
-  align-items: center;
+  align-items    : center;
   justify-content: flex-start;
 }
 
-.w-box{
+.col-row_center {
+  .flex();
+  flex-direction: column;
+  justify-content: center;
+}
+
+.w-box {
+  width     : 100%;
   box-sizing: border-box;
+}
+
+
+.w-col-1 {
+  width: 8.33%
+}
+
+.w-col-2 {
+  width: 16.66%
+}
+
+.w-col-3 {
+  width: 25%
+}
+
+.w-col-4 {
+  width: 33.33%
+}
+
+.w-col-5 {
+  width: 41.66%
+}
+
+.w-col-6 {
+  width: 50%
+}
+
+.w-col-7 {
+  width: 58.33%
+}
+
+.w-col-8 {
+  width: 66.66%
+}
+
+.w-col-9 {
+  width: 75%
+}
+
+.w-col-10 {
+  width: 83.33%
+}
+
+.w-col-11 {
+  width: 91.66%
+}
+
+.w-col-12 {
+  width: 100%
 }

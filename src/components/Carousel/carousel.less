@@ -1,20 +1,16 @@
 @import (reference) '../../main.less';
 
-.fullContainer {
-    width : 100%;
-    height: 100%;
-}
-
 .wdu-carousel {
+    .w-radiu-normal();
+    .out-shadow-normal();
     flex-shrink: 0;
     box-sizing : border-box;
     overflow   : hidden;
-    .w-radiu-normal();
-    .out-shadow-normal();
 }
 
 .wdu-carousel-containner {
-    .fullContainer();
+    .w-box();
+    height: 100%;
     position: relative;
 }
 
@@ -36,18 +32,14 @@
 
 .wdu-carousel-last,
 .wdu-carousel-next {
+    .center();
     height : 100%;
     cursor : pointer;
     z-index: 5;
-    .column-row-center();
 }
 
 .wdu-carousel-last-btn,
 .wdu-carousel-next-btn {
-    height       : 35px;
-    width        : 35px;
-    border-radius: 50%;
-
     .out-shadow-light();
     .center();
     .w-bg-normal();
@@ -56,19 +48,24 @@
     & i {
         transform: scale(1.2);
     }
+
+    height       : 35px;
+    width        : 35px;
+    border-radius: 50%;
 }
 
 .wdu-carousel-screen {
-    .fullContainer();
+    .w-box();
+    height: 100%;
     overflow: hidden;
 }
 
 .wdu-carousel-film {
-    position : relative;
-    display  : flex;
-    flex-flow: row nowrap;
-    .fullContainer();
-    z-index: 1;
+    .w-box();
+    .flex();
+    height: 100%;
+    position: relative;
+    z-index : 1;
 }
 
 .wdu-carousel-film>* {
@@ -107,6 +104,7 @@
 }
 
 .wdu-carousel-pagenation-btn {
+    .inside-shadow-light();
     display         : inline-block;
     width           : 10px;
     height          : 10px;
@@ -114,12 +112,11 @@
     margin          : 0 1%;
     background-color: @button-color-back;
     cursor          : pointer;
-    .inside-shadow-light();
 }
 
 .wdu-carousel-dot-checked {
-    transition: all .3s ease-in-out;
-    transform : scale(1.2);
     .out-shadow-light();
+    transition      : all .3s ease-in-out;
+    transform       : scale(1.2);
     background-color: @button-color-front;
 }

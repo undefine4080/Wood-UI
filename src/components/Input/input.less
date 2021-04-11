@@ -1,14 +1,16 @@
-@import  (reference)  "../../main";
+@import (reference) "../../main";
 
 .wdu-input {
-    margin: 10px;
+
     .flex();
     .out-shadow-light();
     box-sizing: content-box;
-    width: max-content;
+    margin    : 10px;
+    width     : max-content;
 }
 
 .wdu-input-input {
+    .out-shadow-light();
     -webkit-appearance: none;
     -moz-appearance   : none;
     background-color  : #fff;
@@ -18,21 +20,20 @@
     height            : 100%;
     outline           : 0;
     box-sizing        : border-box;
-    .out-shadow-light();
 }
 
 .wdu-input-label {
+    .w-bg-active();
+    .row-col_center();
+    .center();
+    font-size    : 16px;
+    font-weight  : bold;
+    color        : white;
     height       : 100%;
     padding      : 5px;
     box-sizing   : border-box;
     border-radius: 5px 0 0 5px;
     white-space  : nowrap;
-    .w-bg-active();
-    font-size  : 16px;
-    font-weight: bold;
-    color      : white;
-    .row-column-center();
-    .center();
 }
 
 .wdu-input-small {
@@ -47,5 +48,5 @@
 
 .wdu-input-large {
     .large-text();
-    height:42px;
+    height: 42px;
 }
