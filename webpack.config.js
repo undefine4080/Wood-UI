@@ -5,13 +5,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: resolve(__dirname, "build"),
-        filename: 'woodui.js',
-        libraryTarget: 'umd',
-        library: {
-            root: 'wdu',
-            amd: 'wdu',
-            commonjs: 'wdu'
-        }
+        filename: 'woodui.js'
     },
     module: {
         rules: [
