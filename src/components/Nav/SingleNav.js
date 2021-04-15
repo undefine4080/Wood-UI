@@ -50,16 +50,29 @@ export default class SingleNav extends WDU {
                     this.navClose(e)
                 }
             })
-            // 每个选项点击后，收起菜单
+            // 每个选项点击后，收起菜单,并打开超链接
             const items = super.getElementChilds(menu.lastElementChild.childNodes)
             items.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.stopPropagation()
+                    this.linkTo(item)
                     e.target.parentNode.style.height = '0px'
                     this.isOpen = false
                 })
             })
         })
+    }
+
+    linkTo(item){
+        if(item.dataset.link){
+            const link = JSON.parse(item.dataset.link)
+            if(link.current){
+                window.location.href = link.url
+            }else{
+                window.open(link.url)
+            }            
+            super.wipeOption(item)
+        }
     }
 
     navOpen(e) {
