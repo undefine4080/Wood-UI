@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Document</title>
 </head>
-<body>
-    <button class="wdu-button" id="btn" data-option='{"type":"important"}'>哈哈哈哈</button>
 
-    <div class="wdu-input" data-option='{"type":"text","label":"姓名","size":"small"}'></div>
+<body>
+    <button
+        class="wdu-button"
+        id="btn"
+        data-option='{"type":"important"}'
+    >哈哈哈哈</button>
+
+    <div
+        class="wdu-input"
+        data-option='{"type":"text","label":"姓名","size":"small"}'
+    ></div>
+
+    <div
+        id="s1"
+        class="wdu-switch"
+    >点我</div>
 
     <script src="./woodui.js"></script>
+    <script>
+        // SWITCH 回调
+        wdu.Switch.callBack('#s1', function(flag) {
+            if(flag) {
+                prompt('开关已打开')
+            } else {
+                prompt('开关已关闭')
+            }
+        })
+    </script>
 </body>
+
 </html>
