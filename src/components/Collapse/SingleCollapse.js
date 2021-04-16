@@ -38,13 +38,8 @@ export default class SingleCollapse extends WDU {
     }
 
     linkTo(item) {
-        if(item.dataset.link) {
-            const link = JSON.parse(item.dataset.link)
-            if(!link.current) {
-                window.location.href = link.url
-            } else {
-                window.open(link.url)
-            }
+        if(item.dataset.url) {
+            window.location.href = item.dataset.url
             super.wipeOption(item)
         }
     }
@@ -71,6 +66,6 @@ export default class SingleCollapse extends WDU {
             })
         })
 
-        
+
     }
 }
