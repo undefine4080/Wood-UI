@@ -9,7 +9,7 @@ export default class SingleCarousel extends WDU {
         // 元素零件
         this.E = null
         // 轮播时间间隔
-        this.time = 3
+        this.time = 5
         // 是否自动轮播
         this.isAuto = true
         // 当前显示位置
@@ -85,7 +85,7 @@ export default class SingleCarousel extends WDU {
         if(ele.dataset.option) {
             const option = JSON.parse(ele.dataset.option)
             // 时间
-            if(option.time && parseInt(option.time) > 3) {
+            if(option.time && parseInt(option.time) > 5) {
                 this.time = parseInt(option.time)
             }
 
