@@ -13,9 +13,11 @@ import Paper from './components/Paper/Paper'
 import Nav from './components/Nav/Nav'
 import Container from './components/Container/Container'
 import Message from './components/Message/Message'
+import Mark from './components/Mark/Mark'
 
 window.wdu = {
     Button: new Button(),
+    Mark: new Mark(),
     Radio: new Radio(),
     Checkbox: new Checkbox(),
     Card: new Card(),
