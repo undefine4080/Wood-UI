@@ -11,11 +11,11 @@ export default class SingleNav extends WDU {
     }
 
     genDom(ele) {
-        this.menus = super.getElementChilds(ele.childNodes)
+        this.menus = super.getElementChilds(ele)
         this.titles = []
         this.menus.forEach(menu => {
             const E = super.genHTML([['div', 'title'], ['div', 'block']])
-            const navItems = super.getElementChilds(menu.childNodes)
+            const navItems = super.getElementChilds(menu)
             navItems.forEach(navItem => {
                 E['block'].appendChild(navItem)
             })
@@ -51,7 +51,7 @@ export default class SingleNav extends WDU {
                 }
             })
             // 每个选项点击后，收起菜单,并打开超链接
-            const items = super.getElementChilds(menu.lastElementChild.childNodes)
+            const items = super.getElementChilds(menu.lastElementChild)
             items.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.stopPropagation()
@@ -78,7 +78,7 @@ export default class SingleNav extends WDU {
     navOpen(e) {
         e.stopPropagation()
         const curBlock = e.target.lastElementChild
-        const curItems = super.getElementChilds(curBlock.childNodes).length
+        const curItems = super.getElementChilds(curBlock).length
         curBlock.style.height = `${this.ITEM_HEIGHT * curItems}px`
         this.isOpen = true
     }

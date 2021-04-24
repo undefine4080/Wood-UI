@@ -51,7 +51,7 @@ export default class SingleCarousel extends WDU {
         E['last'].appendChild(E['last-btn'])
         E['next'].appendChild(E['next-btn'])
         // 轮播元素
-        const cards = super.getElementChilds(ele.childNodes)
+        const cards = super.getElementChilds(ele)
         cards.forEach(item => {
             item.setAttribute('class', `${this.PREFIX}-card`)
             E['film'].appendChild(item)

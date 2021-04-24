@@ -15,7 +15,7 @@ export default class SingleTab extends WDU {
         this.E = super.genHTML(needHtml)
         this.e = ele
         // 取 wdu-tab 中放置的内容
-        this.content = super.getElementChilds(ele.childNodes)
+        this.content = super.getElementChilds(ele)
         this.content.forEach((item, index) => {
             item.setAttribute('id', `${this.PREFIX}-content-${index}`)
             this.E['container'].appendChild(item)
@@ -31,8 +31,8 @@ export default class SingleTab extends WDU {
     }
 
     setOption(){
-        const blocks = super.getElementChilds(this.e.lastChild.childNodes)
-        this.tabs = super.getElementChilds(this.E['head'].childNodes)
+        const blocks = super.getElementChilds(this.e.lastChild)
+        this.tabs = super.getElementChilds(this.E['head'])
 
         blocks.forEach((item, index) => {
             if(item.dataset.option){
