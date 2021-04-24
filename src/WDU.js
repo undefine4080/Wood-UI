@@ -67,10 +67,10 @@ export default class WDU {
 
     /**
      * 只取 Element 类型的元素
-     * @param nodes 传入的 node 集合
+     * @param element 传入的 node 集合
      */
-    getElementChilds(nodes){
-        return Array.from(nodes).filter((item) => {
+    getElementChilds(element){
+        return Array.from(element.childNodes).filter((item) => {
             return item.nodeType == 1
         })
     }

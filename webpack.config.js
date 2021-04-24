@@ -57,7 +57,7 @@ module.exports = {
             template: './example/example.html'
         }),
     ],
-    mode: 'production',
+    mode: 'development',
     devServer: {
         contentBase: resolve(__dirname, 'build'),
         compress: false,

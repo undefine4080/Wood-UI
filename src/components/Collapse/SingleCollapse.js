@@ -6,18 +6,18 @@ export default class SingleCollapse extends WDU {
         super()
         this.PREFIX = 'wdu-collapse'
         this.genDom(ele)
-        this.setOption()
         this.addEvt()
+        this.setOption()
     }
 
     genDom(ele) {
         this.element = ele
-        this.menus = super.getElementChilds(ele.childNodes)
+        this.menus = super.getElementChilds(ele)
         this.titles = []
         this.menus.forEach(menu => {
             const E = super.genHTML([['div', 'title'], ['div', 'block']])
 
-            const items = super.getElementChilds(menu.childNodes)
+            const items = super.getElementChilds(menu)
             items.forEach(item => {
                 E['block'].appendChild(item)
             })
@@ -32,9 +32,19 @@ export default class SingleCollapse extends WDU {
         this.menus.forEach((item, index) => {
             if(item.dataset.title) {
                 this.titles[index].innerText = item.dataset.title
-                super.wipeOption(item)
             }
+            if(item.dataset.on) {
+                this.openCollapse(item)
+            }
+
+            super.wipeOption(item)
         })
+    }
+
+    openCollapse(menu) {
+        const block = super.getElementChilds(menu)[1]
+        const menuItems = super.getElementChilds(block).length
+        block.style.height = `${menuItems * 40}px`
     }
 
     linkTo(item) {
@@ -47,10 +57,13 @@ export default class SingleCollapse extends WDU {
     addEvt() {
         this.titles.forEach(title => {
             title.addEventListener('click', (e) => {
+                debugger
                 const curBlock = e.target.nextElementSibling
                 let curHeight = curBlock.style.height
+
                 if(!curHeight) {
-                    curBlock.style.height = `${Array.from(curBlock.childNodes).length * 40}px`
+                    const menu = e.target.parentNode
+                    this.openCollapse(menu)
                 } else {
                     curBlock.style.height = null
                 }
@@ -65,7 +78,5 @@ export default class SingleCollapse extends WDU {
                 this.linkTo(item)
             })
         })
-
-
     }
 }
