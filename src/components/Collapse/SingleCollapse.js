@@ -50,7 +50,6 @@ export default class SingleCollapse extends WDU {
     linkTo(item) {
         if(item.dataset.url) {
             window.location.href = item.dataset.url
-            super.wipeOption(item)
         }
     }
 

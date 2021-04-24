@@ -1,0 +1,18 @@
+@import (reference) '../../main.less';
+
+.wdu-box {
+    margin     : 10px;
+    padding    : 20px;
+    transition: box-shadow .2s linear;
+    .w-bgcolor-normal();
+    .w-radiu-normal();
+    .w-box();
+    .w-border-light();
+    .out-shadow-light();
+}
+
+.wdu-box-hover {
+    &:hover {
+        box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    }
+}
