@@ -1,11 +1,11 @@
 @import (reference) '../../main.less';
 
 .wdu-carousel {
+    margin: 16px;
+    overflow   : hidden;
+    .w-box();
     .w-radiu-normal();
     .out-shadow-normal();
-    flex-shrink: 0;
-    box-sizing : border-box;
-    overflow   : hidden;
 }
 
 .wdu-carousel-containner {
@@ -40,18 +40,15 @@
 
 .wdu-carousel-last-btn,
 .wdu-carousel-next-btn {
-    .out-shadow-light();
-    .center();
-    .w-bg-normal();
-    .w-border-solid();
-
-    & i {
-        transform: scale(1.2);
-    }
-
     height       : 35px;
     width        : 35px;
-    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    .w-border-circle();
+    .out-shadow-light();
+    .center();
+    & i {
+        transform: scale(1.2);
+    }    
 }
 
 .wdu-carousel-screen {

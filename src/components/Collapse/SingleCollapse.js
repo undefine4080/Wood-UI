@@ -56,7 +56,6 @@ export default class SingleCollapse extends WDU {
     addEvt() {
         this.titles.forEach(title => {
             title.addEventListener('click', (e) => {
-                debugger
                 const curBlock = e.target.nextElementSibling
                 let curHeight = curBlock.style.height
 

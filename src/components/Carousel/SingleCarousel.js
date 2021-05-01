@@ -97,8 +97,6 @@ export default class SingleCarousel extends WDU {
             // 长宽
             if(option.width) {
                 ele.style.width = option.width
-            } else {
-                ele.style.width = '400px'
             }
 
             if(option.height) {
@@ -215,5 +213,10 @@ export default class SingleCarousel extends WDU {
                 this.autoPlay()
             }
         })
+
+
+        window.οnresize = function() {
+            clearInterval(this.Timer)
+        }
     }
 }

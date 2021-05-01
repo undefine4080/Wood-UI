@@ -32,10 +32,18 @@
 
 .col-row_center {
   .flex();
-  flex-direction: column;
+  flex-direction : column;
   justify-content: center;
 }
 
 .w-box {
   box-sizing: border-box;
+}
+
+.hide-scroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
 }

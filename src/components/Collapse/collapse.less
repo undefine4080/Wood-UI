@@ -26,6 +26,10 @@
 }
 
 .wdu-collapse-item {
+    box-sizing: border-box;
+    padding   : 0 25px;
+    height    : 40px;
+    transition: all 0.2s ease-in-out;
     .small-text();
     .row-start();
 
@@ -33,11 +37,6 @@
         color: @font-color-important;
         .w-bg-important();
     }
-
-    box-sizing : border-box;
-    text-indent: 25px;
-    height     : 40px;
-    transition : all 0.2s ease-in-out;
 }
 
 .wdu-collapse-menu {

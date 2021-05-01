@@ -5,16 +5,21 @@ export default class Input extends WDU {
     constructor() {
         super()
         this.PREFIX = 'wdu-input'
+        this.ele = null
         this.genDom = this.genDom.bind(this)
         super.init(this.PREFIX, this.genDom)
     }
 
     genDom(ele) {
+        this.ele = ele
         const needHtml = [['label', 'label'], ['input', 'input']]
         const BOXES = super.genHTML(needHtml)
+        BOXES['label'].innerText = ele.innerText
+        ele.innerText = null
 
         ele.appendChild(BOXES['label'])
         ele.appendChild(BOXES['input'])
+        
 
         this.setOption(ele)
         super.wipeOption(ele)
@@ -42,8 +47,6 @@ export default class Input extends WDU {
             } else {
                 ele.classList.add(`${this.PREFIX}-medium`)
             }
-
-             ele.firstChild.innerText = option.label
         } else {
             input.setAttribute('type', "text")
             ele.classList.add(`${this.PREFIX}-medium`)

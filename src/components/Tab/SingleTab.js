@@ -1,8 +1,8 @@
-import './tab.less';
+import './tab.less'
 import WDU from '../../WDU'
 
 export default class SingleTab extends WDU {
-    constructor (ele) {
+    constructor(ele) {
         super()
         this.PREFIX = 'wdu-tab'
         this.genDom(ele)
@@ -20,28 +20,27 @@ export default class SingleTab extends WDU {
             item.setAttribute('id', `${this.PREFIX}-content-${index}`)
             this.E['container'].appendChild(item)
             // 根据 content 的个数，来生成对应的 tab 
-            const tab = super.genHTML([['div','tab']])['tab']
+            const tab = super.genHTML([['div', 'tab']])['tab']
             tab.setAttribute('id', `${this.PREFIX}-tab-${index}`)
             this.E['head'].appendChild(tab)
         })
 
-        new Array(this.E['head'], this.E['container']).forEach(item =>{
+        new Array(this.E['head'], this.E['container']).forEach(item => {
             ele.appendChild(item)
         })
     }
 
-    setOption(){
+    setOption() {
         const blocks = super.getElementChilds(this.e.lastChild)
         this.tabs = super.getElementChilds(this.E['head'])
 
         blocks.forEach((item, index) => {
-            if(item.dataset.option){
-                const option = JSON.parse(item.dataset.option)
-                this.tabs[index].innerText = option.title
+            if(item.dataset.title) {
+                this.tabs[index].innerText = item.dataset.title
             }
         })
 
-        this.content.forEach((item) =>{
+        this.content.forEach((item) => {
             super.wipeOption(item)
         })
     }
@@ -52,18 +51,18 @@ export default class SingleTab extends WDU {
         this.tabs[0].classList.add(`${this.PREFIX}-checked`)
 
         this.tabs.forEach(item => {
-            item.addEventListener('click',(e) => {
+            item.addEventListener('click', (e) => {
                 // 取 genDom 中为 block 预设好的 id 中的数字
-               const id = parseInt(e.target.id.charAt(e.target.id.length-1))
-               this.closeAllTabs()
-               // 激活当前 tab 下的内容
-               this.activateTab(id)
+                const id = parseInt(e.target.id.slice(12))
+                this.closeAllTabs()
+                // 激活当前 tab 下的内容
+                this.activateTab(id)
             })
         })
     }
 
-    closeAllTabs(){
-        this.content.forEach(item =>{
+    closeAllTabs() {
+        this.content.forEach(item => {
             item.classList.remove(`${this.PREFIX}-blockon`)
         })
 
@@ -72,7 +71,7 @@ export default class SingleTab extends WDU {
         })
     }
 
-    activateTab(id){
+    activateTab(id) {
         this.tabs[id].classList.add(`${this.PREFIX}-checked`)
         this.content[id].classList.add(`${this.PREFIX}-blockon`)
     }

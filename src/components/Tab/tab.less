@@ -1,4 +1,4 @@
-@import  (reference)  "../../main";
+@import (reference) "../../main";
 
 .wdu-tab {
     width     : 100%;
@@ -10,17 +10,20 @@
 }
 
 .wdu-tab-head {
+    overflow-x     : auto;
+    width          : auto;
     display        : flex;
-    justify-content: center;
+    justify-content: flex-start;
     height         : 30%;
     padding        : 10px 0;
     box-sizing     : border-box;
     border-bottom  : 1px solid rgba(207, 207, 207, 0.6);
+    .hide-scroll();
 }
 
 .wdu-tab-tab {
     min-height: 35px;
-    width     : 80px;
+    min-width : 80px;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
     .title-text();
@@ -32,22 +35,22 @@
 .wdu-tab-container {
     min-height: 100px;
     max-height: 300px;
-    overflow: auto;
-    position: relative;
+    overflow  : auto;
+    position  : relative;
 }
 
 .wdu-tab-block {
     width : 100%;
     height: max-content;
     .normal-text();
-    display: none;
-    position: relative;
+    display         : none;
+    position        : relative;
     background-color: white;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    box-sizing: border-box;
-    padding: 10px;
+    z-index         : 1;
+    left            : 0;
+    top             : 0;
+    box-sizing      : border-box;
+    padding         : 10px;
 }
 
 .wdu-tab-checked {
@@ -58,5 +61,5 @@
 .wdu-tab-blockon {
     position: relative;
     z-index : 10;
-    display: block;
+    display : block;
 }
