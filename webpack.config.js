@@ -1,5 +1,8 @@
 const {resolve} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -13,13 +16,21 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {loader: 'style-loader'},
-                    {loader: 'css-loader', }]
+                    {loader: MiniCssExtractPlugin.loader},
+                    {loader: 'css-loader', }
+                ]
             },
             {
                 test: /\.less$/,
                 use: [
                     {
                         loader: "style-loader",
+                    },
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false
+                        }
                     },
                     {
                         loader: "css-loader",
@@ -56,6 +67,24 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './example/example.html'
         }),
+        new MiniCssExtractPlugin({
+            filename: 'woodui.css',
+        }),
+
+        // 压缩输出的 JS 代码
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                compress: {
+                    drop_console: true,
+                    collapse_vars: true,
+                    reduce_vars: true,
+                },
+                output: {
+                    beautify: false,
+                    comments: false,
+                }
+            }
+        }),
     ],
     mode: 'production',
     devServer: {
@@ -64,5 +93,20 @@ module.exports = {
         port: 5507,
         open: true
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin(),
+        ],
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    type: 'css/mini-extract',
+                    chunks: 'all',
+                    enforce: true,
+                }
+            }
+        }
+    }
 }

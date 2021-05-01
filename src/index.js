@@ -1,6 +1,4 @@
-import './style/grid.less'
-import './components/Container/container.less'
-import './components/Box/box.less'
+import './main.less'
 
 import Button from './components/Button/Button'
 import Radio from './components/Radio/Radio'
