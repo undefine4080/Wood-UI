@@ -5,7 +5,7 @@ export default class WDU {
     /**
      * 生成所需要的HTML元素
      * 
-     * @param {Array} elements elements元素中：第一项-需要生成的html元素的名称，第二项-生成的html元素的类名
+     * @param elements 二维数组：元素第一项-需要生成的html元素的名称，元素被第二项-生成的html元素的类名
      */
     genHTML(elements) {
         let BOXES = {}
@@ -67,7 +67,7 @@ export default class WDU {
 
     /**
      * 只取 Element 类型的元素
-     * @param element 传入的 node 集合
+     * @param element 需要获取子元素集合的元素
      */
     getElementChilds(element){
         return Array.from(element.childNodes).filter((item) => {
@@ -76,9 +76,10 @@ export default class WDU {
     }
 
     /**
-     * 禁用整个组件
+     * 禁用整个组件的点击事件
      * 
      * @param ele 组件元素
+     * @param prefix 组件类名
      */
     disableComponent(ele, prefix){
         const childs = Array.from(ele.querySelectorAll(`.${prefix} *`))

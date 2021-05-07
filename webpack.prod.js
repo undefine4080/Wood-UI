@@ -1,13 +1,14 @@
-const {resolve} = require('path')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
+    mode: 'production',
     entry: './src/index.js',
     output: {
-        path: resolve(__dirname, "build"),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'woodui.js'
     },
     module: {
@@ -70,8 +71,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'woodui.css',
         }),
-
-        // 压缩输出的 JS 代码
         new UglifyJsPlugin({
             uglifyOptions: {
                 compress: {
@@ -86,14 +85,6 @@ module.exports = {
             }
         }),
     ],
-    mode: 'production',
-    devServer: {
-        contentBase: resolve(__dirname, 'build'),
-        compress: false,
-        port: 5507,
-        open: true
-    },
-    devtool: 'source-map',
     optimization: {
         minimizer: [
             new CssMinimizerPlugin(),

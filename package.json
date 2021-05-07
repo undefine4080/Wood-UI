@@ -1,36 +1,38 @@
 {
-  "name": "woodui",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "doc": "doc",
-    "example": "example"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "npx webpack serve",
-    "build": "webpack"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^5.0.2",
-    "file-loader": "^6.2.0",
-    "html-loader": "^2.0.0",
-    "html-webpack-plugin": "^5.1.0",
-    "icon-font-loader": "^3.0.2",
-    "less": "^4.1.1",
-    "less-loader": "^8.0.0",
-    "mini-css-extract-plugin": "^1.6.0",
-    "style-loader": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
-  },
-  "dependencies": {
-    "css-minimizer-webpack-plugin": "^2.0.0"
-  }
+	"name": "woodui",
+	"version": "1.0.0",
+	"main": "index.js",
+	"directories": {
+		"doc": "doc",
+		"example": "example"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "webpack serve --config webpack.dev.js",
+		"serve": "webpack serve ./src/index.js --config ./webpack.dev.js",
+		"build": "webpack --config webpack.prod.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"css-loader": "^5.0.2",
+		"file-loader": "^6.2.0",
+		"html-loader": "^2.0.0",
+		"html-webpack-plugin": "^5.1.0",
+		"icon-font-loader": "^3.0.2",
+		"less": "^4.1.1",
+		"less-loader": "^8.0.0",
+		"mini-css-extract-plugin": "^1.6.0",
+		"style-loader": "^2.0.0",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"url-loader": "^4.1.1",
+		"webpack": "^5.21.2",
+		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2",
+		"webpack-merge": "^5.7.3"
+	},
+	"dependencies": {
+		"babel-loader": "^7.1.5",
+		"css-minimizer-webpack-plugin": "^2.0.0"
+	}
 }
