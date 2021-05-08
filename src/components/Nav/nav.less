@@ -22,7 +22,7 @@
 }
 
 .@{t}-title {
-    .w-title-text();
+    .w-large-text();
     .center();
     .w-transition-normal();
     .w-bg-normal();
@@ -39,15 +39,17 @@
 }
 
 .@{t}-item {
-    .w-normal-text();
-    .center();
-
-    &:hover {
-        .w-bg-important;
-    }
-
     color : black;
     height: 35px;
+    padding: 0 10px;
+    .w-normal-text();
+    .center();
+    .w-nowrap();
+
+    &:hover {
+        .w-bg-important();
+        color: white;
+    }
 }
 
 .@{t}-fixed{
