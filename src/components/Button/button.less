@@ -1,19 +1,20 @@
-@import (reference)  "../../main";
+@import (reference) "../../main";
 
 .wdu-button {
-    box-sizing: border-box;
-    padding: 0 20px;
-    outline: none;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
+    box-sizing    : border-box;
+    padding       : 0 20px;
+    outline       : none;
+    text-align    : center;
+    font-size     : 14px;
+    font-weight   : 700;
     letter-spacing: 2px;
-    transition: all 0.1s;
-    white-space: nowrap;
-    margin: 10px 10px;
+    transition    : all 0.1s;
+    white-space   : nowrap;
+    margin        : 10px 10px;
 
     .w-radiu-normal();
     .w-border-solid();
+    .out-shadow-light();
 
     &:hover {
         cursor: pointer;
@@ -34,21 +35,40 @@
 
 .wdu-button-normal {
     .w-bg-normal();
-    color: @font-color-main;
+    color     : @font-color-main;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        background-image: linear-gradient(#f0f0f0, #e0e0e0);
+        color           : rgb(75, 75, 75);
+    }
+
 }
 
 .wdu-button-important {
     .w-bg-important();
-    color: @button-color-front;
+    color     : @button-color-front;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        background-image: linear-gradient(#85a6ee, #6f86bd);
+        color           : aliceblue;
+    }
 }
 
 .wdu-button-danger {
     .w-bg-danger();
-    color: @button-color-front;
+    color     : @button-color-front;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        background-image: linear-gradient(#f18883, #f57973);
+        color           : aliceblue;
+    }
 }
 
 .wdu-button-disabled {
     .w-bg-disabled();
     cursor: not-allowed !important;
-    color: @button-color-disabled;
+    color : @button-color-disabled;
 }
