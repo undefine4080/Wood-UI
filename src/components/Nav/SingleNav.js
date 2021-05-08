@@ -5,6 +5,7 @@ export default class SingleNav extends WDU {
     constructor(ele) {
         super()
         this.PREFIX = 'wdu-nav'
+        this.$ele = ele
         this.genDom(ele)
         this.setOption()
         this.addEvt()
@@ -26,6 +27,10 @@ export default class SingleNav extends WDU {
     }
 
     setOption() {
+        if(this.$ele.dataset.fixed){
+            this.$ele.classList.add(`${this.PREFIX}-fixed`)
+        }
+
         this.menus.forEach((item, index) => {
             if(item.dataset.title) {
                 this.titles[index].innerText = item.dataset.title

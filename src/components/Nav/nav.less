@@ -1,6 +1,8 @@
 @import (reference) '../../main.less';
 
-.wdu-nav {
+@t: wdu-nav;
+
+.@{t} {
     .w-box();
     .flex();
     .w-bg-normal();
@@ -9,7 +11,7 @@
     flex-grow: 1;
 }
 
-.wdu-nav-menu {
+.@{t}-menu {
     .cursor-on();
     .w-bg-normal();
     .w-transition-normal();
@@ -19,7 +21,7 @@
     z-index   : 10;
 }
 
-.wdu-nav-title {
+.@{t}-title {
     .w-title-text();
     .center();
     .w-transition-normal();
@@ -29,14 +31,14 @@
     margin    : 0;
 }
 
-.wdu-nav-block {
+.@{t}-block {
     .w-transition-normal();
     height    : 0;
     overflow  : hidden;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.wdu-nav-item {
+.@{t}-item {
     .w-normal-text();
     .center();
 
@@ -46,4 +48,10 @@
 
     color : black;
     height: 35px;
+}
+
+.@{t}-fixed{
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
