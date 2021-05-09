@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="778gtKRfv83UGZy7Tk4g" name="第 1 页">
-        <mxGraphModel dx="1992" dy="1845" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2351" dy="2319" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,14 +13,14 @@
                 <mxCell id="68" value="&lt;font style=&quot;font-size: 30px&quot;&gt;Javascript 通过 【wdu-组件class类名】获取到元素&lt;/font&gt;" style="whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
                     <mxGeometry x="-365" y="-690" width="870" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" value="" style="shape=flexArrow;endArrow=classic;html=1;width=45;endSize=56.2;endWidth=186;" parent="1" edge="1">
+                <mxCell id="69" value="" style="shape=flexArrow;endArrow=classic;html=1;width=45;endSize=48.2;endWidth=86;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="68.33000000000001" y="1390" as="sourcePoint"/>
                         <mxPoint x="68.33" y="1730" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="71" value="&lt;span style=&quot;font-size: 68px;&quot;&gt;&lt;font style=&quot;font-size: 68px;&quot;&gt;&lt;b style=&quot;font-size: 68px;&quot;&gt;Wood-UI 元素&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;fontSize=68;" parent="1" vertex="1">
-                    <mxGeometry x="-155.5" y="1754" width="452.5" height="452.5" as="geometry"/>
+                <mxCell id="71" value="&lt;span style=&quot;font-size: 31px;&quot;&gt;&lt;font style=&quot;font-size: 31px;&quot;&gt;&lt;b style=&quot;font-size: 31px;&quot;&gt;Wood-UI 元素&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;fontSize=31;" parent="1" vertex="1">
+                    <mxGeometry x="-45" y="1754" width="226" height="226" as="geometry"/>
                 </mxCell>
                 <mxCell id="93" value="" style="group;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="-450" y="740" width="1040" height="560" as="geometry"/>

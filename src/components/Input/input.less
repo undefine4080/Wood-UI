@@ -19,6 +19,7 @@
     height            : 100%;
     outline           : 0;
     box-sizing        : border-box;
+    flex-grow         : 1;
 }
 
 .wdu-input-label {
@@ -29,23 +30,34 @@
     font-weight  : bold;
     color        : white;
     height       : 100%;
-    padding      : 5px;
     box-sizing   : border-box;
     border-radius: 5px 0 0 5px;
     white-space  : nowrap;
+    width        : max-content;
+    flex-grow    : 0;
+    padding      : 5px 15px;
 }
 
 .wdu-input-small {
-    .w-small-text();
+    & input {
+        .w-small-text();
+    }
+
     height: 28px;
 }
 
 .wdu-input-medium {
-    .w-normal-text();
+    & input {
+        .w-normal-text();
+    }
+
     height: 36px;
 }
 
 .wdu-input-large {
-    .w-large-text();
+    & input {
+        .w-large-text();
+    }
+
     height: 42px;
 }

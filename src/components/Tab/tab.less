@@ -1,6 +1,8 @@
 @import (reference) "../../main";
 
-.wdu-tab {
+@t: wdu-tab;
+
+.@{t} {
     width     : 100%;
     height    : max-content;
     box-sizing: border-box;
@@ -9,7 +11,7 @@
     .w-bgcolor-normal();
 }
 
-.wdu-tab-head {
+.@{t}-head {
     overflow-x     : auto;
     width          : auto;
     display        : flex;
@@ -21,25 +23,26 @@
     .hide-scroll();
 }
 
-.wdu-tab-tab {
+.@{t}-tab {
     min-height: 35px;
     min-width : 80px;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
-    .w-title-text();
+    margin: 0 10px;
+    .w-large-text();
     .w-radiu-normal();
     .center();
     .cursor-on();
 }
 
-.wdu-tab-container {
+.@{t}-container {
     min-height: 100px;
     max-height: 300px;
     overflow  : auto;
     position  : relative;
 }
 
-.wdu-tab-block {
+.@{t}-block {
     width : 100%;
     height: max-content;
     .w-normal-text();
@@ -53,12 +56,12 @@
     padding         : 10px;
 }
 
-.wdu-tab-checked {
+.@{t}-checked {
     .inside-shadow-medium();
     .w-bg-active();
 }
 
-.wdu-tab-blockon {
+.@{t}-blockon {
     position: relative;
     z-index : 10;
     display : block;
