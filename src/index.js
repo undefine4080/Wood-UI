@@ -16,18 +16,18 @@ import Mark from './components/Mark/Mark'
 import Box from './components/Box/Box'
 
 window.wdu = {
-    Button: new Button(),
-    Box: new Box(),
-    Mark: new Mark(),
-    Radio: new Radio(),
-    Checkbox: new Checkbox(),
-    Card: new Card(),
-    Input: new Input(),
-    Switch: new Switch(),
-    Carousel: new Carousel(),
-    Tab: new Tab(),
-    Collapse: new Collapse(),
-    Paper: new Paper(),
-    Nav: new Nav(),
-    Message: Message
+    Button: Button,
+    Box: Box,
+    Mark: Mark,
+    Radio: Radio,
+    Checkbox: Checkbox,
+    Card: Card,
+    Input: Input,
+    Switch: Switch,
+    Carousel: Carousel,
+    Tab: Tab,
+    Collapse: Collapse,
+    Paper: Paper,
+    Nav: Nav,
+    message: Message
 }
