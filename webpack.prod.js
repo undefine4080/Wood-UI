@@ -49,13 +49,6 @@ module.exports = {
                 }
             },
             {
-                test: /\.html$/,
-                loader: 'html-loader',
-                options: {
-                    esModule: false,
-                }
-            },
-            {
                 test: /\.(woff2?|woff|eot|svg|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {
@@ -65,9 +58,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './example/example.html'
-        }),
         new MiniCssExtractPlugin({
             filename: 'woodui.css',
         }),
