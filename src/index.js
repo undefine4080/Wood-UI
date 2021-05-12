@@ -14,6 +14,7 @@ import Nav from './components/Nav/Nav'
 import Message from './components/Message/Message'
 import Mark from './components/Mark/Mark'
 import Box from './components/Box/Box'
+import Select from './components/Select/Select'
 
 window.wdu = {
     Button: Button,
@@ -29,5 +30,6 @@ window.wdu = {
     Collapse: Collapse,
     Paper: Paper,
     Nav: Nav,
+    Select: Select,
     message: Message
 }

@@ -1,0 +1,61 @@
+@import (reference) '../../main.less';
+
+@t: wdu-select;
+
+.@{t}-container {
+    width: max-content;
+    height: 40px;
+    .w-bg-normal();
+    .wdu-container();
+    .out-shadow-normal();
+    .w-radiu-small();
+}
+
+.@{t}-label {
+    min-width: 30px;
+    padding: 5px;
+    .w-radiu-small();
+    border-radius: 5px 0 0 5px;
+    .w-bg-active();
+    .center();
+    .w-normal-text();
+    color: white;
+}
+
+.@{t}-select {
+    width   : max-content;
+    height  : 40px;
+    overflow: hidden;
+    position: relative;
+    z-index: 999;
+    margin  : 0;
+    padding : 0;
+    .w-bg-normal();
+    .w-box();
+    .w-radiu-small();
+    border-radius: 0 5px 5px 0;
+    .w-transition-quick();
+    .cursor-on();
+
+    .@{t}-title,
+    .@{t}-option {
+        display: inline-block;
+        height : 40px;
+        width  : 100%;
+        padding: 10px 15px;
+        .w-normal-text();
+        .center();
+        .w-box();
+    }
+
+    .@{t}-title {
+        color: black;
+    }
+
+    .@{t}-option {
+        &:hover{
+            .w-bg-important();
+            color: white;
+        }
+    }
+}
