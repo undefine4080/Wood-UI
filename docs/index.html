@@ -110,6 +110,7 @@
           </div>
           <div class="wdu-collapse-item" data-url="#select">Select 下拉选择</div>
           <div class="wdu-collapse-item" data-url="#textarea">Textarea 文本域</div>
+          <div class="wdu-collapse-item" data-url="#form">Form 表单</div>
         </div>
 
         <div class="wdu-collapse-menu" data-title="装饰">
@@ -119,12 +120,11 @@
 
         <div class="wdu-collapse-menu" data-title="导航">
           <div class="wdu-collapse-item" data-url="#nav">Nav 导航菜单</div>
+          <div class="wdu-collapse-item" data-url="#collapse">Collpase 折叠面板
+          </div>
         </div>
 
         <div class="wdu-collapse-menu" data-title="内容">
-          <div class="wdu-collapse-item" data-url="#collapse">Collpase 折叠面板
-          </div>
-
           <div class="wdu-collapse-item" data-url="#tab">Tab 选项卡</div>
 
           <div class="wdu-collapse-item" data-url="#carousel">Carousel 轮播</div>
@@ -622,24 +622,197 @@
       <div class="wdu-box">
         <h2 id="textarea">文本域</h2>
         <p><b>类名：</b>wdu-textarea</p>
-        <p><b>用法：</b>
-        <p><b>属性：</b></p>
+        <p><b>用法：</b>定义一个 textarea 标签，加上类名即可</p>
+        <p><b>属性：</b>label（标签文字），resize（是否启动文本域的大小调整）: 布尔值</p>
         <p><b>示例：</b>
         <pre>
-
+          &lttextarea id="mytext" class="wdu-textarea"
+                  data-option='{"label":"你的建议", "resize":false}'&gt
+          &lt/textarea&gt
         </pre>
         </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <textarea id="mytext" class="wdu-textarea" data-option='{"label":"你的建议", "resize":false}'></textarea>
+              <textarea id="mytext" class="wdu-textarea"
+                  data-option='{"label":"你的建议", "resize":false}'></textarea>
             </div>
+            <div class="descript">不启用大小调整，默认</div>
           </div>
 
           <div class="cpnt-detail">
             <div class="component">
-              <textarea id="mytext" class="wdu-textarea" data-option='{"label":"备注", "resize":false}'></textarea>
+              <textarea id="mytext" class="wdu-textarea"
+                  data-option='{"label":"备注", "resize":true}'></textarea>
             </div>
+            <div class="descript">启用大小调整</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 表单 -->
+      <div class="wdu-box">
+        <h2 id="form">表单</h2>
+        <p><b>类名：</b>wdu-form</p>
+        <p><b>用法：</b>定义一个 form 元素，加上类名，表单的一项使用一个类名为 item 的 div
+          元素来包裹，内部会自动补全类名，div
+          中放入表单的控件</p>
+        <p><b>属性：</b>作用于 wdu-form 元素上的，data-reset（是否指定重置按钮，默认为false）;作用于
+          wdu-form-item 上的，label（表单项的标签文字）</p>
+        <p><b>示例：</b>
+        <pre>
+          &ltform action="" class="wdu-form" data-reset="true"&gt
+            &ltdiv class="item" data-label="你的学历"&gt
+              &ltinput type="text"/&gt
+            &lt/div&gt
+          &lt/form&gt
+        </pre>
+        </p>
+        <div class="show-content">
+          <div class="cpnt-detail">
+            <div class="component">
+              <form action="" class="wdu-form">
+                <div class="item" data-label="你的地区">
+                  <select class="wdu-select" data-label="省">
+                    <option value="1">广西</option>
+                    <option value="2">湖南</option>
+                    <option value="3">贵州</option>
+                    <option value="4">新疆</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="市">
+                    <option value="1">北京</option>
+                    <option value="2">长沙</option>
+                    <option value="3">成都</option>
+                    <option value="4">哈尔滨</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="镇">
+                    <option value="1">梧桐镇</option>
+                    <option value="2">街子古镇</option>
+                    <option value="3">泰安镇</option>
+                    <option value="4">白河镇</option>
+                  </select>
+                </div>
+
+                <div class="item" data-label="你的特长">
+                  <input id="f15" class="wdu-checkbox" data-label="篮球" />
+
+                  <input id="f16" class="wdu-checkbox" data-label="跑步" />
+
+                  <input id="f17" class="wdu-checkbox" data-label="音乐" />
+
+                  <input id="f18" class="wdu-checkbox" data-label="舞蹈" />
+                </div>
+
+                <div class="item" data-label="你的学历">
+                  <input name="education" id="f11" class="wdu-radio"
+                      data-label="初中" />
+
+                  <input name="education" id="f12" class="wdu-radio"
+                      data-label="高中" />
+
+                  <input name="education" id="f13" class="wdu-radio"
+                      data-label="本科" />
+
+                  <input name="education" id="f14" class="wdu-radio"
+                      data-label="硕士" />
+                </div>
+
+                <div class="item" data-label="你的个人信息">
+                  <div class="wdu-input"
+                      data-option='{"type":"text","size":"normal"}'>姓名
+                  </div>
+
+                  <div class="wdu-input"
+                      data-option='{"type":"number","size":"normal"}'>年龄
+                  </div>
+
+                  <div class="wdu-input"
+                      data-option='{"type":"number","size":"normal"}'>电话
+                  </div>
+                </div>
+
+                <div class="item" data-label="你的建议">
+                  <textarea id="mytext" class="wdu-textarea"
+                      data-option='{"label":"你的建议", "resize":false}'></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="descript">默认</div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <form action="" class="wdu-form" data-reset="true">
+                <div class="item" data-label="你的地区">
+                  <select class="wdu-select" data-label="省">
+                    <option value="1">广西</option>
+                    <option value="2">湖南</option>
+                    <option value="3">贵州</option>
+                    <option value="4">新疆</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="市">
+                    <option value="1">北京</option>
+                    <option value="2">长沙</option>
+                    <option value="3">成都</option>
+                    <option value="4">哈尔滨</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="镇">
+                    <option value="1">梧桐镇</option>
+                    <option value="2">街子古镇</option>
+                    <option value="3">泰安镇</option>
+                    <option value="4">白河镇</option>
+                  </select>
+                </div>
+
+                <div class="item" data-label="你的特长">
+                  <input id="f15" class="wdu-checkbox" data-label="篮球" />
+
+                  <input id="f16" class="wdu-checkbox" data-label="跑步" />
+
+                  <input id="f17" class="wdu-checkbox" data-label="音乐" />
+
+                  <input id="f18" class="wdu-checkbox" data-label="舞蹈" />
+                </div>
+
+                <div class="item" data-label="你的学历">
+                  <input name="education" id="f11" class="wdu-radio"
+                      data-label="初中" />
+
+                  <input name="education" id="f12" class="wdu-radio"
+                      data-label="高中" />
+
+                  <input name="education" id="f13" class="wdu-radio"
+                      data-label="本科" />
+
+                  <input name="education" id="f14" class="wdu-radio"
+                      data-label="硕士" />
+                </div>
+
+                <div class="item" data-label="你的个人信息">
+                  <div class="wdu-input"
+                      data-option='{"type":"text","size":"normal"}'>姓名
+                  </div>
+
+                  <div class="wdu-input"
+                      data-option='{"type":"number","size":"normal"}'>年龄
+                  </div>
+
+                  <div class="wdu-input"
+                      data-option='{"type":"number","size":"normal"}'>电话
+                  </div>
+                </div>
+
+                <div class="item" data-label="你的建议">
+                  <textarea id="mytext" class="wdu-textarea"
+                      data-option='{"label":"你的建议", "resize":false}'></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="descript">指定重置按钮</div>
           </div>
         </div>
       </div>
@@ -1217,34 +1390,35 @@
     new wdu.Paper()
     new wdu.Nav(),
       new wdu.Select(),
-      new wdu.Textarea()
+      new wdu.Textarea(),
+      new wdu.Form()
   }, 10)
 
   // 使用弹窗
   document.getElementById('message-btn-1').addEventListener('click', () => {
     wdu.message({
       autoClose: 3,
-      content: '你的大学时光已用完！'
+      content: '这是消息内容'
     })
   })
 
   document.getElementById('message-btn-2').addEventListener('click', () => {
     wdu.message({
-      title: '😱😭😭😭😭😢😭',
-      content: '你的大学时光已用完！'
+      title: '这里是消息的标题',
+      content: '这是消息内容'
     })
   })
 
   document.getElementById('message-btn-3').addEventListener('click', () => {
     wdu.message({
-      content: '你的大学时光已用完！'
+      content: '这是消息内容'
     })
   })
 
   document.getElementById('message-btn-4').addEventListener('click', () => {
     wdu.message({
-      title: '重要提示',
-      content: '你的大学时光已用完！',
+      title: '这里是消息的标题',
+      content: '这是消息内容',
       event: function() {
         setTimeout(() => {
           alert('快要毕业了！！！！！！！！！')
