@@ -28,7 +28,7 @@ export default class SingleSelect extends WDU {
 
         // 原始 option 
         const rawOptions = Array.from(ele.querySelectorAll('option'))
-        rawOptions.forEach((option) => {
+        rawOptions.forEach(option => {
             const li = document.createElement('li')
             li.classList.add(`${this.PREFIX}-option`)
             li.innerText = option.innerText
@@ -37,6 +37,8 @@ export default class SingleSelect extends WDU {
         this.rawOptions = rawOptions
         // title 的内容默认为第一项
         this.title.innerText = rawOptions[0].innerText
+        // 添加聚焦属性 tabindex
+        this.title.setAttribute('tabindex','1')
         // 隐藏原生 select
         ele.style['display'] = 'none'
         // 挂载新 select 到 dom 中
@@ -58,6 +60,11 @@ export default class SingleSelect extends WDU {
             }
         })
 
+        this.title.addEventListener('focusout', (e) => {
+            console.log('世界');
+            this.closeSelect()
+        })
+
         // li 点击事件关联到option
         lis.forEach((li, index) => {
             li.addEventListener('click', (e) => {
@@ -75,12 +82,12 @@ export default class SingleSelect extends WDU {
     }
 
     closeSelect() {
-        this.select.style['height'] = '40px'
+        this.select.style['height'] = '30px'
         this.isOn = false
     }
 
     openSelect(lis) {
-        this.select.style['height'] = `${(lis.length + 1) * 40}px`
+        this.select.style['height'] = `${(lis.length + 1) * 30}px`
         this.isOn = true
     }
 
