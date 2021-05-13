@@ -16,6 +16,7 @@ import Mark from './components/Mark/Mark'
 import Box from './components/Box/Box'
 import Select from './components/Select/Select'
 import Textarea from './components/Textarea/Textarea'
+import Form from './components/Form/Form'
 
 window.wdu = {
     Button: Button,
@@ -33,5 +34,6 @@ window.wdu = {
     Nav: Nav,
     Select: Select,
     Textarea: Textarea,
+    Form: Form,
     message: Message
 }

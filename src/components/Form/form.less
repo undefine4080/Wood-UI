@@ -1,0 +1,33 @@
+@import (reference) '../../main.less';
+
+@t: wdu-form;
+
+.@{t}{
+    margin: 10px;
+    width: 100%;
+    .w-radiu-normal();
+    .w-border-light();
+    .w-box();
+}
+
+.@{t}-item{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 12px 0;
+    align-items: center;
+    .@{t}-label{
+        min-width: 100px;
+        max-width: 100px;
+        text-align: right;
+        align-self: flex-start;
+        padding: 10px;
+        .w-box();
+        .w-large-text();
+    }
+}
+
+.@{t}-handle{
+    border-top: 1px solid rgba(207, 207, 207, 0.6);
+    .center();
+}
