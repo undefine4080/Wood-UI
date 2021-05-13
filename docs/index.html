@@ -90,7 +90,14 @@
     <div class="wdu-aside w-col-2"
         style="height: 100vh; overflow-y: scroll;position:sticky;top: 0;">
       <div class="wdu-collapse">
-        <div class="wdu-collapse-menu" data-title="布局" data-on="true">
+        <div class="wdu-collapse-menu" data-title="快速上手" data-on="true">
+          <div class="wdu-collapse-item" data-url="#introduce">介绍</div>
+          <div class="wdu-collapse-item" data-url="#install">安装</div>
+          <div class="wdu-collapse-item" data-url="#use">使用</div>
+          <div class="wdu-collapse-item" data-url="#example">示例</div>
+        </div>
+
+        <div class="wdu-collapse-menu" data-title="布局">
           <div class="wdu-collapse-item" data-url="#grid">Grid 网格布局</div>
           <div class="wdu-collapse-item" data-url="#container">Container 容器
           </div>
@@ -100,11 +107,11 @@
         <div class="wdu-collapse-menu" data-title="通用">
           <div class="wdu-collapse-item" data-url="#text">Text 文字</div>
           <div class="wdu-collapse-item" data-url="#btn">Button 按钮</div>
+          <div class="wdu-collapse-item" data-url="#switch">Switch 开关</div>
         </div>
 
-        <div class="wdu-collapse-menu" data-title="输入">
+        <div class="wdu-collapse-menu" data-title="表单">
           <div class="wdu-collapse-item" data-url="#input">Input 输入框</div>
-          <div class="wdu-collapse-item" data-url="#switch">Switch 开关</div>
           <div class="wdu-collapse-item" data-url="#radio">Radio 单选按钮</div>
           <div class="wdu-collapse-item" data-url="#checkbox">checkbox 复选按钮
           </div>
@@ -141,14 +148,69 @@
 
     <!-- 主栏 -->
     <div class="wdu-main w-col-10">
+      <!-- 快速上手 -->
+      <div class="wdu-box">
+        <h2 id="introduce">介绍</h2>
+        <p>Wood UI是一款Javascript打造的UI插件库，她小巧、简洁，体积不到 50KB</p>
+        <p>她可以被用来构建你的静态页面，目前为止共包含组件16个，可以实现快速的页面搭建。现在，仍在持续开发中</p>
+        <p>本页面是Wood UI的文档和使用说明，这里是<span class="wdu-mark"
+              data-option='{"url":"https://github.com/undefine4080/Wood-UI", "type":"important"}'>源代码地址</span>
+        </p>
+        <p>无论你是拿来使用还是拿来二次开发，都非常欢迎！</p>
+
+        <h2 id="install">安装</h2>
+        <p>目前， Wood UI 只提供了外部文件引入的方式，后期，等稳定版本开发完成就会推出模块化的引入方式</p>
+        <p>首先需要下载两个文件，<span class="wdu-mark"
+              data-option='{"url":"https://github.com/undefine4080/Wood-UI/tree/master/dist", "type":"important"}'>点击这里</span>
+        </p>
+
+        <h2 id="use">使用</h2>
+        <p>Wood UI会挂载一个名为 wdu 的变量到window上，然后就可以按需调用组件了</p>
+        <p>首先需要在html中定义好元素，然后加上相应的组件的类名，接着通过 data-* 传入配置项</p>
+        <p>最后，保证 woodui.js 加载以后，在一个script标签中，通过　wdu.组件类名 来实例化相应的组件，例如：const btn
+          = new wdu.Button()</p>
+
+        <h2 id="example">示例</h2>
+        <p>下面给出一个完整的示例，共分为 4 个步骤</p>
+        <pre class=" w-normal-text wdu-box">
+          &lt!DOCTYPE html&gt
+          &lthtml lang="en"&gt
+          &lthead&gt
+          &ltmeta charset="UTF-8"&gt
+          &lttitle&gtDocument&lt/title&gt
+
+          &lt!-- 1. 引入 CSS 样式文件 --&gt
+          &ltlink rel="stylesheet" href="./dist/woodui.css"&gt
+          &lt/head&gt
+          &ltbody&gt
+          &ltdiv&gt
+          &ltdiv class="wdu-box"&gt
+
+          &lt!-- 4. 在 html 中定义 wdu 元素 --&gt
+          &ltbutton class="wdu-button"
+          data-option='{"type":"normal"}'&gt确认&lt/button&gt
+          &lt/div&gt
+          &lt/div&gt
+
+          &lt!-- 2. 引入 js 脚本 --&gt
+          &ltscript src="./dist/woodui.js"&gt&lt/script&gt
+          &ltscript&gt
+
+              // 3. 按需调用，new 相应的组件对象
+              const btn = new wdu.Button()
+          &lt/script&gt
+          &lt/body&gt
+          &lt/html&gt
+          </pre>
+      </div>
+
       <!-- 格栅布局 -->
       <div class="wdu-box">
         <h2 id="grid">格栅布局</h2>
-        <p><b>用法： </b> Wood UI提供12格栅系统，将容器宽度均分为12等分，使用类名 w-col-
-          后接范围为1~12的数字即可实现为元素指定等比例的宽度
+        <p><b>用法： </b> 格栅布局主要用于将容器宽度均分，使用类名 w-col- 后接范围为1~12的数字即可实现为元素指定等比例的宽度
         </p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="w-col-6"&gt &lt/div&gt
         </pre>
         </p>
@@ -191,7 +253,7 @@
           即可成为wdu容器。在一个Container的内部，可以使用 wdu-aside 来表示侧边栏，居左；使用
           wdu-main 来表示主要内容，居右。使用 wdu-box 来创建一个盒子，用作外围容器来包裹其中的子元素</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
             &ltdiv class="wdu-container"&gt
               &ltdiv class="wdu-aside"&gt wdu-aside &lt/div&gt
               &ltdiv class="wdu-main"&gt wdu-main &lt/div&gt
@@ -221,7 +283,7 @@
         <p><b>用法：</b>使用 wdu-box 来创建一个盒子，用作外围容器来包裹其中的子元素</p>
         <p><b>属性：</b> hover（鼠标悬浮效果）: true（开启）、false（关闭，默认值）</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
               &ltdiv class="wdu-box" data-hover="true"&gt 这是一个用于包裹元素的盒子&lt/div&gt
         </pre>
         </p>
@@ -250,6 +312,7 @@
       <div class="wdu-box">
         <h2 id="btn">按钮</h2>
         <p><b>类名：</b>wdu-button</p>
+        <p><b>实例化：</b>const btn = new wdu.Button()</p>
         <p><b>用法：</b> 定义一个 button 元素，按钮的类型使用
           来指定，按钮的尺寸使用 size 来指定</p>
         <p><b>属性：</b> type
@@ -257,7 +320,7 @@
           按钮尺寸：small（小）、medium（中）、large（大）
         </p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltbutton class="wdu-button" data-option='{"type":"normal"}'&gt确认&lt/button&gt
         </pre>
         </p>
@@ -388,12 +451,13 @@
       <div class="wdu-box">
         <h2 id="input">输入框</h2>
         <p><b>类名：</b>wdu-input</p>
+        <p><b>实例化：</b>const input = new wdu.Input()</p>
         <p> <b>用法：</b> 定义一个 div 元素，尺寸通过 size 属性指定，说明文字定义在 wdu-input 标签内，输入框类型通过
           type 指定
         </p>
         <p><b>属性：</b>size 输入框大小: small（小）、medium（中）、large（大）</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="wdu-input" data-option='{"size": "large", "type":"password", "placeholder":"请输入密码"}' &gt 密码 &lt/ div&gt 
         </pre>
         </p>
@@ -432,6 +496,7 @@
       <div class="wdu-box">
         <h2 id="switch">开关</h2>
         <p><b>类名：</b>wdu-switch</p>
+        <p><b>实例化：</b>const swt = new wdu.Switch()</p>
         <p><b>用法：</b> 开关的说明文字写在开关的div内，开关的状态通过 status
           来指定，默认为关闭状态</p>
         <p><b>属性：</b>data-status 取值：on（开启）、disabled（禁用）</p>
@@ -440,7 +505,7 @@
           element 表示要绑定回调事件的那个开关的id或者class。第二个参数 event 表示一个函数
         </p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="wdu-switch" data-status="on" &gt 是否开启夜间模式 &lt/ div&gt
         </pre>
         </p>
@@ -473,9 +538,10 @@
       <div class="wdu-box">
         <h2 id="radio">单选按钮</h2>
         <p> <b>类名: </b> wdu-radio</p>
+        <p><b>实例化：</b>const radio = new wdu.Radio()</p>
         <p> <b>用法：</b> 定义一个 input 标签，通过 data-label 属性传入按钮的说明文字。其余用法与原生保持一致</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
             &ltinput class="wdu-radio" data-label="输入用户名" &gt &lt/input&gt
         </pre>
         </p>
@@ -521,9 +587,10 @@
       <div class="wdu-box">
         <h2 id="checkbox">复选框</h2>
         <p> <b>类名: </b> wdu-checkbox</p>
+        <p><b>实例化：</b>const checkbx = new wdu.Checkbox()</p>
         <p> <b>用法：</b> 定义一个 input 标签，通过 data-label 属性传入说明文字。其余用法与原生保持一致</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltinput id="c1" class="wdu-checkbox" data-label="选项1"/&gt
         </pre>
         </p>
@@ -569,10 +636,11 @@
       <div class="wdu-box">
         <h2 id="select">下拉选择</h2>
         <p><b>类名：</b>wdu-select</p>
+        <p><b>实例化：</b>const select = new wdu.Select()</p>
         <p><b>用法：</b>定义一个原生 select 元素，选项通过原生 option 元素来定义
         <p><b>属性：</b>data-label：下拉选择的标签文字</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltselect class="wdu-select" data-label="地区"&gt
             &ltoption value="1"&gt北京&lt/option&gt
             &ltoption value="2"&gt湖南&lt/option&gt
@@ -622,10 +690,11 @@
       <div class="wdu-box">
         <h2 id="textarea">文本域</h2>
         <p><b>类名：</b>wdu-textarea</p>
+        <p><b>实例化：</b>const textarea = new wdu.Textarea()</p>
         <p><b>用法：</b>定义一个 textarea 标签，加上类名即可</p>
         <p><b>属性：</b>label（标签文字），resize（是否启动文本域的大小调整）: 布尔值</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &lttextarea id="mytext" class="wdu-textarea"
                   data-option='{"label":"你的建议", "resize":false}'&gt
           &lt/textarea&gt
@@ -654,13 +723,13 @@
       <div class="wdu-box">
         <h2 id="form">表单</h2>
         <p><b>类名：</b>wdu-form</p>
-        <p><b>用法：</b>定义一个 form 元素，加上类名，表单的一项使用一个类名为 item 的 div
-          元素来包裹，内部会自动补全类名，div
-          中放入表单的控件</p>
+        <p><b>实例化：</b>const from = new wdu.Form()</p>
+        <p><b>用法：</b>定义一个 form 元素，加上类名，表单的每一项使用一个类名为 item 的 div
+          元素来包裹，内部会自动补全类名，wdu-form-item 中放入表单的控件</p>
         <p><b>属性：</b>作用于 wdu-form 元素上的，data-reset（是否指定重置按钮，默认为false）;作用于
-          wdu-form-item 上的，label（表单项的标签文字）</p>
+          wdu-form-item 上的，label（表单控件的标签文字）</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltform action="" class="wdu-form" data-reset="true"&gt
             &ltdiv class="item" data-label="你的学历"&gt
               &ltinput type="text"/&gt
@@ -745,29 +814,6 @@
           <div class="cpnt-detail">
             <div class="component">
               <form action="" class="wdu-form" data-reset="true">
-                <div class="item" data-label="你的地区">
-                  <select class="wdu-select" data-label="省">
-                    <option value="1">广西</option>
-                    <option value="2">湖南</option>
-                    <option value="3">贵州</option>
-                    <option value="4">新疆</option>
-                  </select>
-
-                  <select class="wdu-select" data-label="市">
-                    <option value="1">北京</option>
-                    <option value="2">长沙</option>
-                    <option value="3">成都</option>
-                    <option value="4">哈尔滨</option>
-                  </select>
-
-                  <select class="wdu-select" data-label="镇">
-                    <option value="1">梧桐镇</option>
-                    <option value="2">街子古镇</option>
-                    <option value="3">泰安镇</option>
-                    <option value="4">白河镇</option>
-                  </select>
-                </div>
-
                 <div class="item" data-label="你的特长">
                   <input id="f15" class="wdu-checkbox" data-label="篮球" />
 
@@ -790,6 +836,29 @@
 
                   <input name="education" id="f14" class="wdu-radio"
                       data-label="硕士" />
+                </div>
+
+                <div class="item" data-label="你的地区">
+                  <select class="wdu-select" data-label="省">
+                    <option value="1">广西</option>
+                    <option value="2">湖南</option>
+                    <option value="3">贵州</option>
+                    <option value="4">新疆</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="市">
+                    <option value="1">北京</option>
+                    <option value="2">长沙</option>
+                    <option value="3">成都</option>
+                    <option value="4">哈尔滨</option>
+                  </select>
+
+                  <select class="wdu-select" data-label="镇">
+                    <option value="1">梧桐镇</option>
+                    <option value="2">街子古镇</option>
+                    <option value="3">泰安镇</option>
+                    <option value="4">白河镇</option>
+                  </select>
                 </div>
 
                 <div class="item" data-label="你的个人信息">
@@ -821,12 +890,13 @@
       <div class="wdu-box">
         <h2 id="paper">壁纸</h2>
         <p><b>类名：</b>wdu-paper</p>
+        <p><b>实例化：</b>const paper = new wdu.Paper()</p>
         <p> <b>用法：</b> Paper 壁纸是一个装饰性的组件，提供几个预设的CSS背景样式，用作元素的背景图像。定义一个 div 元素
         </p>
         <p><b>属性：</b>data-name 壁纸名称：
           rey、raft、muscle、carbon、grid、tablecloth、bamboo</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &lt div class="wdu-paper" data-name="raft"&gt &lt/div&gt
         </pre>
         </p>
@@ -859,13 +929,14 @@
       <div class="wdu-box">
         <h2 id="mark">标记 </h2>
         <p><b>类名：</b>wdu-mark </p>
+        <p><b>实例化：</b>const mark = new wdu.Mark()</p>
         <p><b>用法：</b>Mark组件用于高亮一段重要的文本，可以起到强调作用，还兼具超链接的功能</p>
         <p>
           <b>属性：</b>url：需要跳转的目标地址。type：标记类型，预设值为important（重要）、remind（提示）、light（亮点）
         </p>
         <p>
           <b>示例：</b>
-        <pre>
+        <pre >
           &ltspan class="wdu-mark" data-option='{"url":"#btn", "type":"important"}'&gt &lt/span&gt
         </pre>
         </p>
@@ -923,13 +994,14 @@
       <div class="wdu-box">
         <h2 id="nav">导航菜单</h2>
         <p> <b>类名：</b> wdu-nav</p>
+        <p><b>实例化：</b>const nav = new wdu.Nav()</p>
         <p><b>用法：</b>
           导航菜单常用于页面顶部，适合子页面比较多的网页，可以方便的提供导航到特定网页。在 wdu-nav 标签上可以通过 data-fixed
           属性来指定Nav是否固定在页面顶部
         </p>
         <p><b>属性：</b> current：true（在当前页面打开链接），false（默认值，在新标签页打开链接）。 url：链接地址</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="wdu-nav"&gt
             &ltdiv class="wdu-nav-menu" data-title="菜单一"&gt
               &ltdiv class="wdu-nav-item" data-link='{"url": "http://www.bing.com", "current": true}'&gt必应&lt/div&gt
@@ -1086,11 +1158,12 @@
         <h2 id="collapse">折叠面板</h2>
         <p><b>类名：</b> <br> wdu-collapse 折叠面板容器、 wdu-collapse-menu 折叠菜单项 、
           wdu-collapse-item 菜单子选项</p>
+        <p><b>实例化：</b>const collapse = new wdu.Collapse()</p>
         <p> <b>用法：</b> 折叠面板用于便捷的在当前页面内实现局部内容的跳转或刷新</p>
         <p><b>属性：</b> <br> title：定义在折叠菜单项的标签上，指定菜单名称 <br>
           url：定义在菜单子选项的标签上，指定点击后的页内跳转目标</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="wdu-collapse-menu" data-title="跳转"&gt
             &ltdiv class="wdu-collapse-item" data-url="#btn"&gt跳转到 Button 按钮组件&lt/div&gt
           &lt/div&gt
@@ -1128,11 +1201,12 @@
       <div class="wdu-box">
         <h2 id="tab">选项卡</h2>
         <p><b>类名：</b>wdu-tab 选项卡容器、 wdu-tab-block 选项卡元素</p>
+        <p><b>实例化：</b>const tab = new wdu.Tab()</p>
         <p> <b>用法：</b> 定义一个 div 元素，类名为 <b>wdu-tab</b> 。tab切换按钮超出显示区域时，可用
           Shift+鼠标滚轮左右滑动</p>
         <p><b>属性：</b>title：指定选项卡要显示的标题，元素内部则填充要显示的内容</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
           &ltdiv class="wdu-tab"&gt
             &ltdiv class="wdu-tab-block" data-title="选项卡1" &gt
               我们经过平交道，穿越铁轨，来到后车站。横须贺线的铁路沿线都开满了白色的花朵，每次看到这派景象
@@ -1230,11 +1304,12 @@
       <div class="wdu-box">
         <h2 id="carousel">轮播</h2>
         <p><b>类名：</b>wdu-carousel</p>
+        <p><b>实例化：</b>const carousel = new wdu.Carousel()</p>
         <p> <b>用法：</b> 定义一个 div 元素，，轮播元素就是 wdu-caroussel 的直接子元素，需手动编写</p>
         <p><b>属性：</b> width / height（轮播组件宽高）、time（轮播间隔时间）, 默认值为 5
           ，表示5s、auto（是否自动轮播）：取值为true或false</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
               &ltdiv class="wdu-carousel" data-option='{"width":"400px",height":"280px", "time":"5", "auto": false}' &gt
                 &ltimg src="../src/assets/img/1.jpg"&gt
                 &ltimg src="../src/assets/img/2.jpg"&gt
@@ -1276,11 +1351,12 @@
       <div class="wdu-box">
         <h2 id="card">卡片</h2>
         <p><b>类名：</b>wdu-card</p>
+        <p><b>实例化：</b>const card = new wdu.Card()</p>
         <p><b>用法：</b> Card卡片用于便捷的展示一组信息（图片、标题、介绍文字），定义一个 div 元素</p>
         <p><b>属性：</b>size（卡片大小）:
           small（小）、medium（中）、large（大）、img（图片url）、title（卡片标题）、info（文字内容）</p>
         <p><b>示例：</b>
-        <pre>
+        <pre >
             &lt div class="wdu-card" 
                 data-option='{"size":"large", "img":"/src/img/01.png", "title":"珠穆朗玛峰", "info": "海拔8848.86米"}'  
             &gt&lt /div&gt
@@ -1318,8 +1394,7 @@
 
       <!-- 消息提示 -->
       <div class="wdu-box">
-        <h2 id="message">消息弹窗
-        </h2>
+        <h2 id="message">消息弹窗</h2>
         <p> <b>用法：</b> Message用于在页面上弹出一条消息，提示用户，调用方式为
           wdu.Message()，接受一个对象
           <i>config</i> 作为参数，其中有四个属性
