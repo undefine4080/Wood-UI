@@ -109,6 +109,7 @@
           <div class="wdu-collapse-item" data-url="#checkbox">checkbox 复选按钮
           </div>
           <div class="wdu-collapse-item" data-url="#select">Select 下拉选择</div>
+          <div class="wdu-collapse-item" data-url="#textarea">Textarea 文本域</div>
         </div>
 
         <div class="wdu-collapse-menu" data-title="装饰">
@@ -612,6 +613,32 @@
                 <option value="4">2018</option>
                 <option value="4">201</option>
               </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文本域 -->
+      <div class="wdu-box">
+        <h2 id="textarea">文本域</h2>
+        <p><b>类名：</b>wdu-textarea</p>
+        <p><b>用法：</b>
+        <p><b>属性：</b></p>
+        <p><b>示例：</b>
+        <pre>
+
+        </pre>
+        </p>
+        <div class="show-content">
+          <div class="cpnt-detail">
+            <div class="component">
+              <textarea id="mytext" class="wdu-textarea" data-option='{"label":"你的建议", "resize":false}'></textarea>
+            </div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <textarea id="mytext" class="wdu-textarea" data-option='{"label":"备注", "resize":false}'></textarea>
             </div>
           </div>
         </div>
@@ -1189,7 +1216,8 @@
     new wdu.Collapse()
     new wdu.Paper()
     new wdu.Nav(),
-    new wdu.Select()
+      new wdu.Select(),
+      new wdu.Textarea()
   }, 10)
 
   // 使用弹窗

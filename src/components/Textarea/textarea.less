@@ -1,0 +1,38 @@
+@import '../../main.less';
+
+@t: wdu-textarea;
+
+.@{t}-container{
+    width: 100%;
+    margin: 15px;
+}
+
+.@{t} {
+    width: 100%;
+    height: 80px;
+    .w-box();
+    .inside-shadow-light();
+    border-radius: 0 8px 8px 8px;
+    .w-border-light();
+    padding: 8px;
+    .w-normal-text();
+    font-family: '微软雅黑';
+    letter-spacing: 1px;
+    resize: none;
+    overflow: auto;
+    &:focus {
+        outline: none;
+    }
+}
+
+.@{t}-label{
+    display: block;
+    width: max-content;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 5px 5px 0 0 ;
+    .w-bg-active();
+    .w-normal-text();
+    .w-box();
+    color: white;
+}

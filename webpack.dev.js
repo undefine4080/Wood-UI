@@ -56,7 +56,7 @@ module.exports = {
         })
     ],
     devServer: {
-        contentBase: resolve(__dirname, 'build'),
+        contentBase: resolve(__dirname, 'docs'),
         compress: false,
         port: 5507,
         open: true,
