@@ -6,6 +6,12 @@ export default class SingleCarousel extends WDU {
     constructor(ele) {
         super()
         this.PREFIX = 'wdu-carousel'
+        // 当前组件的DOM对象
+        this.ELEMENT = ele
+        // 保存一份组件原始DOM的副本
+        this.ORIGIN = ele.cloneNode(true)
+        // 需要对外提供当前组件的父节点
+        this.PARENT = ele.parentNode
         // 元素零件
         this.E = null
         // 轮播时间间隔

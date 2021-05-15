@@ -29,7 +29,7 @@ export default class WDU {
      */
     init(prefix, exe) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`))
-        if(all){
+        if(all) {
             all.forEach(one => {
                 exe(one)
             })
@@ -41,12 +41,18 @@ export default class WDU {
      * 
      * @param prefix 当前元素类名 
      * @param single 单例组件类
+     * @returns allComponentsObj 组件运行时变量集
      */
     initMult(prefix, single) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`))
+        const allComponentsObj = []
         all.forEach(one => {
-            new single(one)
+            // 当前组件对象
+            const componentObj = new single(one)
+            allComponentsObj.push(componentObj)
         })
+
+        return allComponentsObj
     }
 
     /**
@@ -55,7 +61,7 @@ export default class WDU {
      * @param ele 要擦除配置的元素
      */
     wipeOption(ele) {
-        if (ele.dataset) {
+        if(ele.dataset) {
             // 将 DOMstring，转为 Object
             const keys = Object.keys(Object.assign({}, ele.dataset))
 
@@ -69,7 +75,7 @@ export default class WDU {
      * 只取 Element 类型的元素
      * @param element 需要获取子元素集合的元素
      */
-    getElementChilds(element){
+    getElementChilds(element) {
         return Array.from(element.childNodes).filter((item) => {
             return item.nodeType == 1
         })
@@ -81,7 +87,7 @@ export default class WDU {
      * @param ele 组件元素
      * @param prefix 组件类名
      */
-    disableComponent(ele, prefix){
+    disableComponent(ele, prefix) {
         const childs = Array.from(ele.querySelectorAll(`.${prefix} *`))
         childs.forEach(item => {
             item.addEventListener('click', e => {

@@ -1427,7 +1427,7 @@ class WDU {
      */
     init(prefix, exe) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`))
-        if(all){
+        if(all) {
             all.forEach(one => {
                 exe(one)
             })
@@ -1439,12 +1439,18 @@ class WDU {
      * 
      * @param prefix 当前元素类名 
      * @param single 单例组件类
+     * @returns allComponentsObj 组件运行时变量集
      */
     initMult(prefix, single) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`))
+        const allComponentsObj = []
         all.forEach(one => {
-            new single(one)
+            // 当前组件对象
+            const componentObj = new single(one)
+            allComponentsObj.push(componentObj)
         })
+
+        return allComponentsObj
     }
 
     /**
@@ -1453,7 +1459,7 @@ class WDU {
      * @param ele 要擦除配置的元素
      */
     wipeOption(ele) {
-        if (ele.dataset) {
+        if(ele.dataset) {
             // 将 DOMstring，转为 Object
             const keys = Object.keys(Object.assign({}, ele.dataset))
 
@@ -1467,7 +1473,7 @@ class WDU {
      * 只取 Element 类型的元素
      * @param element 需要获取子元素集合的元素
      */
-    getElementChilds(element){
+    getElementChilds(element) {
         return Array.from(element.childNodes).filter((item) => {
             return item.nodeType == 1
         })
@@ -1479,7 +1485,7 @@ class WDU {
      * @param ele 组件元素
      * @param prefix 组件类名
      */
-    disableComponent(ele, prefix){
+    disableComponent(ele, prefix) {
         const childs = Array.from(ele.querySelectorAll(`.${prefix} *`))
         childs.forEach(item => {
             item.addEventListener('click', e => {
@@ -1645,10 +1651,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Carousel extends _WDU__WEBPACK_IMPORTED_MODULE_0__.default {
-    constructor () {
+    constructor() {
         super()
         this.PREFIX = 'wdu-carousel'
-        super.initMult(this.PREFIX, _SingleCarousel__WEBPACK_IMPORTED_MODULE_1__.default)
+        // 运行时组件变量集
+        this.RUN = super.initMult(this.PREFIX, _SingleCarousel__WEBPACK_IMPORTED_MODULE_1__.default)
+    }
+
+    /** 单个组件元素的重渲染方法
+     * 
+     * @param {string} id 重渲染的那个组件元素id
+     * @param {array} config 配置项
+     */
+    render(id, config) {
+        this.RUN.forEach(item => {
+            // 找到了匹配的的组件对象
+            if(id === item.ORIGIN.id) {
+                // 新增图片或者html
+                if(config.type === 'img') {
+                    this.insertImg(config.content, item)
+                } else if(config.type === 'html') {
+                    this.insertHtml(config.content, item)
+                }
+            }
+        })
+        // 返回重渲染的组件对象
+        return new _SingleCarousel__WEBPACK_IMPORTED_MODULE_1__.default(this.renderDom)
+    }
+
+    insertImg(imgUrl, item) {
+        const {PARENT,ORIGIN,ELEMENT} = item
+        debugger
+
+        // 創建 img 元素
+        const img = document.createElement('img')
+        img.src = imgUrl
+
+        // 将图片插入到组件原始DOM
+        ORIGIN.appendChild(img)
+
+        // 移除原来的组件原始DOM， 换上新的组装后的组件原始DOM
+        this.refreshDom(PARENT,ORIGIN,ELEMENT)
+    }
+
+    insertHtml(html, item) {
+        const [, origin, parent, running] = item
+
+        // 创建一个临时的 div 包裹新添加的DOM
+        const tempDiv = document.createElement('div')
+        tempDiv.innerHTML = html
+
+        // 取出新添加的元素，然后溢出临时外壳
+        origin.appendChild(tempDiv)
+        origin.appendChild(tempDiv.firstElementChild)
+        origin.removeChild(tempDiv)
+
+        // 移除原来的组件原始DOM， 换上新的组装后的组件原始DOM
+        this.refreshDom(parent, running, origin)
+    }
+
+    refreshDom(parent, origin, element) {
+        parent.removeChild(element)
+        parent.appendChild(origin)
+        // 将要被组件类解析的修改好以后的组件原始DOM
+        this.renderDom = origin
     }
 }
 
@@ -1674,6 +1740,12 @@ class SingleCarousel extends _WDU__WEBPACK_IMPORTED_MODULE_1__.default {
     constructor(ele) {
         super()
         this.PREFIX = 'wdu-carousel'
+        // 当前组件的DOM对象
+        this.ELEMENT = ele
+        // 保存一份组件原始DOM的副本
+        this.ORIGIN = ele.cloneNode(true)
+        // 需要对外提供当前组件的父节点
+        this.PARENT = ele.parentNode
         // 元素零件
         this.E = null
         // 轮播时间间隔
