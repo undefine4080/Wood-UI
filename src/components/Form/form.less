@@ -13,17 +13,24 @@
 .@{t}-item{
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowarp;
     margin: 12px 0;
     align-items: center;
+
     .@{t}-label{
-        min-width: 100px;
-        max-width: 100px;
+        // min-width: 150px;
+        // min-width: 150px;
         text-align: right;
         align-self: flex-start;
         padding: 10px;
+        flex-shrink: 0;
         .w-box();
         .w-large-text();
+    }
+
+    .@{t}-container{
+        .row-start();
+        flex-wrap: wrap;
     }
 }
 

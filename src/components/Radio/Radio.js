@@ -28,6 +28,7 @@ export default class Radio extends WDU {
 
         if(ele.disabled) {
             BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`)
+            
         }
 
         super.wipeOption(ele)
