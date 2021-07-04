@@ -6,28 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wood UI</title>
   <style>
+    /* 基本样式 */
     html {
       display: flex;
       justify-content: center;
+      font-size: 62.5%;
     }
 
     body {
-      width: 1200px;
+      width: 100%;
       padding: 0;
       margin: 0;
+      overflow-y: hidden;
+      overflow-x: hidden;
     }
 
-    .side {
-      min-width: 80px;
-      height: max-content;
-      border-right: 1px solid rgb(136, 136, 136);
-      position: sticky;
-      top: 0;
-      left: 0;
-      display: flex;
-      flex-flow: column;
+    /* 布局样式 */
+    #app {
+      justify-content: center;
     }
 
+    #main {
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    #side {
+      background: white;
+      min-width: 180px;
+      height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      z-index: 100;
+    }
+
+    /* 组件模块样式 */
     .cpnt-title {
       text-align: center;
       height: 50px;
@@ -44,7 +57,7 @@
     }
 
     .component {
-      width: 100%;
+      width: auto;
       box-sizing: border-box;
       height: 70%;
       display: flex;
@@ -59,8 +72,8 @@
 
     .show-content {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      flex-flow: row wrap;
+      justify-content: space-between;
     }
 
     .exabox {
@@ -69,26 +82,71 @@
       align-items: center;
       height: 80px;
       background-color: rgb(216, 216, 216) !important;
+      flex-shrink: 1;
     }
 
+    /* 通用样式 */
     p,
     pre {
       font-family: '微软雅黑';
       font-weight: 500;
       color: #666666;
+      overflow-x: auto;
     }
 
     p b {
       color: black;
     }
+
+    /*  侧边栏控制按钮 */
+    #toggle-side {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(rgb(21, 145, 246), rgb(12, 140, 245));
+      border-radius: 10px;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      /* top: calc(50% - 15px); */
+      z-index: 999;
+      display: none;
+      cursor: pointer;
+    }
+
+    .side-open {
+      display: block;
+      width: 160px;
+    }
+
+    /* 响应式样式 */
+    @media screen and (max-width: 980px) {
+
+      /* 隐藏较宽的Nav */
+      #wide-nav {
+        display: none;
+      }
+
+      #main {
+        width: 100%;
+      }
+
+      #side {
+        width: 20%;
+        display: none;
+      }
+
+      #toggle-side {
+        display: block;
+      }
+    }
   </style>
 <link rel="icon" href="logo.ico"><script defer src="example.js"></script></head>
 
 <body class="wdu-paper" data-name="grid">
-  <div class="wdu-container">
+  <div id="app" class="wdu-container">
     <!-- 侧边栏 -->
-    <div class="wdu-aside w-col-2"
-        style="height: 100vh; overflow-y: scroll;position:sticky;top: 0;">
+    <div id="side" class="w-col-2 wdu-aside"
+        style="height: 100vh; overflow-y: auto;">
       <div class="wdu-collapse">
         <div class="wdu-collapse-menu" data-title="快速上手" data-on="true">
           <div class="wdu-collapse-item" data-url="#introduce">介绍</div>
@@ -116,7 +174,8 @@
           <div class="wdu-collapse-item" data-url="#checkbox">checkbox 复选按钮
           </div>
           <div class="wdu-collapse-item" data-url="#select">Select 下拉选择</div>
-          <div class="wdu-collapse-item" data-url="#textarea">Textarea 文本域</div>
+          <div class="wdu-collapse-item" data-url="#textarea">Textarea 文本域
+          </div>
           <div class="wdu-collapse-item" data-url="#form">Form 表单</div>
         </div>
 
@@ -134,20 +193,23 @@
         <div class="wdu-collapse-menu" data-title="内容">
           <div class="wdu-collapse-item" data-url="#tab">Tab 选项卡</div>
 
-          <div class="wdu-collapse-item" data-url="#carousel">Carousel 轮播</div>
+          <div class="wdu-collapse-item" data-url="#carousel">Carousel 轮播
+          </div>
 
           <div class="wdu-collapse-item" data-url="#card">Card 卡片</div>
         </div>
 
         <div class="wdu-collapse-menu" data-title="弹窗">
-          <div class="wdu-collapse-item" data-url="#message">Message 消息提示</div>
+          <div class="wdu-collapse-item" data-url="#message">Message 消息提示
+          </div>
         </div>
 
       </div>
     </div>
 
+
     <!-- 主栏 -->
-    <div class="wdu-main w-col-10">
+    <div id="main" class="w-col-7 wdu-main">
       <!-- 快速上手 -->
       <div class="wdu-box">
         <h2 id="introduce">介绍</h2>
@@ -167,7 +229,8 @@
         <h2 id="use">使用</h2>
         <p>Wood UI会挂载一个名为 wdu 的变量到window上，然后就可以按需调用组件了</p>
         <p>首先需要在html中定义好元素，然后加上相应的组件的类名，接着通过 data-* 传入配置项</p>
-        <p>最后，保证 woodui.js 加载以后，在一个script标签中，通过　wdu.组件类名 来实例化相应的组件，例如：const btn
+        <p>最后，保证 woodui.js 加载以后，在一个script标签中，通过　wdu.组件类名 来实例化相应的组件，例如：const
+          btn
           = new wdu.Button()</p>
 
         <h2 id="example">示例</h2>
@@ -204,7 +267,7 @@
           </pre>
       </div>
 
-      <!-- 格栅布局 -->
+      <!-- 等分布局 -->
       <div class="wdu-box">
         <h2 id="grid">格栅布局</h2>
         <p><b>用法： </b> 格栅布局主要用于将容器宽度均分，使用类名 w-col- 后接范围为1~12的数字即可实现为元素指定等比例的宽度
@@ -230,15 +293,6 @@
               <div class="w-col-12" style="height: 100px;display: flex;">
                 <div class="w-col-8 wdu-box exabox">w-col-8</div>
                 <div class="w-col-4 wdu-box exabox">w-col-4</div>
-              </div>
-
-              <div class="w-col-12" style="height: 100px;display: flex;">
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
-                <div class="w-col-6 wdu-box exabox">w-col-2</div>
               </div>
             </div>
             <div class="descript"></div>
@@ -452,7 +506,8 @@
         <h2 id="input">输入框</h2>
         <p><b>类名：</b>wdu-input</p>
         <p><b>实例化：</b>const input = new wdu.Input()</p>
-        <p> <b>用法：</b> 定义一个 div 元素，尺寸通过 size 属性指定，说明文字定义在 wdu-input 标签内，输入框类型通过
+        <p> <b>用法：</b> 定义一个 div 元素，尺寸通过 size 属性指定，说明文字定义在 wdu-input
+          标签内，输入框类型通过
           type 指定
         </p>
         <p><b>属性：</b>size 输入框大小: small（小）、medium（中）、large（大）</p>
@@ -999,7 +1054,8 @@
           导航菜单常用于页面顶部，适合子页面比较多的网页，可以方便的提供导航到特定网页。在 wdu-nav 标签上可以通过 data-fixed
           属性来指定Nav是否固定在页面顶部
         </p>
-        <p><b>属性：</b> current：true（在当前页面打开链接），false（默认值，在新标签页打开链接）。 url：链接地址</p>
+        <p><b>属性：</b> current：true（在当前页面打开链接），false（默认值，在新标签页打开链接）。 url：链接地址
+        </p>
         <p><b>示例：</b>
         <pre>
           &ltdiv class="wdu-nav"&gt
@@ -1011,7 +1067,7 @@
         </p>
         <div class="show-content">
           <div class="cpnt-detail">
-            <div class="component">
+            <div id="wide-nav" class="component">
               <div class="wdu-nav">
                 <div class="wdu-nav-menu" data-title="菜单一">
                   <div class="wdu-nav-item"
@@ -1117,7 +1173,11 @@
                   <div class="wdu-nav-item"
                       data-link='{"url": "http://www.microsoft.com"}'>微软</div>
                 </div>
+              </div>
+            </div>
 
+            <div id="narrow-nav" class="component">
+              <div class="wdu-nav">
                 <div class="wdu-nav-menu" data-title="菜单一">
                   <div class="wdu-nav-item"
                       data-link='{"url": "http://www.bing.com", "current": true}'>
@@ -1133,7 +1193,22 @@
                       data-link='{"url": "http://www.microsoft.com"}'>微软</div>
                 </div>
 
-                <div class="wdu-nav-menu" data-title="菜单一">
+                <div class="wdu-nav-menu" data-title="菜单二">
+                  <div class="wdu-nav-item"
+                      data-link='{"url": "http://www.bing.com", "current": true}'>
+                    当前页面打开链接</div>
+                  <div class="wdu-nav-item"
+                      data-link='{"url": "http://www.baidu.com"}'>在新标签页打开链接
+                  </div>
+                  <div class="wdu-nav-item"
+                      data-link='{"url": "http://www.taobao.com"}'>淘宝</div>
+                  <div class="wdu-nav-item"
+                      data-link='{"url": "http://www.jd.com"}'>京东</div>
+                  <div class="wdu-nav-item"
+                      data-link='{"url": "http://www.microsoft.com"}'>微软</div>
+                </div>
+
+                <div class="wdu-nav-menu" data-title="菜单三">
                   <div class="wdu-nav-item"
                       data-link='{"url": "http://www.bing.com", "current": true}'>
                     必应</div>
@@ -1174,7 +1249,8 @@
             <div class="component">
               <div class="wdu-collapse">
                 <div class="wdu-collapse-menu" data-title="选项一">
-                  <div class="wdu-collapse-item" data-url="#btn">跳转到 Button 按钮组件
+                  <div class="wdu-collapse-item" data-url="#btn">跳转到 Button
+                    按钮组件
                   </div>
                   <div class="wdu-collapse-item">项目2</div>
                   <div class="wdu-collapse-item">项目3</div>
@@ -1325,7 +1401,7 @@
         </p>
 
         <p><b>动态插入轮播内容示例：</b>
-          <pre>
+        <pre>
                 const carousel = new wdu.Carousel()
                 // 要插入内容的轮播组件元素的 id
                 carousel.render('example-carousel-1', {
@@ -1333,7 +1409,7 @@
                   content: 'https://img.jpg'
                 })
             </pre>
-          </p>
+        </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
@@ -1462,9 +1538,12 @@
       </div>
     </div>
   </div>
+
+  <div id="toggle-side"></div>
 </body>
 
 <script>
+  // 在 woodui.js 加载之后
   setTimeout(function() {
     new wdu.Button()
     new wdu.Box()
@@ -1491,20 +1570,17 @@
       content: '这是消息内容'
     })
   })
-
   document.getElementById('message-btn-2').addEventListener('click', () => {
     wdu.message({
       title: '这里是消息的标题',
       content: '这是消息内容'
     })
   })
-
   document.getElementById('message-btn-3').addEventListener('click', () => {
     wdu.message({
       content: '这是消息内容'
     })
   })
-
   document.getElementById('message-btn-4').addEventListener('click', () => {
     wdu.message({
       title: '这里是消息的标题',
@@ -1515,6 +1591,22 @@
         }, 1000)
       }
     })
+  })
+
+  //  控制侧边栏
+  const sideBtn = document.querySelector('#toggle-side')
+  const sideBar = document.querySelector('#side')
+  let isOpen = false
+  sideBtn.addEventListener('click', () => {
+    if(!isOpen) {
+      sideBar.style['display'] = 'block'
+      sideBar.style['position'] = 'fixed'
+      isOpen = true
+    } else {
+      sideBar.style['display'] = 'none'
+      sideBar.style['position'] = 'relative'
+      isOpen = false
+    }
   })
 </script>
 
