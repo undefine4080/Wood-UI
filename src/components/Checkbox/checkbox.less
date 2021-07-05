@@ -1,4 +1,4 @@
-@import  (reference)  "../../main";
+@import (reference) "../../main";
 
 .wdu-checkbox-label {
     height      : 30px;
@@ -14,23 +14,22 @@
 }
 
 .wdu-checkbox-label .wdu-checkbox-checkmark:after {
-    width        : 40%;
-    height       : 40%;
-    .w-bg-normal();
+    width : 40%;
+    height: 40%;
 }
 
 .wdu-checkbox {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    left: -2px;
-    top:2px;
+    width   : 16px;
+    height  : 16px;
+    left    : -2px;
+    top     : 2px;
     opacity : 0;
-    z-index: 10;
+    z-index : 10;
     cursor  : pointer;
 
     &:checked~.wdu-checkbox-checkmark {
-        .w-bg-important();
+        .w-bg-active();
     }
 
     &:checked~.wdu-checkbox-checkmark:after {
@@ -39,28 +38,28 @@
 }
 
 .wdu-checkbox-checkmark {
-    position        : absolute;
-    top             : 5px;
-    left            : 0;
-    height          : 18px;
-    width           : 18px;
-    border          : 1px solid rgb(224, 224, 224);
-    cursor          : pointer;
+    position     : absolute;
+    top          : 5px;
+    left         : 0;
+    height       : 16px;
+    width        : 16px;
+    border       : 3px solid rgb(231, 231, 231);
+    cursor       : pointer;
     border-radius: 3px;
     .w-bg-normal();
-    .out-shadow-normal();
 
     &:after {
         content : '';
         position: absolute;
-        width: 13px;
-        height: 13px;
+        width   : 12px;
+        height  : 12px;
     }
 
     .center();
 }
 
 .wdu-checkbox-disabled {
-    z-index:15;
-    cursor: not-allowed !important;
+    z-index: 5;
+    cursor : not-allowed;
+    color  : @button-color-disabled;
 }

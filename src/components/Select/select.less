@@ -4,7 +4,6 @@
 
 .@{t}-container {
     .w-bg-normal();
-    .out-shadow-normal();
     .w-radiu-small();
     width          : max-content;
     height         : 30px;
@@ -39,7 +38,8 @@
     margin       : 0;
     padding      : 0;
     border-radius: 0 5px 5px 0;
-    transition   : height 0.3s ease-in-out;
+    .w-transition-quick();
+    .w-border-light();
 
     .@{t}-title,
     .@{t}-option {

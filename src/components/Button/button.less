@@ -68,7 +68,9 @@
 }
 
 .wdu-button-disabled {
-    .w-bg-disabled();
-    cursor: not-allowed !important;
+    cursor: not-allowed;
     color : @button-color-disabled;
+    &:hover{
+        cursor: not-allowed;
+    }
 }

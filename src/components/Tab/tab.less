@@ -7,7 +7,8 @@
     height    : max-content;
     box-sizing: border-box;
     overflow  : hidden;
-    .out-shadow-normal();
+    // .out-shadow-normal();
+    .w-border-light();
     .w-bgcolor-normal();
 }
 
@@ -24,15 +25,16 @@
 }
 
 .@{t}-tab {
+    .w-large-text();
+    .w-radiu-normal();
+    .center();
+    .cursor-on();
     min-height: 35px;
     min-width : 80px;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
     margin: 0 10px;
-    .w-large-text();
-    .w-radiu-normal();
-    .center();
-    .cursor-on();
+    color: @font-color-main;
 }
 
 .@{t}-container {
@@ -57,7 +59,7 @@
 }
 
 .@{t}-checked {
-    .inside-shadow-medium();
+    // .inside-shadow-light();
     .w-bg-active();
 }
 
