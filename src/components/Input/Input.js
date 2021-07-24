@@ -45,11 +45,11 @@ export default class Input extends WDU {
             if(option.size) {
                 ele.classList.add(`${this.PREFIX}-${option.size}`)
             } else {
-                ele.classList.add(`${this.PREFIX}-medium`)
+                ele.classList.add(`${this.PREFIX}-normal`)
             }
         } else {
             input.setAttribute('type', "text")
-            ele.classList.add(`${this.PREFIX}-medium`)
+            ele.classList.add(`${this.PREFIX}-normal`)
         }
     }
 }

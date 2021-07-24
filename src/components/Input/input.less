@@ -2,24 +2,23 @@
 
 .wdu-input {
     .flex();
-    .out-shadow-light();
-    box-sizing: content-box;
-    margin    : 10px;
-    width     : max-content;
+    box-sizing   : content-box;
+    margin       : 10px;
+    width        : max-content;
+    border-radius: 5px;
 }
 
 .wdu-input-input {
-    .out-shadow-light();
     -webkit-appearance: none;
     -moz-appearance   : none;
     background-color  : #fff;
-    border            : 1px solid rgba(83, 83, 83, 0.15);
     border-radius     : 0 5px 5px 0;
     padding           : 5px;
     display           : inline-block;
     outline           : 0;
     box-sizing        : border-box;
     flex-grow         : 1;
+    .w-border-light();
 }
 
 .wdu-input-label {
@@ -46,7 +45,7 @@
     height: 28px;
 }
 
-.wdu-input-medium {
+.wdu-input-normal {
     & input {
         .w-normal-text();
     }

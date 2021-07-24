@@ -47,7 +47,7 @@
 
 .wdu-button-important {
     .w-bg-important();
-    color     : @button-color-front;
+    color     : @w-color-front;
     transition: all 0.5s ease-in-out;
 
     &:hover {
@@ -58,7 +58,7 @@
 
 .wdu-button-danger {
     .w-bg-danger();
-    color     : @button-color-front;
+    color     : @w-color-front;
     transition: all 0.5s ease-in-out;
 
     &:hover {
@@ -68,7 +68,9 @@
 }
 
 .wdu-button-disabled {
-    .w-bg-disabled();
-    cursor: not-allowed !important;
-    color : @button-color-disabled;
+    cursor: not-allowed;
+    color : @w-color-disabled;
+    &:hover{
+        cursor: not-allowed;
+    }
 }

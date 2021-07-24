@@ -1,23 +1,22 @@
 @import (reference) "../../main";
 
 .wdu-radio-label {
-    display     : block;
+    display     : flex;
+    width       : max-content;
     height      : 30px;
     position    : relative;
     padding-left: 30px;
-    font-size   : 14px;
-    font-weight : 700;
     line-height : 30px;
-    color       : @font-color-main;
     margin      : 0 10px;
     user-select : none;
+    align-items: center;
+    .w-normal-text();
 }
 
 .wdu-radio-label .wdu-radio-checkmark:after {
     width        : 40%;
     height       : 40%;
     border-radius: 50%;
-    .w-bg-normal();
 }
 
 .wdu-radio {
@@ -36,24 +35,23 @@
 
 .wdu-radio-checkmark {
     position        : absolute;
-    top             : 5px;
     left            : 0;
     height          : 18px;
     width           : 18px;
-    background-color: @button-color-back;
+    background-color: white;
     border-radius   : 50%;
-    border          : 1px solid rgb(224, 224, 224);
+    border          : 3px solid rgb(231, 231, 231);
     cursor          : pointer;
     .w-bg-normal();
     .center();
-    .out-shadow-normal();
 
     &:after {
-        content   : '';
-        position  : absolute;
+        content : '';
+        position: absolute;
     }
 }
 
 .wdu-radio-disabled {
-    cursor: not-allowed !important;
+    cursor: not-allowed;
+    color : @w-color-disabled;
 }

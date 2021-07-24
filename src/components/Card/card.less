@@ -1,13 +1,13 @@
 @import (reference) "../../main";
 
 .wdu-card {
-    width : 280px;
-    height: 320px;
     .w-radiu-normal();
     .out-shadow-light();
-    .w-border-solid();
+    .w-border-light();
+    background-color: white;
+    width   : 280px;
+    height  : 320px;
     overflow: hidden;
-    .w-bgcolor-normal();
 }
 
 .wdu-card-small {
@@ -25,20 +25,20 @@
     height: 340px;
 }
 
-.wdu-card-img{
-    height:70%;
-    background-size: cover;
+.wdu-card-img {
+    height             : 70%;
+    background-size    : cover;
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat  : no-repeat;
 }
 
-.wdu-card-title{
-    height:10%;
+.wdu-card-title {
+    height: 10%;
     .w-title-text();
 }
 
-.wdu-card-info{
-    height:20%;
+.wdu-card-info {
+    height    : 20%;
     box-sizing: border-box;
     .w-content-text();
 }

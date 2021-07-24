@@ -3,40 +3,43 @@
 @t: wdu-select;
 
 .@{t}-container {
-    width: max-content;
-    height: 30px;
-    margin: 10px;
     .w-bg-normal();
-    .wdu-container();
-    .out-shadow-normal();
     .w-radiu-small();
+    width          : max-content;
+    height         : 30px;
+    margin         : 10px;
+    display        : flex;
+    flex-flow      : row nowrap;
+    position       : relative;
+    justify-content: center;
 }
 
 .@{t}-label {
-    min-width: 30px;
-    padding: 5px;
     .w-radiu-small();
-    border-radius: 5px 0 0 5px;
     .w-bg-active();
     .center();
     .w-normal-text();
-    color: white;
+    min-width    : 30px;
+    padding      : 5px;
+    border-radius: 5px 0 0 5px;
+    color        : white;
 }
 
 .@{t}-select {
-    width   : max-content;
-    height  : 30px;
-    overflow: hidden;
-    position: relative;
-    z-index: 999;
-    margin  : 0;
-    padding : 0;
     .w-bg-normal();
     .w-box();
     .w-radiu-small();
-    border-radius: 0 5px 5px 0;
-    transition: height 0.3s ease-in-out;
     .cursor-on();
+    width        : max-content;
+    height       : 30px;
+    overflow     : hidden;
+    position     : relative;
+    z-index      : 999;
+    margin       : 0;
+    padding      : 0;
+    border-radius: 0 5px 5px 0;
+    .w-transition-quick();
+    .w-border-light();
 
     .@{t}-title,
     .@{t}-option {
@@ -54,7 +57,7 @@
     }
 
     .@{t}-option {
-        &:hover{
+        &:hover {
             .w-bg-important();
             color: white;
         }

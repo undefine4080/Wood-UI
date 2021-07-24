@@ -19,10 +19,14 @@
       margin: 0;
       overflow-y: hidden;
       overflow-x: hidden;
+      font-size: 1.6rem;
     }
 
     /* 布局样式 */
     #app {
+      display: flex;
+      flex-flow: row nowrap;
+      position: relative;
       justify-content: center;
     }
 
@@ -37,7 +41,7 @@
       height: 100vh;
       overflow-y: auto;
       position: relative;
-      z-index: 100;
+      z-index: 5;
     }
 
     /* 组件模块样式 */
@@ -98,6 +102,10 @@
       color: black;
     }
 
+    #narrow-nav {
+      display: none;
+    }
+
     /*  侧边栏控制按钮 */
     #toggle-side {
       width: 30px;
@@ -143,10 +151,9 @@
 <link rel="icon" href="logo.ico"><script defer src="example.js"></script></head>
 
 <body class="wdu-paper" data-name="grid">
-  <div id="app" class="wdu-container">
+  <div id="app">
     <!-- 侧边栏 -->
-    <div id="side" class="w-col-2 wdu-aside"
-        style="height: 100vh; overflow-y: auto;">
+    <div id="side" class="w-col-2" style="height: 100vh; overflow-y: auto;">
       <div class="wdu-collapse">
         <div class="wdu-collapse-menu" data-title="快速上手" data-on="true">
           <div class="wdu-collapse-item" data-url="#introduce">介绍</div>
@@ -156,9 +163,7 @@
         </div>
 
         <div class="wdu-collapse-menu" data-title="布局">
-          <div class="wdu-collapse-item" data-url="#grid">Grid 网格布局</div>
-          <div class="wdu-collapse-item" data-url="#container">Container 容器
-          </div>
+          <div class="wdu-collapse-item" data-url="#col">Col 等分布局</div>
           <div class="wdu-collapse-item" data-url="#box">Box 盒子</div>
         </div>
 
@@ -207,9 +212,8 @@
       </div>
     </div>
 
-
     <!-- 主栏 -->
-    <div id="main" class="w-col-7 wdu-main">
+    <div id="main" class="w-col-7">
       <!-- 快速上手 -->
       <div class="wdu-box">
         <h2 id="introduce">介绍</h2>
@@ -269,8 +273,8 @@
 
       <!-- 等分布局 -->
       <div class="wdu-box">
-        <h2 id="grid">格栅布局</h2>
-        <p><b>用法： </b> 格栅布局主要用于将容器宽度均分，使用类名 w-col- 后接范围为1~12的数字即可实现为元素指定等比例的宽度
+        <h2 id="col">等分布局</h2>
+        <p><b>用法： </b> 主要用于将容器宽度均分，使用类名 w-col- 后接范围为1~12的数字即可实现为元素指定等比例的宽度
         </p>
         <p><b>示例：</b>
         <pre>
@@ -301,7 +305,7 @@
       </div>
 
       <!-- 容器 -->
-      <div class="wdu-box">
+      <!-- <div class="wdu-box">
         <h2 id="container">容器</h2>
         <p><b>用法：</b>Container容器主要是为了方便的实现左右两栏布局，只需要给元素加上 wdu-container
           即可成为wdu容器。在一个Container的内部，可以使用 wdu-aside 来表示侧边栏，居左；使用
@@ -329,7 +333,7 @@
             <div class="descript">wdu-container</div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- 盒子 -->
       <div class="wdu-box">
@@ -1382,11 +1386,6 @@
         <p><b>类名：</b>wdu-carousel</p>
         <p><b>实例化：</b>const carousel = new wdu.Carousel()</p>
         <p> <b>用法：</b> 定义一个 div 元素，，轮播元素就是 wdu-caroussel 的直接子元素，需手动编写</p>
-        <p>
-          <b>动态添加轮播内容：</b>单个组件，通过调用Carousel类的render方法来实现组件运行时添加轮播内容，render方法的第一个参数为组件元素
-          id；第二个元素为一个名为 config 的对象，其中， type 属性的取值为 img 或者
-          html，表示可以插入图片或者一段html；content属性为图片的url链接或者html的字符串（注意，如果要插入html，则这段html只能包裹在一个根元素中）
-        </p>
         <p><b>属性：</b> width / height（轮播组件宽高）、time（轮播间隔时间）, 默认值为 5
           ，表示5s、auto（是否自动轮播）：取值为true或false</p>
         <p><b>示例：</b>
@@ -1400,16 +1399,6 @@
           </pre>
         </p>
 
-        <p><b>动态插入轮播内容示例：</b>
-        <pre>
-                const carousel = new wdu.Carousel()
-                // 要插入内容的轮播组件元素的 id
-                carousel.render('example-carousel-1', {
-                  type: 'img',
-                  content: 'https://img.jpg'
-                })
-            </pre>
-        </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
@@ -1545,22 +1534,22 @@
 <script>
   // 在 woodui.js 加载之后
   setTimeout(function() {
-    new wdu.Button()
-    new wdu.Box()
-    new wdu.Mark()
-    new wdu.Radio()
-    new wdu.Checkbox()
-    new wdu.Card()
-    new wdu.Input()
-    new wdu.Switch()
-    window.carousel_test = new wdu.Carousel()
-    new wdu.Tab()
-    new wdu.Collapse()
-    new wdu.Paper()
-    new wdu.Nav()
-    new wdu.Select()
-    new wdu.Textarea()
-    new wdu.Form()
+    const w1 = new wdu.Button()
+    const w2 = new wdu.Box()
+    const w3 = new wdu.Mark()
+    const w4 = new wdu.Radio()
+    const w5 = new wdu.Checkbox()
+    const w6 = new wdu.Card()
+    const w7 = new wdu.Input()
+    const w8 = new wdu.Switch()
+    const w16 = new wdu.Carousel()
+    const w9 = new wdu.Tab()
+    const w10 = new wdu.Collapse()
+    const w11 = new wdu.Paper()
+    const w12 = new wdu.Nav()
+    const w13 = new wdu.Select()
+    const w14 = new wdu.Textarea()
+    const w15 = new wdu.Form()
   }, 10)
 
   // 使用弹窗
@@ -1592,6 +1581,9 @@
       }
     })
   })
+
+  // 使用 Switch 的回调事件
+  const switchOne = document.getElementById
 
   //  控制侧边栏
   const sideBtn = document.querySelector('#toggle-side')
