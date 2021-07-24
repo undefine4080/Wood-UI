@@ -1386,11 +1386,6 @@
         <p><b>类名：</b>wdu-carousel</p>
         <p><b>实例化：</b>const carousel = new wdu.Carousel()</p>
         <p> <b>用法：</b> 定义一个 div 元素，，轮播元素就是 wdu-caroussel 的直接子元素，需手动编写</p>
-        <p>
-          <b>动态添加轮播内容：</b>单个组件，通过调用Carousel类的render方法来实现组件运行时添加轮播内容，render方法的第一个参数为组件元素
-          id；第二个元素为一个名为 config 的对象，其中， type 属性的取值为 img 或者
-          html，表示可以插入图片或者一段html；content属性为图片的url链接或者html的字符串（注意，如果要插入html，则这段html只能包裹在一个根元素中）
-        </p>
         <p><b>属性：</b> width / height（轮播组件宽高）、time（轮播间隔时间）, 默认值为 5
           ，表示5s、auto（是否自动轮播）：取值为true或false</p>
         <p><b>示例：</b>
@@ -1404,16 +1399,6 @@
           </pre>
         </p>
 
-        <p><b>动态插入轮播内容示例：</b>
-        <pre>
-                const carousel = new wdu.Carousel()
-                // 要插入内容的轮播组件元素的 id
-                carousel.render('example-carousel-1', {
-                  type: 'img',
-                  content: 'https://img.jpg'
-                })
-            </pre>
-        </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
@@ -1557,7 +1542,7 @@
     const w6 = new wdu.Card()
     const w7 = new wdu.Input()
     const w8 = new wdu.Switch()
-    window.carousel_test = new wdu.Carousel()
+    const w16 = new wdu.Carousel()
     const w9 = new wdu.Tab()
     const w10 = new wdu.Collapse()
     const w11 = new wdu.Paper()
