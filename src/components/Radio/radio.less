@@ -1,17 +1,16 @@
 @import (reference) "../../main";
 
 .wdu-radio-label {
-    display     : block;
+    display     : flex;
     width       : max-content;
     height      : 30px;
     position    : relative;
     padding-left: 30px;
-    font-size   : 14px;
-    font-weight : 700;
     line-height : 30px;
-    color       : @font-color-main;
     margin      : 0 10px;
     user-select : none;
+    align-items: center;
+    .w-normal-text();
 }
 
 .wdu-radio-label .wdu-radio-checkmark:after {
@@ -26,7 +25,7 @@
     cursor  : pointer;
 
     &:checked~.wdu-radio-checkmark {
-        .w-bg-active();
+        .w-bg-important();
     }
 
     &:checked~.wdu-radio-checkmark:after {
@@ -36,7 +35,6 @@
 
 .wdu-radio-checkmark {
     position        : absolute;
-    top             : 5px;
     left            : 0;
     height          : 18px;
     width           : 18px;

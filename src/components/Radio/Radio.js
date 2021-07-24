@@ -1,36 +1,37 @@
-import './radio.less'
-import WDU from '../../WDU'
+import './radio.less';
+import WDU from '../../WDU';
 
 export default class Radio extends WDU {
     constructor() {
-        super()
+        super();
+        this.PREFIX = 'wdu-radio';
+        this.genDOM = this.genDOM.bind(this);
 
-        this.PREFIX = 'wdu-radio'
-        this.genDOM = this.genDOM.bind(this)
-
-        super.init(this.PREFIX, this.genDOM)
+        super.init(this.PREFIX, this.genDOM);
     }
 
     genDOM(ele) {
-        const needHtml = [['label', 'label'], ['span', 'checkmark']]
-        const BOXES = super.genHTML(needHtml)
-        const radioFather = ele.parentNode
+        const needHtml = [['label', 'label'], ['span', 'checkmark']];
+        const BOXES = super.genHTML(needHtml);
+        const radioFather = ele.parentNode;
 
         if(ele.dataset.label) {
-            BOXES['label'].innerText = ele.dataset.label
+            BOXES['label'].innerText = ele.dataset.label;
         }
 
-        ele.setAttribute('type', 'radio')
-        radioFather.appendChild(BOXES['label'])
+        ele.setAttribute('type', 'radio');
+        radioFather.appendChild(BOXES['label']);
         // BOXES['label'].setAttribute('for', ele.getAttribute('id'))
-        BOXES['label'].appendChild(radioFather.removeChild(ele))
-        BOXES['label'].appendChild(BOXES['checkmark'])
+        BOXES['label'].appendChild(radioFather.removeChild(ele));
+        BOXES['label'].appendChild(BOXES['checkmark']);
 
+        // 禁用状态
         if(ele.disabled) {
-            BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`)
-            
+            BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`);
+
+            BOXES['label'].classList.add(`${this.PREFIX}-disabled`);
         }
 
-        super.wipeOption(ele)
+        super.wipeOption(ele);
     }
 }
