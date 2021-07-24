@@ -38,7 +38,7 @@ export default class SingleSelect extends WDU {
         // title 的内容默认为第一项
         this.title.innerText = rawOptions[0].innerText;
         // 添加聚焦属性 tabindex
-        this.title.setAttribute('tabindex', '1');
+        this.container.setAttribute('tabindex', '1');
         // 隐藏原生 select
         ele.style['display'] = 'none';
         // 挂载新 select 到 dom 中
@@ -60,7 +60,7 @@ export default class SingleSelect extends WDU {
             }
         });
 
-        this.title.addEventListener('focusout', (e) => {
+        this.container.addEventListener('focusout', (e) => {
             this.closeSelect();
         });
 
