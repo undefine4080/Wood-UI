@@ -8,17 +8,17 @@ export default class WDU {
      * @param elements 二维数组：元素第一项-需要生成的html元素的名称，元素被第二项-生成的html元素的类名
      */
     genHTML(elements) {
-        let BOXES = {}
+        let BOXES = {};
 
         elements.forEach(element => {
-            const boxName = element[1]
-            const ele = document.createElement(element[0])
-            const className = element[1]
-            ele.setAttribute('class', `${this.PREFIX}-${className}`)
-            BOXES[boxName] = ele
-        })
+            const boxName = element[1];
+            const ele = document.createElement(element[0]);
+            const className = element[1];
+            ele.setAttribute('class', `${this.PREFIX}-${className}`);
+            BOXES[boxName] = ele;
+        });
 
-        return BOXES
+        return BOXES;
     }
 
     /**
@@ -28,11 +28,11 @@ export default class WDU {
      * @param exe 需执行的方法
      */
     init(prefix, exe) {
-        const all = Array.from(document.querySelectorAll(`.${prefix}`))
-        if(all) {
+        const all = Array.from(document.querySelectorAll(`.${prefix}`));
+        if(all.length) {
             all.forEach(one => {
-                exe(one)
-            })
+                exe(one);
+            });
         }
     }
 
@@ -44,15 +44,17 @@ export default class WDU {
      * @returns allComponentsObj 组件运行时变量集
      */
     initMult(prefix, single) {
-        const all = Array.from(document.querySelectorAll(`.${prefix}`))
-        const allComponentsObj = []
-        all.forEach(one => {
-            // 当前组件对象
-            const componentObj = new single(one)
-            allComponentsObj.push(componentObj)
-        })
+        const all = Array.from(document.querySelectorAll(`.${prefix}`));
+        const allComponentsObj = [];
+        if(all.length) {
+            all.forEach(one => {
+                // 当前组件对象
+                const componentObj = new single(one);
+                allComponentsObj.push(componentObj);
+            });
+        }
 
-        return allComponentsObj
+        return allComponentsObj;
     }
 
     /**
@@ -63,11 +65,11 @@ export default class WDU {
     wipeOption(ele) {
         if(ele.dataset) {
             // 将 DOMstring，转为 Object
-            const keys = Object.keys(Object.assign({}, ele.dataset))
+            const keys = Object.keys(Object.assign({}, ele.dataset));
 
             keys.forEach(key => {
-                ele.removeAttribute(`data-${key}`)
-            })
+                ele.removeAttribute(`data-${key}`);
+            });
         }
     }
 
@@ -77,8 +79,8 @@ export default class WDU {
      */
     getElementChilds(element) {
         return Array.from(element.childNodes).filter((item) => {
-            return item.nodeType == 1
-        })
+            return item.nodeType == 1;
+        });
     }
 
     /**
@@ -88,12 +90,12 @@ export default class WDU {
      * @param prefix 组件类名
      */
     disableComponent(ele, prefix) {
-        const childs = Array.from(ele.querySelectorAll(`.${prefix} *`))
+        const childs = Array.from(ele.querySelectorAll(`.${prefix} *`));
         childs.forEach(item => {
             item.addEventListener('click', e => {
-                e.stopPropagation()
-            })
-            item.style['cursor'] = 'not-allowed'
-        })
+                e.stopPropagation();
+            });
+            item.style['cursor'] = 'not-allowed';
+        });
     }
 }
