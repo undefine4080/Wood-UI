@@ -57,6 +57,17 @@ export default class WDU {
         return allComponentsObj;
     }
 
+    getOption(ele) {
+        const options = {};
+        for(let i = 0;i < ele.attributes.length;i++) {
+            const attrName = ele.attributes[i].nodeName;
+            const attrValue = ele.attributes[i].nodeValue;
+
+            options[attrName] = attrValue;
+        }
+        return options;
+    }
+
     /**
      * 擦除标签上的配置项
      * 

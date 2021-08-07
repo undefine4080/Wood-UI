@@ -1,36 +1,33 @@
-import WDU from '../../WDU'
-import './card.less'
+import WDU from '../../WDU';
+import './card.less';
 
 export default class Card extends WDU {
-    constructor () {
-        super()
-        
-        this.PREFIX = 'wdu-card'
-        this.genDom = this.genDom.bind(this)
+    constructor() {
+        super();
 
-        super.init(this.PREFIX, this.genDom)
+        this.PREFIX = 'wdu-card';
+        this.genDom = this.genDom.bind(this);
+
+        super.init(this.PREFIX, this.genDom);
     }
 
-    setOption(ele,BOXES) {
-        const option = JSON.parse(ele.dataset.option)
-        BOXES['img'].style.backgroundImage = `url(${option.img})`
-        BOXES['title'].innerText = option.title
-        BOXES['info'].innerText = option.info
-        
-        if(option.size){
-            ele.classList.add(`${this.PREFIX}-${option.size}`)
-        }
+    setOption(ele, BOXES) {
+        const {title, info, img, size} = super.getOption(ele);
+        BOXES['img'].style.backgroundImage = `url(${img})`;
+        BOXES['title'].innerText = title;
+        BOXES['info'].innerText = info;
 
-        ele.removeAttribute('data-option')
+        if(size) {
+            ele.classList.add(`${this.PREFIX}-${size}`);
+        }
     }
 
     genDom(ele) {
-        const needHtml = [['div', 'img'], ['div', 'title'], ['div', 'info']]
-        const BOXES = super.genHTML(needHtml)
-        this.setOption(ele,BOXES)
-        super.wipeOption(ele)
+        const needHtml = [['div', 'img'], ['div', 'title'], ['div', 'info']];
+        const BOXES = super.genHTML(needHtml);
+        this.setOption(ele, BOXES);
         Object.keys(BOXES).forEach(item => {
-            ele.appendChild(BOXES[item])
-        })
+            ele.appendChild(BOXES[item]);
+        });
     }
 }

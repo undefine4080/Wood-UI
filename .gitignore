@@ -8,6 +8,7 @@ yarn-error.log*
 TODO.md
 build
 example/
+/useTest
 
 
 # Editor directories and files
