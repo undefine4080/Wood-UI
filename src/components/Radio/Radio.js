@@ -15,8 +15,9 @@ export default class Radio extends WDU {
         const BOXES = super.genHTML(needHtml);
         const radioFather = ele.parentNode;
 
-        if(ele.dataset.label) {
-            BOXES['label'].innerText = ele.dataset.label;
+        const {label} = super.getOption(ele);
+        if(label) {
+            BOXES['label'].innerText = label;
         }
 
         ele.setAttribute('type', 'radio');
@@ -28,10 +29,7 @@ export default class Radio extends WDU {
         // 禁用状态
         if(ele.disabled) {
             BOXES['label'].lastChild.classList.add(`${this.PREFIX}-disabled`);
-
             BOXES['label'].classList.add(`${this.PREFIX}-disabled`);
         }
-
-        super.wipeOption(ele);
     }
 }

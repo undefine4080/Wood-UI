@@ -74,8 +74,9 @@ export default class SingleSelect extends WDU {
     }
 
     setOption(ele) {
-        if(ele.dataset.label) {
-            this.label.innerText = ele.dataset.label;
+        const {label} = super.getOption(ele);
+        if(label) {
+            this.label.innerText = label;
         }
         super.wipeOption(ele);
     }

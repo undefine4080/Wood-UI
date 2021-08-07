@@ -1,13 +1,13 @@
-import './button.less'
-import WDU from '../../WDU'
+import './button.less';
+import WDU from '../../WDU';
 export default class Button extends WDU {
     constructor() {
-        super()
+        super();
 
-        this.PREFIX = 'wdu-button'
-        this.setOption = this.setOption.bind(this)
+        this.PREFIX = 'wdu-button';
+        this.setOption = this.setOption.bind(this);
 
-        super.init(this.PREFIX, this.setOption)
+        super.init(this.PREFIX, this.setOption);
     }
 
     /**
@@ -15,25 +15,19 @@ export default class Button extends WDU {
      * @param {Element} ele dom元素
      */
     setOption(ele) {
-        if(ele.dataset.option) {
-            const option = JSON.parse(ele.dataset.option)
+        const {size, type} = super.getOption(ele);
 
-            if(option.size) {
-                ele.classList.add(`${this.PREFIX}-${option.size}`)
-            } else {
-                ele.classList.add(`${this.PREFIX}-medium`)
-            }
-
-            if(option.type) {
-                ele.classList.add(`${this.PREFIX}-${option.type}`)
-            } else {
-                ele.classList.add(`${this.PREFIX}-normal`)
-            }
+        if(size) {
+            ele.classList.add(`${this.PREFIX}-${size}`);
         } else {
-            new Array(`${this.PREFIX}-medium`, `${this.PREFIX}-normal`).forEach(item => {
-                ele.classList.add(item)
-            })
+            ele.classList.add(`${this.PREFIX}-medium`);
         }
-        super.wipeOption(ele)
+
+        if(type) {
+            ele.classList.add(`${this.PREFIX}-${type}`);
+        } else {
+            ele.classList.add(`${this.PREFIX}-normal`);
+        }
     }
 }
+

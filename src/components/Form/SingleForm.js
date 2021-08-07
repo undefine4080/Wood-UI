@@ -41,15 +41,16 @@ export default class SingleForm extends WDU {
 
     setOption(ele) {
         this.formItems.forEach(item => {
-            if(item.dataset.label) {
-                const label = item.firstElementChild;
-                label.innerText = item.dataset.label;
-                super.wipeOption(item);
+            const {label} = super.getOption(item);
+            if(label) {
+                const labelElement = item.firstElementChild;
+                labelElement.innerText = label;
             }
         });
 
         // 是否渲染 重置 表单按钮
-        if(ele.dataset.reset) {
+        const {reset} = super.getOption(ele);
+        if(reset) {
             this.setReset(ele);
         }
     }

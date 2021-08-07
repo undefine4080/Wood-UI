@@ -1,55 +1,52 @@
-import './input.less'
-import WDU from '../../WDU'
+import './input.less';
+import WDU from '../../WDU';
 
 export default class Input extends WDU {
     constructor() {
-        super()
-        this.PREFIX = 'wdu-input'
-        this.ele = null
-        this.genDom = this.genDom.bind(this)
-        super.init(this.PREFIX, this.genDom)
+        super();
+        this.PREFIX = 'wdu-input';
+        this.ele = null;
+        this.genDom = this.genDom.bind(this);
+        super.init(this.PREFIX, this.genDom);
     }
 
     genDom(ele) {
-        this.ele = ele
-        const needHtml = [['label', 'label'], ['input', 'input']]
-        const BOXES = super.genHTML(needHtml)
-        BOXES['label'].innerText = ele.innerText
-        ele.innerText = null
+        this.ele = ele;
+        const needHtml = [['label', 'label'], ['input', 'input']];
+        const BOXES = super.genHTML(needHtml);
+        BOXES['label'].innerText = ele.innerText;
+        ele.innerText = null;
 
-        ele.appendChild(BOXES['label'])
-        ele.appendChild(BOXES['input'])
-        
+        ele.appendChild(BOXES['label']);
+        ele.appendChild(BOXES['input']);
 
-        this.setOption(ele)
-        super.wipeOption(ele)
+
+        this.setOption(ele);
     }
 
     setOption(ele) {
-        const input = ele.lastChild
+        const inputElement = ele.lastChild;
+        const {input, size, type} = super.getOption(ele);
 
-        if(ele.dataset.option) {
-            const option = JSON.parse(ele.dataset.option)
-            if(option.input) {
-                Object.entries(option.input).forEach(item => {
-                    input.setAttribute(item[0], item[1])
-                })
-            }
-
-            if(option.type) {
-                input.setAttribute('type', option.type)
-            } else {
-                input.setAttribute('type', "text")
-            }
-
-            if(option.size) {
-                ele.classList.add(`${this.PREFIX}-${option.size}`)
-            } else {
-                ele.classList.add(`${this.PREFIX}-normal`)
-            }
+        if(input) {
+            Object.entries(input).forEach(item => {
+                inputElement.setAttribute(item[0], item[1]);
+            });
         } else {
-            input.setAttribute('type', "text")
-            ele.classList.add(`${this.PREFIX}-normal`)
+            inputElement.setAttribute('type', "text");
         }
+
+        if(type) {
+            inputElement.setAttribute('type', type);
+        } else {
+            inputElement.setAttribute('type', "text");
+        }
+
+        if(size) {
+            ele.classList.add(`${this.PREFIX}-${size}`);
+        } else {
+            ele.classList.add(`${this.PREFIX}-normal`);
+        }
+
     }
 }
