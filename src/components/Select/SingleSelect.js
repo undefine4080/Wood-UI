@@ -78,7 +78,6 @@ export default class SingleSelect extends WDU {
         if(label) {
             this.label.innerText = label;
         }
-        super.wipeOption(ele);
     }
 
     closeSelect() {

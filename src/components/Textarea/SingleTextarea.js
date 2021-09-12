@@ -28,7 +28,6 @@ export default class SingleTextarea extends WDU {
 
     setOption(ele) {
         const {label, resize} = super.getOption(ele);
-        debugger;
         // 标签文字
         if(label) {
             this.label.innerText = label;

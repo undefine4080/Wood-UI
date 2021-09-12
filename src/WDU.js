@@ -60,8 +60,9 @@ export default class WDU {
     getOption(ele) {
         const options = {};
         for(let i = 0;i < ele.attributes.length;i++) {
-            const attrName = ele.attributes[i].nodeName;
-            const attrValue = ele.attributes[i].nodeValue;
+            const eleAttr = ele.attributes[i] // 缓存元素属性
+            const attrName = eleAttr.nodeName;
+            const attrValue = eleAttr.nodeValue;
 
             options[attrName] = attrValue;
         }
@@ -73,16 +74,16 @@ export default class WDU {
      * 
      * @param ele 要擦除配置的元素
      */
-    wipeOption(ele) {
-        if(ele.dataset) {
-            // 将 DOMstring，转为 Object
-            const keys = Object.keys(Object.assign({}, ele.dataset));
+    // wipeOption(ele) {
+    //     if(ele.dataset) {
+    //         // 将 DOMstring，转为 Object
+    //         const keys = Object.keys(Object.assign({}, ele.dataset));
 
-            keys.forEach(key => {
-                ele.removeAttribute(`data-${key}`);
-            });
-        }
-    }
+    //         keys.forEach(key => {
+    //             ele.removeAttribute(`data-${key}`);
+    //         });
+    //     }
+    // }
 
     /**
      * 只取 Element 类型的元素
