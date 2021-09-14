@@ -17,6 +17,7 @@ import Box from './components/Box/Box';
 import Select from './components/Select/Select';
 import Textarea from './components/Textarea/Textarea';
 import Form from './components/Form/Form';
+import Tips from './components/Tips/Tips'
 
 window.wdu = {
     Button: new Button(),
@@ -35,5 +36,6 @@ window.wdu = {
     Select: new Select(),
     Textarea: new Textarea(),
     Form: new Form(),
-    message: Message
+    message: Message,
+    Tips: new Tips()
 };

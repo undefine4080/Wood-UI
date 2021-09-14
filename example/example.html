@@ -205,10 +205,9 @@
         </div>
 
         <div class="wdu-collapse-menu" text="弹窗">
-          <div class="wdu-collapse-item" url="#message">Message 消息提示
-          </div>
+          <div class="wdu-collapse-item" url="#message">Message 消息提示</div>
+          <div class="wdu-collapse-item" url="#tips">Tips 文字提示</div>
         </div>
-
       </div>
     </div>
 
@@ -217,7 +216,7 @@
       <!-- 快速上手 -->
       <div class="wdu-box">
         <h2 id="introduce">介绍</h2>
-        <p>Wood UI是一款Javascript打造的UI插件库，她小巧、简洁，体积不到 50KB</p>
+        <p>Wood UI是一款原生Javascript打造的UI插件库，她小巧、简洁，体积不到 50KB</p>
         <p>她可以被用来构建你的静态页面，目前为止共包含组件16个，可以实现快速的页面搭建。现在，仍在持续开发中</p>
         <p>本页面是Wood UI的文档和使用说明，这里是<span class="wdu-mark"
               url="https://github.com/undefine4080/Wood-UI"
@@ -233,8 +232,8 @@
         </p>
 
         <h2 id="use">使用</h2>
-        <p>Wood UI会挂载一个名为 wdu 的变量到window上，然后就可以按需调用组件了</p>
-        <p>首先需要在html中定义好元素，然后加上相应的组件的类名，接着传入配置项</p>
+        <p>Wood UI会自动挂载到全局变量中</p>
+        <p>首先需要在html中定义好元素，然后加上相应的组件的类名，接着给出自定义属性</p>
 
         <h2 id="example">示例</h2>
         <p>下面给出一个完整的示例，共分为 4 个步骤</p>
@@ -259,7 +258,7 @@
           &ltdiv class="wdu-box"&gt
 
           &lt!-- 3. 在 html 中定义 wdu 元素 --&gt
-            &ltbutton class="wdu-button" type="normal" &gt确认&lt/button&gt
+              &ltbutton class="wdu-button" type="normal" &gt确认&lt/button&gt
           &lt/div&gt
           &lt/div&gt
 
@@ -1483,6 +1482,51 @@
                   typ=:"important"}'>启动消息提示</button>
             </div>
             <div class="descript">添加了回调函数</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文字提示 -->
+      <div class="wdu-box">
+        <h2 id="tips">文字提示</h2>
+        <p>
+          <b>类名：</b> wdu-tips
+        <p>
+          <b>用法：</b>
+          <i>type（文字提示的类型）：normal 普通、important 重要、danger 紧急</i> <br />
+          <i>text（文字提示的内容）</i>
+        </p>
+
+        <p><b>示例：</b>
+        <pre>
+          &ltdiv class="wdu-tips" type="normal" text="普通普通"&gt
+            这是一段表示普通的文字
+          &lt/div&gt
+        </pre>
+        </p>
+        <div class="show-content">
+          <div class="cpnt-detail">
+            <div class="component">
+              <div class="wdu-box wdu-tips" type="normal" text="普通普通">
+                这是一段表示普通的文字
+              </div>
+            </div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <div class="wdu-tips wdu-box" type="important" text="提醒提醒">
+                这是一段表示提醒的文字
+              </div>
+            </div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <div class="wdu-tips wdu-box" type="danger" text="这是一段表示紧急的文字">
+                这是一段表示紧急的文字
+              </div>
+            </div>
           </div>
         </div>
       </div>
