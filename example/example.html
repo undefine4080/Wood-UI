@@ -368,8 +368,8 @@
         <p><b>类名：</b>wdu-button</p>
         <p><b>用法：</b> 定义一个 button 元素，按钮的类型使用 type 来指定，按钮的尺寸使用 size 来指定</p>
         <p><b>属性：</b> type
-          按钮类型：normal（常规按钮）、important（提示性按钮）、danger（危险按钮）、disabeled（禁用按钮）。size
-          按钮尺寸：small（小）、medium（中）、large（大）
+          按钮类型：primary（常规按钮）、important（提示性按钮）、danger（危险按钮）、disabeled（禁用按钮）。size
+          按钮尺寸：small（小）、normal（中）、large（大）
         </p>
         <p><b>示例：</b>
         <pre>
@@ -379,7 +379,7 @@
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <button class="wdu-button" type="normal">
+              <button class="wdu-button" type="primary">
                 确认
               </button>
             </div>
@@ -424,7 +424,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <button class="wdu-button" size="medium">
+              <button class="wdu-button" size="normal">
                 点我
               </button>
             </div>
@@ -507,7 +507,7 @@
           标签内，输入框类型通过
           type 指定
         </p>
-        <p><b>属性：</b>size 输入框大小: small（小）、medium（中）、large（大）</p>
+        <p><b>属性：</b>size 输入框大小: small（小）、normal（常规）、large（大）</p>
         <p><b>示例：</b>
         <pre>
           &ltdiv class="wdu-input" size="large" type="password" placeholder="请输入密码" &gt 密码 &lt/ div&gt 
@@ -524,10 +524,10 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div class="wdu-input" type="number" size="medium">金额
+              <div class="wdu-input" type="number" size="normal">金额
               </div>
             </div>
-            <div class="descript">中输入框</div>
+            <div class="descript">常规输入框</div>
           </div>
 
           <div class="cpnt-detail">
@@ -1389,7 +1389,7 @@
         <p><b>类名：</b>wdu-card</p>
         <p><b>用法：</b> Card卡片用于便捷的展示一组信息（图片、标题、介绍文字），定义一个 div 元素</p>
         <p><b>属性：</b>size（卡片大小）:
-          small（小）、medium（中）、large（大）、img（图片url）、title（卡片标题）、info（文字内容）</p>
+          small（小）、normal（常规）、large（大）、img（图片url）、title（卡片标题）、info（文字内容）</p>
         <p><b>示例：</b>
         <pre>
             &lt div class="wdu-card" 
@@ -1411,13 +1411,13 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div class="wdu-card" size="medium"
+              <div class="wdu-card" size="normal"
                   img="https://th.bing.com/th/id/R7db33490f49cf2aaea24fb1f6c4495c2?rik=lqQzs6RgM8FyoQ&pid=ImgRaw"
                   title="珠穆朗玛峰"
                   info="海拔8848.86米，重量5.6亿吨，硅含量23%，铁含量：17.2%，铜含量：0.23%">
               </div>
             </div>
-            <div class="descript">中卡片</div>
+            <div class="descript">常规卡片</div>
           </div>
 
           <div class="cpnt-detail">

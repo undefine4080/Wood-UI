@@ -19,6 +19,8 @@ export default class Card extends WDU {
 
         if(size) {
             ele.classList.add(`${this.PREFIX}-${size}`);
+        }else{
+            ele.classList.add(`${this.PREFIX}-normal`);
         }
     }
 

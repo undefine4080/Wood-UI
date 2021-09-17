@@ -20,13 +20,13 @@ export default class Button extends WDU {
         if(size) {
             ele.classList.add(`${this.PREFIX}-${size}`);
         } else {
-            ele.classList.add(`${this.PREFIX}-medium`);
+            ele.classList.add(`${this.PREFIX}-normal`);
         }
 
         if(type) {
             ele.classList.add(`${this.PREFIX}-${type}`);
         } else {
-            ele.classList.add(`${this.PREFIX}-normal`);
+            ele.classList.add(`${this.PREFIX}-primary`);
         }
     }
 }
