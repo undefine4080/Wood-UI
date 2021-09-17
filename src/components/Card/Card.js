@@ -4,10 +4,8 @@ import './card.less';
 export default class Card extends WDU {
     constructor() {
         super();
-
         this.PREFIX = 'wdu-card';
         this.genDom = this.genDom.bind(this);
-
         super.init(this.PREFIX, this.genDom);
     }
 

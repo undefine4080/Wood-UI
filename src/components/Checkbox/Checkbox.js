@@ -4,10 +4,8 @@ import WDU from '../../WDU';
 export default class Checkbox extends WDU {
     constructor() {
         super();
-
         this.PREFIX = 'wdu-checkbox';
         this.genDOM = this.genDOM.bind(this);
-
         super.init(this.PREFIX, this.genDOM);
     }
 

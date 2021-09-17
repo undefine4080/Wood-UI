@@ -3,10 +3,8 @@ import WDU from '../../WDU';
 export default class Button extends WDU {
     constructor() {
         super();
-
         this.PREFIX = 'wdu-button';
         this.setOption = this.setOption.bind(this);
-
         super.init(this.PREFIX, this.setOption);
     }
 
