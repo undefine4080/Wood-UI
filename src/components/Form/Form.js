@@ -57,7 +57,7 @@ class SingleForm extends WDU {
 
     setSubmit(ele) {
         const submit = document.createElement('button');
-        submit.classList.add('wdu-button', 'wdu-button-important', 'wdu-button-medium');
+        submit.classList.add('wdu-button', 'wdu-button-important', 'wdu-button-normal');
         submit.innerText = '提交';
         submit.addEventListener('click', () => {
             ele.submit();
@@ -70,7 +70,7 @@ class SingleForm extends WDU {
 
     setReset(ele) {
         const reset = document.createElement('button');
-        reset.classList.add('wdu-button', 'wdu-button-danger', 'wdu-button-medium');
+        reset.classList.add('wdu-button', 'wdu-button-danger', 'wdu-button-normal');
         reset.innerText = '重置';
         reset.addEventListener('click', () => {
             ele.reset();

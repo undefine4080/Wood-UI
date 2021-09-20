@@ -52,7 +52,10 @@ class singleSwitch extends WDU {
             e.stopPropagation();
             this.switchEle.classList.toggle("s-on");
             this.isOn = !this.isOn;
-            this.click(this.isOn);
+            
+            if(this.click && typeof this.click === 'function'){
+                this.click(this.isOn);
+            }
         });
     }
 }

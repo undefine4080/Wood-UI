@@ -33,8 +33,6 @@
     width        : max-content;
     height       : 30px;
     overflow     : hidden;
-    position     : relative;
-    z-index      : 100;
     margin       : 0;
     padding      : 0;
     border-radius: 0 5px 5px 0;
@@ -47,6 +45,8 @@
         height : 30px;
         width  : 100%;
         padding: 5px 15px;
+        position: relative;
+        z-index: 99;
         .w-normal-text();
         .center();
         .w-box();
@@ -60,6 +60,7 @@
         &:hover {
             .w-bg-important();
             color: white;
+            z-index: 100;
         }
     }
 }
