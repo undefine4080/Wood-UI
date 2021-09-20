@@ -17,25 +17,33 @@ import Box from './components/Box/Box';
 import Select from './components/Select/Select';
 import Textarea from './components/Textarea/Textarea';
 import Form from './components/Form/Form';
-import Tips from './components/Tips/Tips'
+import Tips from './components/Tips/Tips';
+import WDU from './WDU';
 
-window.wdu = {
-    Button: new Button(),
-    Box: new Box(),
-    Mark: new Mark(),
-    Radio: new Radio(),
-    Checkbox: new Checkbox(),
-    Card: new Card(),
-    Input: new Input(),
-    Switch: new Switch(),
-    Carousel: new Carousel(),
-    Tab: new Tab(),
-    Collapse: new Collapse(),
-    Paper: new Paper(),
-    Nav: new Nav(),
-    Select: new Select(),
-    Textarea: new Textarea(),
-    Form: new Form(),
-    message: Message,
-    Tips: new Tips()
-};
+class Core extends WDU {
+    constructor() {
+        super();
+        this.Button = new Button();
+        this.Box = new Box();
+        this.Mark = new Mark();
+        this.Radio = new Radio();
+        this.Checkbox = new Checkbox();
+        this.Card = new Card();
+        this.Input = new Input();
+        this.Switch = new Switch();
+        this.Carousel = new Carousel();
+        this.Tab = new Tab();
+        this.Collapse = new Collapse();
+        this.Paper = new Paper();
+        this.Nav = new Nav();
+        this.Select = new Select();
+        this.Textarea = new Textarea();
+        this.Form = new Form();
+        this.Message = Message;
+        this.Tips = new Tips();
+    }
+}
+
+window.wdu = new Core();
+
+

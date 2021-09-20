@@ -1,7 +1,7 @@
 /**
  * 基类
  */
-export default class WDU {
+class WDU {
     /**
      * 生成所需要的HTML元素
      * 
@@ -45,22 +45,30 @@ export default class WDU {
      */
     initMult(prefix, single) {
         const all = Array.from(document.querySelectorAll(`.${prefix}`));
-        const allComponentsObj = [];
+
         if(all.length) {
-            all.forEach(one => {
+            all.map(one => {
                 // 当前组件对象
-                const componentObj = new single(one);
-                allComponentsObj.push(componentObj);
+                const componentInstance = new single(one);
+                one.wduComponent = componentInstance;
             });
         }
+    }
 
-        return allComponentsObj;
+    /**
+     * 
+     * @param id 元素id
+     * @returns 元素对应的组件实例
+     */
+    selectComponentById(id) {
+        const componentElement = document.getElementById(id);
+        return componentElement.wduComponent;
     }
 
     getOption(ele) {
         const options = {};
         for(let i = 0;i < ele.attributes.length;i++) {
-            const eleAttr = ele.attributes[i] // 缓存元素属性
+            const eleAttr = ele.attributes[i]; // 缓存元素属性
             const attrName = eleAttr.nodeName;
             const attrValue = eleAttr.nodeValue;
 
@@ -68,22 +76,6 @@ export default class WDU {
         }
         return options;
     }
-
-    /**
-     * 擦除标签上的配置项
-     * 
-     * @param ele 要擦除配置的元素
-     */
-    // wipeOption(ele) {
-    //     if(ele.dataset) {
-    //         // 将 DOMstring，转为 Object
-    //         const keys = Object.keys(Object.assign({}, ele.dataset));
-
-    //         keys.forEach(key => {
-    //             ele.removeAttribute(`data-${key}`);
-    //         });
-    //     }
-    // }
 
     /**
      * 只取 Element 类型的元素
@@ -102,8 +94,8 @@ export default class WDU {
      * @param prefix 组件类名
      */
     disableComponent(ele, prefix) {
-        const childs = Array.from(ele.querySelectorAll(`.${prefix} *`));
-        childs.forEach(item => {
+        const child = Array.from(ele.querySelectorAll(`.${prefix} *`));
+        child.forEach(item => {
             item.addEventListener('click', e => {
                 e.stopPropagation();
             });
@@ -111,3 +103,5 @@ export default class WDU {
         });
     }
 }
+
+export default WDU;
