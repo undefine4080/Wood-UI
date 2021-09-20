@@ -504,19 +504,18 @@
         <h2 id="input">输入框</h2>
         <p><b>类名：</b>wdu-input</p>
         <p> <b>用法：</b> 定义一个 div 元素，尺寸通过 size 属性指定，说明文字定义在 wdu-input
-          标签内，输入框类型通过
-          type 指定
+          标签内，输入框类型通过 type 指定，输入框提示文字通过 tips 属性指定
         </p>
         <p><b>属性：</b>size 输入框大小: small（小）、normal（常规）、large（大）</p>
         <p><b>示例：</b>
         <pre>
-          &ltdiv class="wdu-input" size="large" type="password" placeholder="请输入密码" &gt 密码 &lt/ div&gt 
+          &ltdiv class="wdu-input" size="large" type="password" tips="请输入密码" &gt 密码 &lt/ div&gt 
         </pre>
         </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <div class="wdu-input" type="text" size="small">姓名
+              <div class="wdu-input" type="text" size="small" tips="请输入金额"> 姓名
               </div>
             </div>
             <div class="descript">小输入框</div>
@@ -524,7 +523,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div class="wdu-input" type="number" size="normal">金额
+              <div class="wdu-input" type="number" size="normal" tips="请输入金额">金额
               </div>
             </div>
             <div class="descript">常规输入框</div>
@@ -532,7 +531,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div class="wdu-input" type="text" size="large">
+              <div class="wdu-input" type="text" size="large" tips="请输入金额">
                 输入框</div>
             </div>
             <div class="descript">大输入框</div>

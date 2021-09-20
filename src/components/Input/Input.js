@@ -1,40 +1,28 @@
 import './input.less';
 import WDU from '../../WDU';
 
-export default class Input extends WDU {
-    constructor() {
+class singleInput extends WDU {
+    constructor(ele) {
         super();
         this.PREFIX = 'wdu-input';
-        this.ele = null;
-        this.genDom = this.genDom.bind(this);
-        super.init(this.PREFIX, this.genDom);
+        this.ELE = ele;
+        this.genDom();
+        this.setOption();
     }
 
-    genDom(ele) {
-        this.ele = ele;
+    genDom() {
         const needHtml = [['label', 'label'], ['input', 'input']];
-        const BOXES = super.genHTML(needHtml);
-        BOXES['label'].innerText = ele.innerText;
-        ele.innerText = null;
-
-        ele.appendChild(BOXES['label']);
-        ele.appendChild(BOXES['input']);
-
-
-        this.setOption(ele);
+        const E = super.genHTML(needHtml);
+        E['label'].innerText = this.ELE.innerText;
+        this.ELE.innerText = null;
+        this.ELE.appendChild(E['label']);
+        this.ELE.appendChild(E['input']);
+        this.ELE = this.ELE;
     }
 
-    setOption(ele) {
-        const inputElement = ele.lastChild;
-        const {input, size, type} = super.getOption(ele);
-
-        if(input) {
-            Object.entries(input).forEach(item => {
-                inputElement.setAttribute(item[0], item[1]);
-            });
-        } else {
-            inputElement.setAttribute('type', "text");
-        }
+    setOption() {
+        const inputElement = this.ELE.lastChild;
+        const {size, type, tips} = super.getOption(this.ELE);
 
         if(type) {
             inputElement.setAttribute('type', type);
@@ -43,10 +31,21 @@ export default class Input extends WDU {
         }
 
         if(size) {
-            ele.classList.add(`${this.PREFIX}-${size}`);
+            this.ELE.classList.add(`${this.PREFIX}-${size}`);
         } else {
-            ele.classList.add(`${this.PREFIX}-normal`);
+            this.ELE.classList.add(`${this.PREFIX}-normal`);
         }
 
+        if(tips) {
+            inputElement.setAttribute('placeholder', tips);
+        }
+    }
+}
+
+export default class Input extends WDU {
+    constructor() {
+        super();
+        this.PREFIX = 'wdu-input';
+        super.initMult(this.PREFIX, singleInput);
     }
 }
