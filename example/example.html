@@ -545,22 +545,20 @@
       <div class="wdu-box">
         <h2 id="switch">开关</h2>
         <p><b>类名：</b>wdu-switch</p>
-        <p><b>用法：</b> 开关的说明文字写在开关的div内，开关的状态通过 status
-          来指定，默认为关闭状态</p>
-        <p><b>属性：</b>status 取值：on（开启）、disabled（禁用）</p>
-        <p> <b>回调事件：</b> 通过 wdu.Switch.callBack()
-          方法来为开关组件设置点击要执行的操作，此方法接受两个参数：第一个参数
-          element 表示要绑定回调事件的那个开关的id或者class。第二个参数 event 表示一个函数
+        <p><b>用法：</b> 开关的说明文字写在开关的div内，开关的状态通过 on
+          来指定，默认为关闭状态;若有disabled属性，则表示禁用</p>
+        <p><b>属性：</b>on 取值：true/false</p>
+        <p> <b>回调事件：</b> 先获取 Switch 组件实例，然后通过 click 属性来指定切换事件回调，回调函数的第一个参数为开关状态
         </p>
         <p><b>示例：</b>
         <pre>
-          &ltdiv class="wdu-switch" status="on" &gt 是否开启夜间模式 &lt/ div&gt
+          &ltdiv class="wdu-switch" on="true" &gt 是否开启夜间模式 &lt/ div&gt
         </pre>
         </p>
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <div id="s1" class="wdu-switch" status="on">是否开启夜间模式</div>
+              <div id="s1" class="wdu-switch" on="true">是否开启夜间模式</div>
             </div>
             <div class="descript">开启状态</div>
           </div>
@@ -574,7 +572,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div id="s3" class="wdu-switch" status="disabled">是否开启夜间模式
+              <div id="s3" class="wdu-switch" disabled="true">是否开启夜间模式
               </div>
             </div>
             <div class="descript">禁用状态</div>
@@ -697,7 +695,7 @@
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <select class="wdu-select" label="地区">
+              <select id="l1" class="wdu-select" label="地区">
                 <option value="1">北京</option>
                 <option value="2">湖南</option>
                 <option value="3">贵州</option>
@@ -708,7 +706,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <select class="wdu-select" label="书名">
+              <select id="l2" class="wdu-select" label="书名">
                 <option value="1">卡夫卡小说全集</option>
                 <option value="2">拿破仑全传</option>
                 <option value="3">百年孤独</option>
@@ -719,7 +717,7 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <select class="wdu-select" label="年份">
+              <select id="l3" class="wdu-select" label="年份">
                 <option value="1">2021</option>
                 <option value="2">2020</option>
                 <option value="3">2019</option>
@@ -1569,7 +1567,10 @@
   })
 
   // 使用 Switch 的回调事件
-  const switchOne = document.getElementById
+  setTimeout(() => {
+    wdu.selectComponentById('s1').click = p => {console.log(p, '哈哈哈哈行')}
+  }, 200)
+
 
   //  控制侧边栏
   const sideBtn = document.querySelector('#toggle-side')

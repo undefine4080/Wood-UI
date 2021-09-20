@@ -1,22 +1,24 @@
 import './switch.less';
 import WDU from '../../WDU';
 
-export default class Switch extends WDU {
-    constructor() {
+class singleSwitch extends WDU {
+    constructor(ele) {
         super();
         this.PREFIX = 'wdu-switch';
+        this.ELE = ele;
         this.isOn = false;
-        this.genDom = this.genDom.bind(this);
-        super.init(this.PREFIX, this.genDom);
+        this.click = null;
+        this.genDom();
+        this.setOption();
+        this.addEvt();
     }
 
-    genDom(ele) {
-        // ele 是 switch 组件的外围容器
+    genDom() {
         const needHtml = [['div', 'open'], ['div', 'open-dot'], ['div', 'btn'], ['div', 'close'], ['div', 'close-dot'], ['label', 'label'], ['div', 'switch'], ['div', 'slide']];
         const E = super.genHTML(needHtml);
         // 剪切标签内容
-        E['label'].innerText = ele.innerText;
-        ele.innerText = null;
+        E['label'].innerText = this.ELE.innerText;
+        this.ELE.innerText = null;
         // 圆点指示
         E['open'].appendChild(E['open-dot']);
         E['close'].appendChild(E['close-dot']);
@@ -27,42 +29,38 @@ export default class Switch extends WDU {
 
         E['switch'].appendChild(E['slide']);
 
-        ele.appendChild(E['label']);
-        ele.appendChild(E['switch']);
-
-        this.setOption(ele);
+        this.ELE.appendChild(E['label']);
+        this.ELE.appendChild(E['switch']);
     }
 
-    setOption(ele) {
-        const switchEle = ele.lastChild.firstChild;
-        const {status} = super.getOption(ele);
-        if(status) {
-            switch(status) {
-                case 'on':
-                    switchEle.classList.add("s-on");
-                    break;
-                case 'disabled':
-                    super.disableComponent(ele, this.PREFIX);
-                    break;
-            }
+    setOption() {
+        this.switchEle = this.ELE.lastChild.firstChild;
+        const {on, disabled} = super.getOption(this.ELE);
+        if(on) {
+            this.switchEle.classList.add("s-on");
+        } else {
+            this.switchEle.classList.remove("s-on");
         }
 
-        this.addEvt(switchEle);
+        if(disabled) {
+            super.disableComponent(this.ELE, this.PREFIX);
+        }
     }
 
-    addEvt(ele) {
-        ele.addEventListener('click', (e) => {
-            ele.classList.toggle("s-on");
+    addEvt() {
+        this.switchEle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.switchEle.classList.toggle("s-on");
             this.isOn = !this.isOn;
+            this.click(this.isOn);
         });
     }
+}
 
-    callBack(element, event) {
-        if(event) {
-            document.querySelector(element).addEventListener('click', () => {
-                // 将当前开关状态传入回调函数
-                event(!this.isOn);
-            });
-        }
+export default class Switch extends WDU {
+    constructor() {
+        super();
+        this.PREFIX = 'wdu-switch';
+        super.initMult(this.PREFIX, singleSwitch);
     }
 }
