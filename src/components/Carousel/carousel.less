@@ -1,24 +1,43 @@
 @import (reference) '../../main.less';
 
+.fit-content {
+    width     : 100%;
+    height    : 100%;
+    box-sizing: border-box;
+}
+
+.wdu-carousel-running {
+    transition: all 0.5s ease-in-out;
+}
+
 .wdu-carousel {
-    margin: 16px;
-    overflow   : hidden;
+    margin  : 16px;
+    overflow: hidden;
+    .fit-content();
     .w-box();
     .w-radiu-normal();
     .out-shadow-normal();
 }
 
-.wdu-carousel-containner {
+.wdu-carousel-container {
     .w-box();
-    height: 100%;
+    .fit-content();
     position: relative;
 }
+
+
 
 .wdu-carousel-last {
     position  : absolute;
     left      : 0;
     width     : 50px;
     background: none;
+
+    & i {
+        position: relative;
+        left    : 3px;
+        top     : -3px
+    }
 }
 
 .wdu-carousel-next {
@@ -28,6 +47,12 @@
     width     : 50px;
     background: none;
     visibility: visible;
+
+    & i {
+        position: relative;
+        left    : 3px;
+        top     : -3px
+    }
 }
 
 .wdu-carousel-last,
@@ -35,39 +60,46 @@
     .center();
     height : 100%;
     cursor : pointer;
-    z-index: 5;
+    z-index: 20;
+}
+
+.wdu-carousel-last-btn {
+    transform: rotate(45deg);
+}
+
+.wdu-carousel-next-btn {
+    transform: rotate(225deg);
 }
 
 .wdu-carousel-last-btn,
 .wdu-carousel-next-btn {
-    height       : 35px;
-    width        : 35px;
+    height          : 35px;
+    width           : 35px;
     background-color: rgba(0, 0, 0, 0.5);
     .w-border-circle();
     .out-shadow-light();
     .center();
+
     & i {
-        transform: scale(1.2);
-    }    
+        height      : 10px;
+        width       : 10px;
+        border      : 2px solid;
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) aliceblue aliceblue;
+    }
 }
 
 .wdu-carousel-screen {
     .w-box();
-    height: 100%;
+    height  : 100%;
     overflow: hidden;
 }
 
 .wdu-carousel-film {
     .w-box();
     .w-flex();
-    height: 100%;
+    .fit-content();
     position: relative;
-    z-index : 1;
-}
-
-.wdu-carousel-film>* {
-    min-width: 100%;
-    height   : 100%;
+    z-index : 10;
 }
 
 .wdu-carousel-card {
@@ -79,15 +111,18 @@
     justify-content : center;
     align-items     : center;
     font-size       : 1.2em;
-    z-index         : -1;
+    z-index         : 10;
     overflow        : hidden;
+    width           : 100%;
+    min-width       : 100%;
+    flex-shrink     : 0;
 }
 
 .wdu-carousel-card img {
     height: 100%;
 }
 
-.wdu-carousel-pagenation {
+.wdu-carousel-pagination {
     position       : absolute;
     bottom         : 0;
     margin         : 0 auto;
@@ -97,23 +132,22 @@
     justify-content: center;
     align-items    : center;
     background     : none;
-    z-index        : 5;
+    z-index        : 20;
 }
 
-.wdu-carousel-pagenation-btn {
+.wdu-carousel-pagination-btn {
     .inside-shadow-light();
     display         : inline-block;
     width           : 10px;
     height          : 10px;
     border-radius   : 50%;
     margin          : 0 1%;
-    background-color: @w-color-back;
+    background-color: rgba(0, 0, 0, 0.26);
     cursor          : pointer;
 }
 
 .wdu-carousel-dot-checked {
     .out-shadow-light();
     transition      : all .3s ease-in-out;
-    transform       : scale(1.2);
     background-color: @w-color-front;
 }

@@ -5,13 +5,9 @@ class SingleCarousel extends WDU {
         super();
         this.PREFIX = 'wdu-carousel';
         // 当前组件的DOM对象
-        this.ELEMENT = ele;
-        // 保存一份组件原始DOM的副本
-        this.ORIGIN = ele.cloneNode(true);
-        // 需要对外提供当前组件的父节点
-        this.PARENT = ele.parentNode;
+        this.ELE = ele;
         // 元素零件
-        this.E = null;
+        this.template = null;
         // 轮播时间间隔
         this.time = 5;
         // 是否自动轮播
@@ -19,35 +15,33 @@ class SingleCarousel extends WDU {
         // 当前显示位置
         this.position = 1;
 
-        this.genDom(ele);
-        this.setOption(ele);
-        this.readyEle(ele);
+        this.genDom();
+        this.setOption();
+        this.getRunningDom();
         this.initFilm();
-        this.addEvt(ele);
+        this.addEvt();
         this.autoPlay();
         this.protectAutoPlay();
     }
 
     // 生成组件html
-    genDom(ele) {
+    genDom() {
         // 构建轮播图需要的 dom 元素
-        const needHtml = [['div', 'containner'], ['div', 'last'], ['div', 'screen'], ['div', 'next'], ['div', 'film'], ['div', 'pagenation'], ['div', 'last-btn'], ['div', 'next-btn'], ['i', 'last-btn-icon'], ['i', 'next-btn-icon']];
-
-        const Elements = super.genHTML(needHtml);
-
-        this.E = Elements;
+        const needHtml = [['div', 'container'], ['div', 'last'], ['div', 'screen'], ['div', 'next'], ['div', 'film'], ['div', 'pagination'], ['div', 'last-btn'], ['div', 'next-btn'], ['i', 'last-btn-icon'], ['i', 'next-btn-icon']];
+        const templateElements = super.genHTML(needHtml);
+        this.template = templateElements;
         // 装载整个轮播图html
-        ele.appendChild(this.assembleDom(ele, Elements));
+        const carouselDom = this.assembleDom(templateElements);
+        this.ELE.appendChild(carouselDom);
     }
 
     /**
      * 组装 dom 元素
      * 
-     * @param  ele 每个wdu-carousel元素
-     * @param  E div 零件
+     * @param  E 模板元素集合
      * @returns 组装好的 dom
      */
-    assembleDom(ele, E) {
+    assembleDom(E) {
         // 翻页按钮的图标
         E['last-btn'].appendChild(E['last-btn-icon']);
         E['next-btn'].appendChild(E['next-btn-icon']);
@@ -55,11 +49,12 @@ class SingleCarousel extends WDU {
         E['last'].appendChild(E['last-btn']);
         E['next'].appendChild(E['next-btn']);
         // 轮播元素
-        const cards = super.getElementChilds(ele);
+        const cards = super.getElementChilds(this.ELE);
         cards.forEach(item => {
             item.setAttribute('class', `${this.PREFIX}-card`);
             E['film'].appendChild(item);
         });
+
         const startClone = E['film'].lastChild.cloneNode(true);
         const endClone = E['film'].firstChild.cloneNode(true);
         E['film'].insertBefore(startClone, E['film'].firstChild);
@@ -68,25 +63,25 @@ class SingleCarousel extends WDU {
         // 指示器
         const max = cards.length + 1;
         while(cards.length) {
-            const e = super.genHTML([['div', 'pagenation-btn']]);
-            const pageBtn = e['pagenation-btn'];
+            const e = super.genHTML([['div', 'pagination-btn']]);
+            const pageBtn = e['pagination-btn'];
             // 从数字 1 开始
             pageBtn.setAttribute('id', `d-${max - cards.length}`);
-            E['pagenation'].appendChild(pageBtn);
+            E['pagination'].appendChild(pageBtn);
             cards.length--;
         }
         // 胶片容器
         E['screen'].appendChild(E['film']);
-        // 轮播图容器
-        new Array('last', 'next', 'pagenation', 'screen').forEach(item => {
-            E['containner'].appendChild(E[item]);
+        // 轮播容器
+        new Array('last', 'next', 'pagination', 'screen').forEach(item => {
+            E['container'].appendChild(E[item]);
         });
 
-        return E['containner'];
+        return E['container'];
     }
 
-    setOption(ele) {
-        const {time, auto, width, height} = super.getOption(ele);
+    setOption() {
+        const {time, auto, width, height} = super.getOption(this.ELE);
 
         // 时间
         if(time && parseInt(time) > 5) {
@@ -94,70 +89,65 @@ class SingleCarousel extends WDU {
         }
 
         // 是否自动
-        if(auto == false) {
-            this.isAuto = auto;
+        if(auto == 'false') {
+            this.isAuto = false;
         }
 
         // 长宽
         if(width) {
-            ele.style.width = width;
-        }
-
-        if(height) {
-            ele.style.height = height;
-        } else {
-            ele.style.height = '280px';
+            this.ELE.style.width = width;
+        } else if(height) {
+            this.ELE.style.height = height;
         }
     }
 
-    // 获取需要公共使用的元素
-    readyEle(ele) {
-        const self = this;
-        function E(name) {
-            return ele.querySelector(`.${self.PREFIX}-${name}`);
-        }
+    // 获取组件运行时的dom元素
+    getRunningDom() {
+        const E = name => {
+            return this.ELE.querySelector(`.${this.PREFIX}-${name}`);
+        };
 
         this.Film = E('film');
         this.Next = E('next-btn');
         this.Last = E('last-btn');
         this.Screen = E('screen');
-        this.Card = Array.from(ele.querySelectorAll(`.${this.PREFIX}-card`));
-        this.cardWidth = this.Card[0].offsetWidth;
-        this.Dot = Array.from(ele.querySelectorAll(`.${this.PREFIX}-pagenation-btn`));
+        this.Card = Array.from(this.ELE.querySelectorAll(`.${this.PREFIX}-card`));
+        this.cardWidth = this.Card[0].offsetWidth;// 单个轮播元素的宽度
+        this.Dot = Array.from(this.ELE.querySelectorAll(`.${this.PREFIX}-pagination-btn`));
         this.toggleSwitch('hidden');
     }
 
     // 装载事件监听
-    addEvt(ele) {
+    addEvt() {
+        const play = () => {
+            this.play();
+            // 切页后重新开始计时
+            clearInterval(this.Timer);
+            this.autoPlay();
+        };
         this.Last.addEventListener('click', () => {
             this.position--;
-            this.play();
+            play();
         });
         this.Next.addEventListener('click', () => {
             this.position++;
-            this.play();
+            play();
         });
         this.Dot.forEach(dot => {
             dot.addEventListener('click', (e) => {
                 this.position = e.target.dataset.id;
-                this.play();
+                play();
             });
         });
 
-        ele.addEventListener('mouseenter', e => {
+        this.ELE.addEventListener('mouseenter', e => {
             this.toggleSwitch('visible');
+            clearInterval(this.Timer);
         });
 
-        ele.addEventListener('mouseleave', e => {
+        this.ELE.addEventListener('mouseleave', e => {
             this.toggleSwitch('hidden');
-        });
-
-        // 给动态生成的指示器按钮加事件监听
-        this.Dot.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                this.position = parseInt(e.target.id.charAt(2));
-                this.play();
-            });
+            this.autoPlay();
         });
     }
 
@@ -168,17 +158,19 @@ class SingleCarousel extends WDU {
 
     // 播放轮播图
     play() {
-        this.Film.style.transition = 'all 0.5s ease-in-out';
-        this.Film.style.left = (this.position) * -this.cardWidth + "px";
-
+        this.Film.classList.add('wdu-carousel-running');
+        this.Film.style.left = `${this.position * -this.cardWidth}px`;
         this.Film.addEventListener('transitionend', () => {
             const checked = `${this.PREFIX}-dot-checked`;
+
             this.Dot.forEach(item => (item.classList.remove(checked)));
+
             if(this.position == this.Card.length - 1) {
                 this.position = 1;
             } else if(this.position == 0) {
                 this.position = this.Card.length - 2;
             }
+
             try {
                 this.Dot[this.position - 1].classList.add(checked);
             } catch(error) {
@@ -186,8 +178,8 @@ class SingleCarousel extends WDU {
                 this.Dot[this.position].classList.add(checked);
             }
 
-            this.Film.style.transition = "";
-            this.Film.style.left = (this.position) * -this.cardWidth + "px";
+            this.Film.classList.remove('wdu-carousel-running');
+            this.Film.style.left = `${this.position * -this.cardWidth}px`;
         });
     }
 
@@ -217,7 +209,6 @@ class SingleCarousel extends WDU {
             }
         });
 
-
         window.οnresize = function() {
             clearInterval(this.Timer);
         };
@@ -228,66 +219,6 @@ export default class Carousel extends WDU {
     constructor() {
         super();
         this.PREFIX = 'wdu-carousel';
-        // 运行时组件变量集
-        this.RUN = super.initMult(this.PREFIX, SingleCarousel);
-    }
-
-    /** 单个组件元素的重渲染方法
-     * 
-     * @param {string} id 重渲染的那个组件元素id
-     * @param {array} config 配置项
-     */
-    render(id, config) {
-        this.RUN.forEach(item => {
-            // 找到了匹配的的组件对象
-            if(id === item.ORIGIN.id) {
-                // 新增图片或者html
-                if(config.type === 'img') {
-                    this.insertImg(config.content, item);
-                } else if(config.type === 'html') {
-                    this.insertHtml(config.content, item);
-                }
-            }
-        });
-        // 返回重渲染的组件对象
-        return new SingleCarousel(this.renderDom);
-    }
-
-    insertImg(imgUrl, item) {
-        const {PARENT, ORIGIN, ELEMENT} = item;
-        debugger;
-
-        // 創建 img 元素
-        const img = document.createElement('img');
-        img.src = imgUrl;
-
-        // 将图片插入到组件原始DOM
-        ORIGIN.appendChild(img);
-
-        // 移除原来的组件原始DOM， 换上新的组装后的组件原始DOM
-        this.refreshDom(PARENT, ORIGIN, ELEMENT);
-    }
-
-    insertHtml(html, item) {
-        const [, origin, parent, running] = item;
-
-        // 创建一个临时的 div 包裹新添加的DOM
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = html;
-
-        // 取出新添加的元素，然后溢出临时外壳
-        origin.appendChild(tempDiv);
-        origin.appendChild(tempDiv.firstElementChild);
-        origin.removeChild(tempDiv);
-
-        // 移除原来的组件原始DOM， 换上新的组装后的组件原始DOM
-        this.refreshDom(parent, running, origin);
-    }
-
-    refreshDom(parent, origin, element) {
-        parent.removeChild(element);
-        parent.appendChild(origin);
-        // 将要被组件类解析的修改好以后的组件原始DOM
-        this.renderDom = origin;
+        super.initMult(this.PREFIX, SingleCarousel);
     }
 }
