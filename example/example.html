@@ -489,7 +489,8 @@
             <div class="component">
               <div class="wdu-box w-content-text"
                   style="width: 300px;height: 150px;">
-               Enim velit irure Lorem minim cupidatat eu voluptate id consectetur voluptate voluptate exercitation duis.
+                Enim velit irure Lorem minim cupidatat eu voluptate id
+                consectetur voluptate voluptate exercitation duis.
               </div>
             </div>
             <div class="descript">文本段落</div>
@@ -742,7 +743,7 @@
         <div class="show-content">
           <div class="cpnt-detail">
             <div class="component">
-              <textarea id="mytext" class="wdu-textarea" label="你的建议"
+              <textarea id="mytext-1" class="wdu-textarea" label="你的建议"
                   resize="false"></textarea>
             </div>
             <div class="descript">不启用大小调整，默认</div>
@@ -750,10 +751,17 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <textarea id="mytext" class="wdu-textarea" label="备注"
-                  resize="true"></textarea>
+              <textarea id="mytext-2" class="wdu-textarea"
+                  label="你的建议"></textarea>
             </div>
-            <div class="descript">启用大小调整</div>
+            <div class="descript">启用大小调整，默认</div>
+          </div>
+
+          <div class="cpnt-detail">
+            <div class="component">
+              <textarea id="mytext-3" class="wdu-textarea"></textarea>
+            </div>
+            <div class="descript">不设置标签</div>
           </div>
         </div>
       </div>
@@ -837,7 +845,7 @@
                   </div>
                 </div>
 
-                <div class="item" label="你的建议">
+                <div class="item">
                   <textarea id="mytext" class="wdu-textarea" label="你的建议"
                       resize="false"></textarea>
                 </div>
@@ -1365,8 +1373,8 @@
 
           <div class="cpnt-detail">
             <div class="component">
-              <div id="carousel-2" class="wdu-carousel" width="400px" height="280px" time="5"
-                  auto="false"">
+              <div id="carousel-2" class="wdu-carousel" width="400px"
+                  height="280px" time="5" auto="false"">
                 <img src=" ../src/assets/img/1.jpg">
                 <img src="../src/assets/img/2.jpg">
                 <img src="../src/assets/img/3.jpg">
@@ -1535,24 +1543,24 @@
 <script>
   // 使用弹窗
   document.getElementById('message-btn-1').addEventListener('click', () => {
-    wdu.message({
+    wdu.Message({
       autoClose: 3,
       content: '这是消息内容'
     })
   })
   document.getElementById('message-btn-2').addEventListener('click', () => {
-    wdu.message({
+    wdu.Message({
       title: '这里是消息的标题',
       content: '这是消息内容'
     })
   })
   document.getElementById('message-btn-3').addEventListener('click', () => {
-    wdu.message({
+    wdu.Message({
       content: '这是消息内容'
     })
   })
   document.getElementById('message-btn-4').addEventListener('click', () => {
-    wdu.message({
+    wdu.Message({
       title: '这里是消息的标题',
       content: '这是消息内容',
       event: function() {
