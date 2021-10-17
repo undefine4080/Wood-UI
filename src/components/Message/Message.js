@@ -17,19 +17,27 @@ export default function Message(config) {
     message.setAttribute('class', PREFIX);
 
     // 应用配置项
-    const {autoClose, title, content} = config;
+    const {autoClose, title, content, event} = config;
+
+    const hidden = () => {
+        component.style['display'] = 'none';
+    };
 
     // 自动关闭还是手动关闭
     if(!autoClose) {
         // 绑定事件监听
         E['close'].addEventListener('click', () => {
-            component.style.display = 'none';
-            event();
+            // component.addEventListener("animationend", listener);
+            component.classList.add(`${PREFIX}-hidden`);
+            hidden();
+            if(event) event();
         });
         message.appendChild(E['close']);
     } else {
         setTimeout(() => {
-            component.style.display = 'none';
+            // component.addEventListener("animationend", listener);
+            component.classList.add(`${PREFIX}-hidden`);
+            hidden();
         }, autoClose * 1000);
     }
     // 是否设置标题
@@ -45,9 +53,8 @@ export default function Message(config) {
         E['content'].innerText = content;
         message.appendChild(E['content']);
     }
-
-
     // 挂载到页面
     component.appendChild(message);
     document.body.appendChild(component);
+    // component.removeEventListener("animationend", listener);
 }

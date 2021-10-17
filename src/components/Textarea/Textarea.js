@@ -5,38 +5,44 @@ class SingleTextarea extends WDU {
     constructor(ele) {
         super();
         this.PREFIX = 'wdu-textarea';
-        this.genDom(ele);
-        this.setRawConfig(ele);
-        this.setOption(ele);
+        this.ELE = ele;
+        this.genDom();
+        this.setRawConfig();
+        this.setOption();
     }
 
-    genDom(ele) {
+    genDom() {
         const needHtml = [['label', 'label'], ['div', 'container']];
         const E = super.genHTML(needHtml);
         const container = E['container'];
         this.label = E['label'];
-        ele.parentNode.appendChild(container);
+        this.ELE.parentNode.appendChild(container);
         container.appendChild(this.label);
-        container.appendChild(ele);
+        container.appendChild(this.ELE);
     }
 
-    setRawConfig(ele) {
-        if(ele.id) {
-            this.label.setAttribute('for', ele.id);
+    setRawConfig() {
+        if(this.ELE.id && this.label) {
+            this.label.setAttribute('for', this.ELE.id);
         }
     }
 
-    setOption(ele) {
-        const {label, resize} = super.getOption(ele);
+    setOption() {
+        const {label, resize} = super.getOption(this.ELE);
+        const labeledClass = 'wdu-textarea-labeled';
         // 标签文字
         if(label) {
             this.label.innerText = label;
+            this.ELE.classList.add(labeledClass);
+        } else {
+            this.label.classList.add(`${this.PREFIX}-nolabel`);
+            this.ELE.classList.remove(labeledClass);
         }
         // 调整大小
-        if(JSON.parse(resize)) {
-            ele.style['resize'] = 'auto';
+        if(resize && resize == 'true') {
+            this.ELE.style['resize'] = 'auto';
         } else {
-            ele.style['resize'] = 'none';
+            this.ELE.style['resize'] = 'none';
         }
     }
 }

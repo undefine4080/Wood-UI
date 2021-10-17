@@ -9,10 +9,10 @@
 
 .@{t} {
     width: 100%;
-    height: 80px;
+    min-height: 40px;
     .w-box();
     .inside-shadow-light();
-    border-radius: 0 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
     .w-border-light();
     padding: 8px;
     .w-normal-text();
@@ -25,14 +25,22 @@
     }
 }
 
+.@{t}-labeled{
+    border-radius: 0 8px 8px 8px;
+}
+
 .@{t}-label{
     display: block;
     width: max-content;
-    height: 30px;
-    padding: 5px 10px;
+    height: 26px;
+    padding: 1px 10px;
     border-radius: 5px 5px 0 0 ;
     .w-bg-active();
     .w-normal-text();
     .w-box();
     color: white;
+}
+
+.@{t}-nolabel{
+    visibility: hidden;
 }
